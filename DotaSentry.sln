@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotaSentry", "DotaSentry\DotaSentry.csproj", "{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotaSentry.Client", "DotaSentry.Client\DotaSentry.Client.csproj", "{ABBED50E-852C-4A0F-A816-1D9422763E56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78FC06F7-6FE2-4685-BE61-AADB969630AA}
+	EndGlobalSection
+EndGlobal
