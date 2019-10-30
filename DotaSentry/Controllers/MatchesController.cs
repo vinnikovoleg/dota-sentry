@@ -23,9 +23,16 @@ namespace DotaSentry.Controllers
 
         [HttpGet]
         [Route("{matchId}")]
-        public async Task<Match> GetAAsync(long matchId)
+        public async Task<Match> GetAsync(long matchId)
         {
             return await _matchesRepository.GetMatchAsync(matchId);
+        }
+
+        [HttpGet]
+        [Route("live")]
+        public async Task<List<LiveMatch>> GetLiveAsync()
+        {
+            return await _matchesRepository.GetLiveMatchAsync();
         }
     }
 }

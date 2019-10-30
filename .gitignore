@@ -6,3 +6,6 @@ DotaSentry/bin/
 DotaSentry.Client/obj/
 DotaSentry/obj/
 DotaSentry.Client/bin/
+DotaSentry/ClientApp/.DS_Store
+DotaSentry/ClientApp/node_modules
+DotaSentry/ClientApp/dist

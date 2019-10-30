@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Client.Business;
+using DotaSentry.Client.Business.DataAccess;
 using DotaSentry.Client.Business.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -48,7 +49,9 @@ namespace DotaSentry
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseSpaStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {

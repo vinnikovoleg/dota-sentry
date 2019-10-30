@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using DotaSentry.Client.Models;
 using DotaSentry.Client.Models.Convertors;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace DotaSentry.Client.Business
+namespace DotaSentry.Client.Business.DataAccess
 {
     public class JsonClient
     {
@@ -34,7 +30,7 @@ namespace DotaSentry.Client.Business
             }; ;
         }
 
-        public async Task<T> Get<T>(string url) where T : class
+        public async Task<T> GetAsync<T>(string url) where T : class
         {
             using var httpClient = new HttpClient();
             var response = await httpClient.GetAsync(url);
