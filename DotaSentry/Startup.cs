@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business.Builders;
 using DotaSentry.Client.Business;
 using DotaSentry.Client.Business.DataAccess;
 using DotaSentry.Client.Business.DataAccess.Interfaces;
@@ -36,8 +37,12 @@ namespace DotaSentry
 
             // Data Access
             services.AddScoped<IMatchesRepository, MatchesRepository>();
+            services.AddScoped<IHeroesRepository, HeroesRepository>();
             services.AddScoped<JsonClient>();
             services.AddScoped<JsonSerializerSettings>(provider => new JsonSerializerSettings());
+
+            // Builders
+            services.AddScoped<MatchesBuilder>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

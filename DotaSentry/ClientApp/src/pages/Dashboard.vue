@@ -2,9 +2,9 @@
   <div class="content">
     <div class="md-layout">
        <div v-bind:key="match.matchId" v-for="match in liveMatches">
-         <span>{{match.matchId}}</span>
+         <span>{{match.radiant.name}}</span>
            </br>
-         <span>{{match.gameTime}}</span>
+         <span>{{match.dire.name}}</span>
            </br>
        </div>
     </div>

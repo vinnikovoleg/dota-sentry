@@ -5,26 +5,23 @@ using DotaSentry.Client.Models;
 
 namespace DotaSentry.Client.Business.DataAccess
 {
-    public class MatchesRepository : IMatchesRepository
+    public class MatchesRepository : BaseRepository, IMatchesRepository
     {
-        private readonly JsonClient _jsonClient;
-        private readonly string _host = "https://api.opendota.com";
-
         public MatchesRepository(JsonClient jsonClient)
+            : base(jsonClient)
         {
-            _jsonClient = jsonClient;
         }
 
         public async Task<Match> GetMatchAsync(long matchId)
         {
-            var url = $"{_host}/api/matches/{matchId}";
-            return await _jsonClient.GetAsync<Match>(url);
+            var url = $"{Host}/api/matches/{matchId}";
+            return await JsonClient.GetAsync<Match>(url);
         }
 
         public async Task<List<LiveMatch>> GetLiveMatchAsync()
         {
-            var url = $"{_host}/api/live/";
-            return await _jsonClient.GetAsync<List<LiveMatch>>(url);
+            var url = $"{Host}/api/live/";
+            return await JsonClient.GetAsync<List<LiveMatch>>(url);
         }
     }
 }
