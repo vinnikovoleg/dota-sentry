@@ -9,6 +9,7 @@ using DotaSentry.Client.Models;
 using DotaSentry.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace DotaSentry.Controllers
 {
@@ -18,16 +19,19 @@ namespace DotaSentry.Controllers
     {
         private readonly IMatchesRepository _matchesRepository;
         private readonly IHeroesRepository _heroesRepository;
+        private readonly IMemoryCache _cache;
         private readonly MatchesBuilder _matchesBuilder;
 
         public MatchesController(
             IMatchesRepository matchesRepository,
             MatchesBuilder matchesBuilder,
-            IHeroesRepository heroesRepository)
+            IHeroesRepository heroesRepository,
+            IMemoryCache cache)
         {
             _matchesRepository = matchesRepository;
             _matchesBuilder = matchesBuilder;
             _heroesRepository = heroesRepository;
+            _cache = cache;
         }
 
         [HttpGet]
@@ -42,9 +46,25 @@ namespace DotaSentry.Controllers
         public async Task<List<LiveMatchModel>> GetLiveAsync()
         {
             var liveMatches = _matchesRepository.GetLiveMatchAsync();
-            var heroes = _heroesRepository.GetHeroesAsync();
+
+            var heroes = GetHeroes();
             await Task.WhenAll(liveMatches, heroes);
             return _matchesBuilder.BuildLiveMatches(liveMatches.Result, heroes.Result);
+        }
+
+        public async Task<List<Hero>> GetHeroes()
+        {
+            var cacheKey = "heroes";
+            var heroes = _cache.Get<List<Hero>>(cacheKey);
+            if (heroes != null)
+            {
+                return heroes;
+            }
+
+            heroes = await _heroesRepository.GetHeroesAsync();
+            _cache.Set(cacheKey, heroes, TimeSpan.FromHours(50));
+
+            return heroes;
         }
     }
 }

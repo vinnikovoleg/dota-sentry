@@ -9,6 +9,7 @@ using DotaSentry.Client.Business.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -39,7 +40,10 @@ namespace DotaSentry
             services.AddScoped<IMatchesRepository, MatchesRepository>();
             services.AddScoped<IHeroesRepository, HeroesRepository>();
             services.AddScoped<JsonClient>();
-            services.AddScoped<JsonSerializerSettings>(provider => new JsonSerializerSettings());
+            services.AddScoped(provider => new JsonSerializerSettings());
+
+            // Services
+            services.AddSingleton<IMemoryCache, MemoryCache>();
 
             // Builders
             services.AddScoped<MatchesBuilder>();
