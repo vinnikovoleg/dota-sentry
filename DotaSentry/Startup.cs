@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Sentry;
 
 namespace DotaSentry
 {
@@ -76,6 +77,12 @@ namespace DotaSentry
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
                 }
             });
+
+            //using (SentrySdk.Init("https://bb04ee9548974e7296fb3ba2d9f316de@sentry.io/1803217"))
+            //{
+            //    SentrySdk.CaptureMessage("Test");
+            //    // App code
+            //}
         }
     }
 }
