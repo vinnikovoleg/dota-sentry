@@ -22,8 +22,7 @@
     },
     "DotaSentry": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/matches/live",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

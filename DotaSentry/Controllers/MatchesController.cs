@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
-using DotaSentry.Business.Builders;
-using DotaSentry.Client.Business;
-using DotaSentry.Client.Business.DataAccess.Interfaces;
-using DotaSentry.Client.Models;
+using DotaSentry.Business.Services;
 using DotaSentry.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace DotaSentry.Controllers
 {
@@ -17,54 +14,44 @@ namespace DotaSentry.Controllers
     [ApiController]
     public class MatchesController : ControllerBase
     {
-        private readonly IMatchesRepository _matchesRepository;
-        private readonly IHeroesRepository _heroesRepository;
-        private readonly IMemoryCache _cache;
-        private readonly MatchesBuilder _matchesBuilder;
+        private readonly LiveMatchesService _liveMatchesService;
 
-        public MatchesController(
-            IMatchesRepository matchesRepository,
-            MatchesBuilder matchesBuilder,
-            IHeroesRepository heroesRepository,
-            IMemoryCache cache)
+        public MatchesController(LiveMatchesService liveMatchesService)
         {
-            _matchesRepository = matchesRepository;
-            _matchesBuilder = matchesBuilder;
-            _heroesRepository = heroesRepository;
-            _cache = cache;
-        }
-
-        [HttpGet]
-        [Route("{matchId}")]
-        public async Task<Match> GetAsync(long matchId)
-        {
-            return await _matchesRepository.GetMatchAsync(matchId);
+            _liveMatchesService = liveMatchesService;
         }
 
         [HttpGet]
         [Route("live")]
         public async Task<List<LiveMatchModel>> GetLiveAsync()
         {
-            var liveMatches = _matchesRepository.GetLiveMatchAsync();
+            //var liveMatches = await _liveMatchesService.GetLiveMatchesAsync();
+            //return liveMatches
+            //    .Where(m => !string.IsNullOrEmpty(m.Radiant.Name) && !string.IsNullOrEmpty(m.Dire.Name))
+            //    .ToList();
 
-            var heroes = GetHeroes();
-            await Task.WhenAll(liveMatches, heroes);
-            return _matchesBuilder.BuildLiveMatches(liveMatches.Result, heroes.Result);
-        }
-
-        public async Task<List<Hero>> GetHeroes()
-        {
-            var cacheKey = "heroes";
-            var heroes = _cache.Get<List<Hero>>(cacheKey);
-            if (heroes != null)
+            return new List<LiveMatchModel>
             {
-                return heroes;
-            }
-
-            heroes = await _heroesRepository.GetHeroesAsync();
-            _cache.Set(cacheKey, heroes, TimeSpan.FromHours(50));
-
-            return heroes;
+                new LiveMatchModel
+                {
+                    MatchId = 1,
+                    Dire = new TeamModel
+                    {
+                        Name = "Virtus Pro",
+                        Lead = 3410,
+                        Score = 12,
+                        Logo = "/StaticFiles/images/101724518978773491.png"
+                    },
+                    Radiant = new TeamModel
+                    {
+                        Name = "NaVi",
+                        Lead = 0,
+                        Score = 5,
+                        Logo = "/StaticFiles/images/777357465302429517.png"
+                    }
+                        
+                }
+            };
         }
     }
 }

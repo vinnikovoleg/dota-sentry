@@ -9,3 +9,6 @@ DotaSentry.Client/bin/
 DotaSentry/ClientApp/.DS_Store
 DotaSentry/ClientApp/node_modules
 DotaSentry/ClientApp/dist
+DotaSentry.Console/bin/
+DotaSentry.Console/obj/
+DotaSentry/wwwroot/StaticFiles/Images/

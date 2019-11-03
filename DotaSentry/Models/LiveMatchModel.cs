@@ -7,24 +7,16 @@ namespace DotaSentry.Models
 {
     public class LiveMatchModel
     {
-        public LiveTeamModel Radiant { get; set; }
-        public LiveTeamModel Dire { get; set; }
+        public long MatchId { get; set; }
+        public TeamModel Radiant { get; set; }
+        public TeamModel Dire { get; set; }
     }
 
-    public class LiveTeamModel
+    public class TeamModel
     {
         public string Name { get; set; }
+        public string Logo { get; set; }
         public long Lead { get; set; }
         public long Score { get; set; }
-        public List<LivePlayerModel> Players { get; set; } = new List<LivePlayerModel>();
-    }
-
-    public class LivePlayerModel
-    {
-        public string Name { get; set; }
-        public HeroModel Hero { get; set; }
-        public string TeamName { get; set; }
-        public string TeamId { get; set; }
-        public string TeamTag { get; set; }
     }
 }

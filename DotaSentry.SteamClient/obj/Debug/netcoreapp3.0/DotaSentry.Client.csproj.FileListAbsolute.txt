@@ -1,0 +1,8 @@
+E:\Projects\DotaSentry\DotaSentry.Client\bin\Debug\netcoreapp3.0\DotaSentry.Client.deps.json
+E:\Projects\DotaSentry\DotaSentry.Client\bin\Debug\netcoreapp3.0\DotaSentry.Client.dll
+E:\Projects\DotaSentry\DotaSentry.Client\obj\Debug\netcoreapp3.0\DotaSentry.Client.csprojAssemblyReference.cache
+E:\Projects\DotaSentry\DotaSentry.Client\obj\Debug\netcoreapp3.0\DotaSentry.Client.AssemblyInfoInputs.cache
+E:\Projects\DotaSentry\DotaSentry.Client\obj\Debug\netcoreapp3.0\DotaSentry.Client.AssemblyInfo.cs
+E:\Projects\DotaSentry\DotaSentry.Client\bin\Debug\netcoreapp3.0\DotaSentry.Client.pdb
+E:\Projects\DotaSentry\DotaSentry.Client\obj\Debug\netcoreapp3.0\DotaSentry.Client.dll
+E:\Projects\DotaSentry\DotaSentry.Client\obj\Debug\netcoreapp3.0\DotaSentry.Client.pdb

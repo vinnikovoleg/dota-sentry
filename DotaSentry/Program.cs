@@ -21,6 +21,7 @@ namespace DotaSentry
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseSentry();
                 });
     }
 }

@@ -1,17 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using DotaSentry.Business.Builders;
-using DotaSentry.Client.Business;
-using DotaSentry.Client.Business.DataAccess;
-using DotaSentry.Client.Business.DataAccess.Interfaces;
+using DotaSentry.Business.Services;
+using DotaSentry.SteamClient.Business.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -38,16 +40,20 @@ namespace DotaSentry
             });
 
             // Data Access
-            services.AddScoped<IMatchesRepository, MatchesRepository>();
-            services.AddScoped<IHeroesRepository, HeroesRepository>();
+            services.AddScoped<MatchesRepository>();
+            services.AddScoped<HeroesRepository>();
+            services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();
             services.AddScoped(provider => new JsonSerializerSettings());
 
-            // Services
+            // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
 
+            services.AddScoped<ImageService>();
+            services.AddScoped<LiveMatchesService>();
+
+
             // Builders
-            services.AddScoped<MatchesBuilder>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -77,12 +83,6 @@ namespace DotaSentry
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
                 }
             });
-
-            //using (SentrySdk.Init("https://bb04ee9548974e7296fb3ba2d9f316de@sentry.io/1803217"))
-            //{
-            //    SentrySdk.CaptureMessage("Test");
-            //    // App code
-            //}
         }
     }
 }

@@ -2,18 +2,52 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <SpaRoot>ClientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Don't publish the SPA source files, but do show them in the project files list -->
+    <Content Remove="$(SpaRoot)**" />
+    <None Remove="$(SpaRoot)**" />
+    <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+  </ItemGroup>
+
+  <Target Name="PublishIncludeSpaDist" AfterTargets="ComputeFilesToPublish">
+    <!-- Include the newly-built files in the publish output -->
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
-    <PackageReference Include="Sentry" Version="1.2.0" />
+    <PackageReference Include="Sentry" Version="2.0.0-beta6" />
+    <PackageReference Include="Sentry.AspNetCore" Version="2.0.0-beta6" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotaSentry.Client\DotaSentry.Client.csproj" />
+    <Folder Include="Business\Builders\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\StaticFiles\Images\101724518978773491.png" />
+    <None Include="wwwroot\StaticFiles\Images\777357465302429517.png" />
+    <None Include="wwwroot\StaticFiles\Images\951857579306087942.png" />
+    <None Include="wwwroot\StaticFiles\Images\955226123859259292.png" />
+    <None Include="wwwroot\StaticFiles\Images\975479762873971573.png" />
+    <None Include="wwwroot\StaticFiles\Images\984505508502041963.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotaSentry.Client\DotaSentry.SteamClient.csproj" />
   </ItemGroup>
 
 </Project>
