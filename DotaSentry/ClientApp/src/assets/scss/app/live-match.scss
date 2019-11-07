@@ -1,9 +1,14 @@
+.live-content{ 
+    display: grid;
+}
+
 .live-match {
     display: grid;
     color:white;
     background:linear-gradient(60deg, #66bb6a, #43a047);;
     border-radius: 3px;
-     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 0.1fr;
+    margin-bottom: 1em;
 }
 
 .live-match:hover {
@@ -18,25 +23,33 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.live-match .radiang-leads {
+.live-match .game-time {
+    margin-right: 0.4em;
+}
+
+.live-match .radiant-leads {
     grid-column-start: 1;
     grid-column-end: 1;
     text-align: center;
+    display: flex;
 }
 
 .live-match .dire-leads {
     grid-column-start: 2;
     grid-column-end: 2;
     text-align: center;
+    display: flex;
+}
+
+.live-match .dire-leads .material-icons,
+.live-match .radiant-leads .material-icons {
+    padding-top: 11px;
+    padding-right: 8px;
 }
 
 .live-match .score h2 {
     text-align: center;
     margin: 1em 0 0 0;
-}
-
-.live-match .scroe h4 {
-    
 }
 
 .team {
@@ -48,9 +61,6 @@
     width: 15em;
 }
 
-.live-match .team-leads {
-    color:gold;
-}
 
 .team picture img {
     border-radius: 1em;

@@ -18,7 +18,7 @@ namespace DotaSentry.SteamClient.Models
         public long DeactivateTime { get; set; }
 
         [JsonProperty("server_steam_id")]
-        public double ServerSteamId { get; set; }
+        public ulong ServerSteamId { get; set; }
 
         [JsonProperty("lobby_id")]
         public double LobbyId { get; set; }

@@ -8,6 +8,8 @@ namespace DotaSentry.Models
     public class LiveMatchModel
     {
         public long MatchId { get; set; }
+        public string ServerSteamId { get; set; }
+        public TimeSpan GameTime { get; set; }
         public TeamModel Radiant { get; set; }
         public TeamModel Dire { get; set; }
     }

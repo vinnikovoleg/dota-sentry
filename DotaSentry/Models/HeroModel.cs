@@ -7,5 +7,9 @@ namespace DotaSentry.Models
 {
     public class HeroModel
     {
+        public long Id { get; set; }
+        public string Name { get; set; }
+        public string LocalizedName { get; set; }
+        public string Icon { get; set; }
     }
 }
