@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using DotaSentry.Business.Models;
+using DotaSentry.Business.MongoClient;
 using DotaSentry.Business.Services;
 using DotaSentry.Models;
 using DotaSentry.SteamClient.Business.DataAccess;
@@ -18,13 +20,16 @@ namespace DotaSentry.Controllers
     {
         private readonly LiveMatchesService _liveMatchesService;
         private readonly TeamRepository _teamRepository;
+        private readonly MongoHeroesRepository _mongoHeroesRepository;
 
         public MatchesController(
             LiveMatchesService liveMatchesService,
-            TeamRepository teamRepository)
+            TeamRepository teamRepository,
+            MongoHeroesRepository mongoHeroesRepository)
         {
             _liveMatchesService = liveMatchesService;
             _teamRepository = teamRepository;
+            _mongoHeroesRepository = mongoHeroesRepository;
         }
 
         [HttpGet]
@@ -65,6 +70,15 @@ namespace DotaSentry.Controllers
         public async Task<GetTeamInfoResponse> GetTestAsync()
         {
             //return await _teamRepository.GetTeamInfoAsync(7359917);
+            //_mongoHeroesRepository.Create(new HeroData
+            //{
+            //    Id = 1,
+            //    Name = "Test",
+            //    LocalizedName = "test 111"
+            //});
+
+            //var hero = _mongoHeroesRepository.Get(1);
+
             return null;
         }
     }

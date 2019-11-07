@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business.MongoClient;
 using DotaSentry.Business.Services;
 using DotaSentry.SteamClient.Business.DataAccess;
 using Microsoft.AspNetCore.Builder;
@@ -16,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Sentry;
 
@@ -46,6 +48,14 @@ namespace DotaSentry
             services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();
             services.AddScoped(provider => new JsonSerializerSettings());
+            services.AddSingleton<MongoHeroesRepository>();
+
+
+            // configuration
+            services.Configure<DotaSentryDatabaseSettings>(
+                Configuration.GetSection(nameof(DotaSentryDatabaseSettings)));
+
+            services.AddSingleton(sp => sp.GetRequiredService<IOptions<DotaSentryDatabaseSettings>>().Value);
 
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
