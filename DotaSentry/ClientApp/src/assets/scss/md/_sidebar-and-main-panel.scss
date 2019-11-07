@@ -231,14 +231,14 @@
               width: 40px;
               display: inline-block;
               height: 40px;
-              background: $white-color;
+              background: $side-bar;
               border-radius: 50%;
               text-align: center;
               overflow: hidden;
               @include shadow-big();
 
                 img{
-                  width: 55%;
+                  width: 85%;
                   vertical-align: -webkit-baseline-middle;
                 }
             }
@@ -266,7 +266,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        background-color: rgba(27, 27, 27, 0.87);
+        background-color: $side-bar;
         opacity: .85;
         top: 0;
         left: 0;

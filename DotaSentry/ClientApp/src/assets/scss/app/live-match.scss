@@ -1,5 +1,58 @@
 .live-match {
+    display: grid;
+    color:white;
+    background:linear-gradient(60deg, #66bb6a, #43a047);;
+    border-radius: 3px;
+     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.live-match:hover {
     -webkit-box-shadow: 0px 0px 53px -2px rgba(0,0,0,0.7);
     -moz-box-shadow: 0px 0px 53px -2px rgba(0,0,0,0.7);
     box-shadow: 0px 0px 53px -2px rgba(0,0,0,0.7);
+    transition: box-shadow 0.2s ease-in;
+}
+
+.live-match .score {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.live-match .radiang-leads {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    text-align: center;
+}
+
+.live-match .dire-leads {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    text-align: center;
+}
+
+.live-match .score h2 {
+    text-align: center;
+    margin: 1em 0 0 0;
+}
+
+.live-match .scroe h4 {
+    
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    padding:1em;
+    grid-template-rows: 1fr 1fr;
+    text-align: center;
+    width: 15em;
+}
+
+.live-match .team-leads {
+    color:gold;
+}
+
+.team picture img {
+    border-radius: 1em;
+    width: 10em;
 }

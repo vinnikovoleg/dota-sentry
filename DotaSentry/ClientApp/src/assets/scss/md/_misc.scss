@@ -1,5 +1,5 @@
 body {
-  background-color: #EEEEEE;
+  background-color: $body-bg;
   letter-spacing: unset;
   // background: #fdfdfe;
   color: $black-color;
@@ -37,7 +37,7 @@ blockquote{
 }
 
 .life-of-material-dashboard{
-    background: #FFFFFF;
+  background: #FFFFFF;
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {

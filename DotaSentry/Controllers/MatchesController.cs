@@ -25,33 +25,33 @@ namespace DotaSentry.Controllers
         [Route("live")]
         public async Task<List<LiveMatchModel>> GetLiveAsync()
         {
-            //var liveMatches = await _liveMatchesService.GetLiveMatchesAsync();
-            //return liveMatches
-            //    .Where(m => !string.IsNullOrEmpty(m.Radiant.Name) && !string.IsNullOrEmpty(m.Dire.Name))
-            //    .ToList();
+            var liveMatches = await _liveMatchesService.GetLiveMatchesAsync();
+            return liveMatches
+                .Where(m => !string.IsNullOrEmpty(m.Radiant.Name) && !string.IsNullOrEmpty(m.Dire.Name))
+                .ToList();
 
-            return new List<LiveMatchModel>
-            {
-                new LiveMatchModel
-                {
-                    MatchId = 1,
-                    Dire = new TeamModel
-                    {
-                        Name = "Virtus Pro",
-                        Lead = 3410,
-                        Score = 12,
-                        Logo = "/StaticFiles/images/101724518978773491.png"
-                    },
-                    Radiant = new TeamModel
-                    {
-                        Name = "NaVi",
-                        Lead = 0,
-                        Score = 5,
-                        Logo = "/StaticFiles/images/777357465302429517.png"
-                    }
-                        
-                }
-            };
+            //return new List<LiveMatchModel>
+            //{
+            //    new LiveMatchModel
+            //    {
+            //        MatchId = 1,
+            //        Dire = new TeamModel
+            //        {
+            //            Name = "Virtus Pro Virtus Pro",
+            //            Lead = 34102,
+            //            Score = 12,
+            //            Logo = "/StaticFiles/images/101724518978773491.png"
+            //        },
+            //        Radiant = new TeamModel
+            //        {
+            //            Name = "NaVi",
+            //            Lead = 0,
+            //            Score = 5,
+            //            Logo = "/StaticFiles/images/777357465302429517.png"
+            //        }
+
+            //    }
+            //};
         }
     }
 }

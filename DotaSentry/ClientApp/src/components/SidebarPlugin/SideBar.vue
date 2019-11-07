@@ -51,11 +51,11 @@ export default {
     },
     backgroundImage: {
       type: String,
-      default: require("@/assets/img/sidebar-2.jpg")
+      default: require("@/assets/img/dota_2_7-0_the_new_journey_sun_wukong_monkey_king.jpg")
     },
     imgLogo: {
       type: String,
-      default: require("@/assets/img/vue-logo.png")
+      default: require("@/assets/img/dota-2-icon-28.jpg")
     },
     activeColor: {
       type: String,

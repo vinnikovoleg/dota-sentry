@@ -47,7 +47,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotaSentry.Client\DotaSentry.SteamClient.csproj" />
+    <ProjectReference Include="..\DotaSentry.SteamClient\DotaSentry.SteamClient.csproj" />
   </ItemGroup>
 
 </Project>
