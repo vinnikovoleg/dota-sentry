@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using DotaSentry.Business.Services;
 using DotaSentry.Models;
+using DotaSentry.SteamClient.Business.DataAccess;
+using DotaSentry.SteamClient.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotaSentry.Controllers
@@ -15,10 +17,14 @@ namespace DotaSentry.Controllers
     public class MatchesController : ControllerBase
     {
         private readonly LiveMatchesService _liveMatchesService;
+        private readonly TeamRepository _teamRepository;
 
-        public MatchesController(LiveMatchesService liveMatchesService)
+        public MatchesController(
+            LiveMatchesService liveMatchesService,
+            TeamRepository teamRepository)
         {
             _liveMatchesService = liveMatchesService;
+            _teamRepository = teamRepository;
         }
 
         [HttpGet]
@@ -52,6 +58,14 @@ namespace DotaSentry.Controllers
 
             //    }
             //};
+        }
+
+        [HttpGet]
+        [Route("test")]
+        public async Task<GetTeamInfoResponse> GetTestAsync()
+        {
+            //return await _teamRepository.GetTeamInfoAsync(7359917);
+            return null;
         }
     }
 }

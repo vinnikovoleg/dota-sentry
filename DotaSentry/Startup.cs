@@ -41,6 +41,7 @@ namespace DotaSentry
 
             // Data Access
             services.AddScoped<MatchesRepository>();
+            services.AddScoped<TeamRepository>();
             services.AddScoped<HeroesRepository>();
             services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();
