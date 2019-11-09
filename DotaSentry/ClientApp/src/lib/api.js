@@ -10,6 +10,7 @@ export default {
                   matches.forEach(match => {
                     match.serverSteamId = match.serverSteamId.toString();
                   });
+                  return matches;
                 }
             }] 
         })
@@ -19,6 +20,7 @@ export default {
             transformResponse: [data  => {
                 var liveMatchStats = jsonBigInt.parse(data);
                 liveMatchStats.match.serverSteamId = liveMatchStats.match.serverSteamId.toString();
+                return liveMatchStats;
             }] 
         })
     }
