@@ -6,14 +6,14 @@
       </md-card-header>
 
       <md-card-content>
-        <div v-if="liveMatches.length > 0" class="md-layout live-content">
+        <div v-if="liveMatches != null && liveMatches.length > 0" class="md-layout live-content">
           <div @click="navigate(match.serverSteamId)" class="live-match" v-bind:key="match.matchId" v-for="match in liveMatches">
             <!-- <router-link :to="{ name: 'LiveMatch', params: { id: '15' }}">
                                   Go to match
             </router-link> -->
             <div class="team">
             
-              <picture>
+                <picture>
                   <img v-bind:src="match.radiant.logo" />
                 </picture>
               <h4>{{match.radiant.name}}</h4>

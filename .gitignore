@@ -11,4 +11,4 @@ DotaSentry/ClientApp/node_modules
 DotaSentry/ClientApp/dist
 DotaSentry.Console/bin/
 DotaSentry.Console/obj/
-DotaSentry/wwwroot/StaticFiles/Images/
+DotaSentry/wwwroot/StaticFiles/Temp/

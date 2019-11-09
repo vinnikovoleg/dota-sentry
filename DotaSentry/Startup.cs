@@ -44,11 +44,9 @@ namespace DotaSentry
             // Data Access
             services.AddScoped<MatchesRepository>();
             services.AddScoped<TeamRepository>();
-            services.AddScoped<HeroesRepository>();
             services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();
             services.AddScoped(provider => new JsonSerializerSettings());
-            services.AddSingleton<MongoHeroesRepository>();
 
 
             // configuration
@@ -60,6 +58,7 @@ namespace DotaSentry
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
 
+            services.AddScoped<HeroesService>();
             services.AddScoped<ImageService>();
             services.AddScoped<LiveMatchesService>();
 

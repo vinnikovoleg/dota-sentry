@@ -39,16 +39,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\StaticFiles\Images\101724518978773491.png" />
-    <None Include="wwwroot\StaticFiles\Images\777357465302429517.png" />
-    <None Include="wwwroot\StaticFiles\Images\951857579306087942.png" />
-    <None Include="wwwroot\StaticFiles\Images\955226123859259292.png" />
-    <None Include="wwwroot\StaticFiles\Images\975479762873971573.png" />
-    <None Include="wwwroot\StaticFiles\Images\984505508502041963.png" />
+    <ProjectReference Include="..\DotaSentry.SteamClient\DotaSentry.SteamClient.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotaSentry.SteamClient\DotaSentry.SteamClient.csproj" />
+    <Folder Include="wwwroot\StaticFiles\Images\" />
+    <Folder Include="wwwroot\StaticFiles\Data\" />
   </ItemGroup>
 
 </Project>

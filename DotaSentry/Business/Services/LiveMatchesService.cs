@@ -39,7 +39,7 @@ namespace DotaSentry.Business.Services
             return new LiveMatchModel
             {
                 MatchId = match.MatchId,
-                ServerSteamId = "A" + match.ServerSteamId.ToString(),
+                ServerSteamId = match.ServerSteamId,
                 GameTime = TimeSpan.FromSeconds(match.GameTime),
                 Radiant = new TeamModel
                 {

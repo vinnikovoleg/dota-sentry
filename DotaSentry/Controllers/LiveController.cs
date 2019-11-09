@@ -20,25 +20,26 @@ namespace DotaSentry.Controllers
     {
         private readonly LiveMatchesService _liveMatchesService;
         private readonly TeamRepository _teamRepository;
-        private readonly MongoHeroesRepository _mongoHeroesRepository;
+        private readonly HeroesService _heroesService;
         private readonly MatchesRepository _matchesRepository;
 
         public LiveController(
             LiveMatchesService liveMatchesService,
             TeamRepository teamRepository,
-            MongoHeroesRepository mongoHeroesRepository, 
-            MatchesRepository matchesRepository)
+            MatchesRepository matchesRepository,
+            HeroesService heroesService)
         {
             _liveMatchesService = liveMatchesService;
             _teamRepository = teamRepository;
-            _mongoHeroesRepository = mongoHeroesRepository;
             _matchesRepository = matchesRepository;
+            _heroesService = heroesService;
         }
 
         [HttpGet]
         public async Task<List<LiveMatchModel>> GetLiveAsync()
         {
             var liveMatches = await _liveMatchesService.GetLiveMatchesAsync();
+            var heroes = await _heroesService.GetHeroesAsync(1, 2, 15, 16);
             return liveMatches
                 .Where(m => !string.IsNullOrEmpty(m.Radiant.Name) && !string.IsNullOrEmpty(m.Dire.Name))
                 .ToList();
@@ -70,7 +71,7 @@ namespace DotaSentry.Controllers
 
         [HttpGet]
         [Route("{serverSteamId}")]
-        public async Task<GetRealtimeMatchStatsResponse> GetTestAsync(string serverSteamId)
+        public async Task<GetRealtimeMatchStatsResponse> GetTestAsync(ulong serverSteamId)
         {
             //return await _teamRepository.GetTeamInfoAsync(7359917);
             //_mongoHeroesRepository.Create(new HeroData
@@ -81,8 +82,7 @@ namespace DotaSentry.Controllers
             //});
 
             //var hero = _mongoHeroesRepository.Get(1);     90130323322593281
-            ulong id = Convert.ToUInt64(serverSteamId.Substring(1, serverSteamId.Length- 1));
-            return await _matchesRepository.GetRealtimeMatchStatsAsync(id);
+            return await _matchesRepository.GetRealtimeMatchStatsAsync(serverSteamId);
         }
 
         [HttpGet]

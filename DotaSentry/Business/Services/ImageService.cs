@@ -13,7 +13,7 @@ namespace DotaSentry.Business.Services
     public class ImageService
     {
         private readonly SteamFileRepository _steamFileRepository;
-        private readonly string _imageDirectoryPath = "StaticFiles/Images";
+        private readonly string _imagesRelativePath = "StaticFiles/Temp/Images";
         private readonly IWebHostEnvironment _environment;
 
         public ImageService(
@@ -26,11 +26,11 @@ namespace DotaSentry.Business.Services
         public async Task<string> GetSteamImageUrlAsync(long imageId)
         {
             var fileName = $"{imageId}.png";
-            var imagesDirectory = Path.Combine(_environment.WebRootPath, _imageDirectoryPath);
-            var filePath = Path.Combine(imagesDirectory, fileName);
+            var imagesPhysicalPath = Path.Combine(_environment.WebRootPath, _imagesRelativePath);
+            var filePath = Path.Combine(imagesPhysicalPath, fileName);
             if (File.Exists(filePath))
             {
-                return $"/StaticFiles/Images/{fileName}";
+                return Path.Combine(_imagesRelativePath, fileName);
             }
 
             var logoInfo = await _steamFileRepository.GetLogoInfoAsync(imageId);
@@ -39,16 +39,16 @@ namespace DotaSentry.Business.Services
                 return null;
             }
 
-            if (!Directory.Exists(imagesDirectory))
+            if (!Directory.Exists(imagesPhysicalPath))
             {
-                Directory.CreateDirectory(imagesDirectory);
+                Directory.CreateDirectory(imagesPhysicalPath);
             }
 
             using var http = new HttpClient();
             using var data = await http.GetAsync(logoInfo.Data.Url);
             await using var file = File.Create(filePath);
             await data.Content.CopyToAsync(file);
-            return $"/StaticFiles/Images/{fileName}";
+            return Path.Combine(_imagesRelativePath, fileName);
         }
     }
 }
