@@ -10,11 +10,11 @@ namespace DotaSentry.Business.Services
 {
     public class LiveMatchesService
     {
-        private readonly MatchesRepository _matchesRepository;
+        private readonly IMatchesRepository _matchesRepository;
         private readonly ImageService _imageService;
 
         public LiveMatchesService(
-            MatchesRepository matchesRepository,
+            IMatchesRepository matchesRepository,
             ImageService imageService)
         {
             _matchesRepository = matchesRepository;
@@ -32,6 +32,11 @@ namespace DotaSentry.Business.Services
             }
 
             return matchModels;
+        }
+
+        public async Task<GetRealtimeMatchStatsResponse> GetRealtimeMatchStatsAsync(ulong serverSteamId)
+        {
+            return await _matchesRepository.GetRealtimeMatchStatsAsync(serverSteamId);
         }
 
         private async Task<LiveMatchModel> BuildLiveMatchModel(LiveMatch match)

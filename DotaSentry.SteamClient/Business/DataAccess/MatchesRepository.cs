@@ -5,7 +5,7 @@ using DotaSentry.SteamClient.Models;
 
 namespace DotaSentry.SteamClient.Business.DataAccess
 {
-    public class MatchesRepository : SteamBaseRepository
+    public class MatchesRepository : SteamBaseRepository, IMatchesRepository
     {
         public MatchesRepository(JsonClient jsonClient) : base(jsonClient)
         {

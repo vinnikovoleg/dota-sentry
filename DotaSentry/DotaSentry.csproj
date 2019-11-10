@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -15,6 +15,7 @@
     <None Remove="$(SpaRoot)**" />
     <None Remove="Business\Builders\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
+    <Content Remove="appsettings.Production.Development.json" />
   </ItemGroup>
 
   <Target Name="PublishIncludeSpaDist" AfterTargets="ComputeFilesToPublish">

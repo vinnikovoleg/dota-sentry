@@ -42,7 +42,7 @@ namespace DotaSentry
             });
 
             // Data Access
-            services.AddScoped<MatchesRepository>();
+            services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
             services.AddScoped<TeamRepository>();
             services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();

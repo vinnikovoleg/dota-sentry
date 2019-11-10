@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\oleg.vinnikov\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\oleg.vinnikov\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_DotaSentry.-2029300491.00" t="ExcludeRecursive" />
+    <e p="E:\Projects\DotaSentry" t="IncludeFlat">
+      <e p="DotaSentry" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="appsettings.Production.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Business" t="Include">
+          <e p="LocalizableStrings.cs" t="Include" />
+          <e p="Models" t="Include">
+            <e p="Hero.cs" t="Include" />
+          </e>
+          <e p="MongoClient" t="Include">
+            <e p="DotaSentryDatabaseSettings.cs" t="Include" />
+          </e>
+          <e p="Services" t="Include">
+            <e p="HeroesService.cs" t="Include" />
+            <e p="ImageService.cs" t="Include" />
+            <e p="LiveMatchesService.cs" t="Include" />
+            <e p="LiveMatchesStubRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="ClientApp" t="Include">
+          <e p=".eslintrc.js" t="Include" />
+          <e p="babel.config.js" t="Include" />
+          <e p="dota-sentry.code-workspace" t="Include" />
+          <e p="node_modules\@types" t="IncludeRecursive">
+            <e p="events" t="IncludeRecursive" />
+            <e p="minimatch" t="IncludeRecursive" />
+            <e p="node" t="IncludeRecursive" />
+          </e>
+          <e p="node_modules\@vue\cli-plugin-babel" t="IncludeRecursive" />
+          <e p="node_modules\@vue\cli-plugin-eslint" t="IncludeRecursive" />
+          <e p="node_modules\@vue\cli-service" t="IncludeRecursive" />
+          <e p="node_modules\@vue\component-compiler-utils" t="IncludeRecursive" />
+          <e p="node_modules\@vue\eslint-config-prettier" t="IncludeRecursive" />
+          <e p="node_modules\address" t="IncludeRecursive" />
+          <e p="node_modules\axios" t="IncludeRecursive" />
+          <e p="node_modules\chalk" t="IncludeRecursive" />
+          <e p="node_modules\chartist" t="IncludeRecursive" />
+          <e p="node_modules\cli-highlight" t="IncludeRecursive" />
+          <e p="node_modules\commander" t="IncludeRecursive" />
+          <e p="node_modules\dotenv-expand" t="IncludeRecursive" />
+          <e p="node_modules\es6-promise" t="IncludeRecursive" />
+          <e p="node_modules\eslint-plugin-prettier" t="IncludeRecursive" />
+          <e p="node_modules\eslint-plugin-vue" t="IncludeRecursive" />
+          <e p="node_modules\google-maps" t="IncludeRecursive" />
+          <e p="node_modules\javascript-stringify" t="IncludeRecursive" />
+          <e p="node_modules\json-bigint" t="IncludeRecursive" />
+          <e p="node_modules\node-sass" t="IncludeRecursive" />
+          <e p="node_modules\portfinder" t="IncludeRecursive" />
+          <e p="node_modules\postcss" t="IncludeRecursive" />
+          <e p="node_modules\postcss-selector-parser" t="IncludeRecursive" />
+          <e p="node_modules\sass-loader" t="IncludeRecursive" />
+          <e p="node_modules\source-map" t="IncludeRecursive" />
+          <e p="node_modules\terser" t="IncludeRecursive" />
+          <e p="node_modules\vue" t="IncludeRecursive" />
+          <e p="node_modules\vue-clickaway" t="IncludeRecursive" />
+          <e p="node_modules\vue-loader" t="IncludeRecursive" />
+          <e p="node_modules\vue-material" t="IncludeRecursive" />
+          <e p="node_modules\vue-router" t="IncludeRecursive" />
+          <e p="node_modules\vue-social-sharing" t="IncludeRecursive" />
+          <e p="node_modules\vue-template-compiler" t="IncludeRecursive" />
+          <e p="node_modules\vuex" t="IncludeRecursive" />
+          <e p="package.json" t="Include" />
+          <e p="postcss.config.js" t="Include" />
+          <e p="public" t="Include">
+            <e p="dota-2-icon-28.ico" t="Include" />
+            <e p="index.html" t="Include" />
+          </e>
+          <e p="README.md" t="Include" />
+          <e p="src" t="Include">
+            <e p="App.vue" t="Include" />
+            <e p="assets" t="Include">
+              <e p="github" t="Include">
+                <e p="angular.png" t="Include" />
+                <e p="chrome.png" t="Include" />
+                <e p="dashboard.png" t="Include" />
+                <e p="edge.png" t="Include" />
+                <e p="firefox.png" t="Include" />
+                <e p="html.png" t="Include" />
+                <e p="maps.png" t="Include" />
+                <e p="notification.png" t="Include" />
+                <e p="opera.png" t="Include" />
+                <e p="opt_md_angular_thumbnail.jpg" t="Include" />
+                <e p="opt_md_thumbnail.jpg" t="Include" />
+                <e p="opt_md_vue_thumbnail.jpg" t="Include" />
+                <e p="opt_mdr_thumbnail.jpg" t="Include" />
+                <e p="product.gif" t="Include" />
+                <e p="react.svg" t="Include" />
+                <e p="safari.png" t="Include" />
+                <e p="tables.png" t="Include" />
+                <e p="user_profile.png" t="Include" />
+                <e p="vuejs.png" t="Include" />
+              </e>
+              <e p="img" t="Include">
+                <e p="apple-icon.png" t="Include" />
+                <e p="dota-2-icon-28.jpg" t="Include" />
+                <e p="dota_2_7-0_the_new_journey_sun_wukong_monkey_king.jpg" t="Include" />
+                <e p="faces" t="Include">
+                  <e p="marc.jpg" t="Include" />
+                </e>
+                <e p="favicon.png" t="Include" />
+                <e p="mask.png" t="Include" />
+                <e p="new_logo.png" t="Include" />
+                <e p="sidebar-1.jpg" t="Include" />
+                <e p="sidebar-2.jpg" t="Include" />
+                <e p="sidebar-3.jpg" t="Include" />
+                <e p="sidebar-4.jpg" t="Include" />
+                <e p="tim_80x80.png" t="Include" />
+              </e>
+              <e p="scss" t="Include">
+                <e p="app" t="Include">
+                  <e p="live-match.scss" t="Include" />
+                </e>
+                <e p="app.scss" t="Include" />
+                <e p="material-dashboard.scss" t="Include" />
+                <e p="md" t="Include">
+                  <e p="_alerts.scss" t="Include" />
+                  <e p="_buttons.scss" t="Include" />
+                  <e p="_cards.scss" t="Include" />
+                  <e p="_chartist.scss" t="Include" />
+                  <e p="_checkboxes.scss" t="Include" />
+                  <e p="_colors.scss" t="Include" />
+                  <e p="_dialogs.scss" t="Include" />
+                  <e p="_dropdown.scss" t="Include" />
+                  <e p="_footers.scss" t="Include" />
+                  <e p="_forms.scss" t="Include" />
+                  <e p="_inputs-size.scss" t="Include" />
+                  <e p="_inputs.scss" t="Include" />
+                  <e p="_layout.scss" t="Include" />
+                  <e p="_misc.scss" t="Include" />
+                  <e p="_mixins.scss" t="Include" />
+                  <e p="_navbars.scss" t="Include" />
+                  <e p="_pagination.scss" t="Include" />
+                  <e p="_pills.scss" t="Include" />
+                  <e p="_popups.scss" t="Include" />
+                  <e p="_responsive.scss" t="Include" />
+                  <e p="_ripples.scss" t="Include" />
+                  <e p="_shadows.scss" t="Include" />
+                  <e p="_sidebar-and-main-panel.scss" t="Include" />
+                  <e p="_tables.scss" t="Include" />
+                  <e p="_tabs.scss" t="Include" />
+                  <e p="_togglebutton.scss" t="Include" />
+                  <e p="_typography.scss" t="Include" />
+                  <e p="_variables.scss" t="Include" />
+                  <e p="mixins" t="Include">
+                    <e p="_chartist.scss" t="Include" />
+                    <e p="_transparency.scss" t="Include" />
+                    <e p="_vendor-prefixes.scss" t="Include" />
+                  </e>
+                  <e p="plugins" t="Include">
+                    <e p="_perfect-scrollbar.scss" t="Include" />
+                  </e>
+                </e>
+              </e>
+            </e>
+            <e p="components" t="Include">
+              <e p="Cards" t="Include">
+                <e p="ChartCard.vue" t="Include" />
+                <e p="NavTabsCard.vue" t="Include" />
+                <e p="StatsCard.vue" t="Include" />
+              </e>
+              <e p="Dropdown.vue" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="NotificationPlugin" t="Include">
+                <e p="index.js" t="Include" />
+                <e p="Notification.vue" t="Include" />
+                <e p="Notifications.vue" t="Include" />
+              </e>
+              <e p="SidebarPlugin" t="Include">
+                <e p="index.js" t="Include" />
+                <e p="SideBar.vue" t="Include" />
+                <e p="SidebarLink.vue" t="Include" />
+              </e>
+              <e p="Tables" t="Include">
+                <e p="NavTabsTable.vue" t="Include" />
+                <e p="OrderedTable.vue" t="Include" />
+                <e p="SimpleTable.vue" t="Include" />
+              </e>
+            </e>
+            <e p="globalComponents.js" t="Include" />
+            <e p="globalDirectives.js" t="Include" />
+            <e p="lib" t="Include">
+              <e p="api.js" t="Include" />
+            </e>
+            <e p="main.js" t="Include" />
+            <e p="material-dashboard.js" t="Include" />
+            <e p="pages" t="Include">
+              <e p="Dashboard.vue" t="Include" />
+              <e p="Icons.vue" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="Layout" t="Include">
+                <e p="Content.vue" t="Include" />
+                <e p="ContentFooter.vue" t="Include" />
+                <e p="DashboardLayout.vue" t="Include" />
+                <e p="MobileMenu.vue" t="Include" />
+                <e p="TopNavbar.vue" t="Include" />
+              </e>
+              <e p="LiveMatch.vue" t="Include" />
+              <e p="Maps.vue" t="Include" />
+              <e p="Notifications.vue" t="Include" />
+              <e p="TableList.vue" t="Include" />
+              <e p="Typography.vue" t="Include" />
+              <e p="UserProfile" t="Include">
+                <e p="EditProfileForm.vue" t="Include" />
+                <e p="UserCard.vue" t="Include" />
+              </e>
+              <e p="UserProfile.vue" t="Include" />
+            </e>
+            <e p="routes" t="Include">
+              <e p="routes.js" t="Include" />
+            </e>
+            <e p="store" t="Include">
+              <e p="index.js" t="Include" />
+              <e p="matches.js" t="Include" />
+            </e>
+          </e>
+          <e p="vue.config.js" t="Include" />
+          <e p="yarn-error.log" t="Include" />
+          <e p="yarn.lock" t="Include" />
+        </e>
+        <e p="Controllers" t="Include">
+          <e p="LiveController.cs" t="Include" />
+        </e>
+        <e p="DotaSentry.csproj" t="IncludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="HeroModel.cs" t="Include" />
+          <e p="LiveMatchModel.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="DotaSentry.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="dota-sentry - FTP.pubxml" t="Include" />
+            <e p="dota-sentry - ReadOnly - FTP.pubxml" t="Include" />
+            <e p="dota-sentry - Web Deploy.pubxml" t="Include" />
+            <e p="FolderProfile.pubxml" t="Include" />
+          </e>
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="StaticFiles" t="Include">
+            <e p="Data" t="Include">
+              <e p="GetRealtimeStats.json" t="Include" />
+              <e p="GetTopLiveGame.json" t="Include" />
+              <e p="heroes.json" t="Include" />
+            </e>
+            <e p="Images" t="Include">
+              <e p="default.png" t="Include" />
+              <e p="npc_dota_hero_abaddon.png" t="Include" />
+              <e p="npc_dota_hero_abyssal_underlord.png" t="Include" />
+              <e p="npc_dota_hero_alchemist.png" t="Include" />
+              <e p="npc_dota_hero_ancient_apparition.png" t="Include" />
+              <e p="npc_dota_hero_antimage.png" t="Include" />
+              <e p="npc_dota_hero_arc_warden.png" t="Include" />
+              <e p="npc_dota_hero_axe.png" t="Include" />
+              <e p="npc_dota_hero_bane.png" t="Include" />
+              <e p="npc_dota_hero_batrider.png" t="Include" />
+              <e p="npc_dota_hero_beastmaster.png" t="Include" />
+              <e p="npc_dota_hero_bloodseeker.png" t="Include" />
+              <e p="npc_dota_hero_bounty_hunter.png" t="Include" />
+              <e p="npc_dota_hero_brewmaster.png" t="Include" />
+              <e p="npc_dota_hero_bristleback.png" t="Include" />
+              <e p="npc_dota_hero_broodmother.png" t="Include" />
+              <e p="npc_dota_hero_centaur.png" t="Include" />
+              <e p="npc_dota_hero_chaos_knight.png" t="Include" />
+              <e p="npc_dota_hero_chen.png" t="Include" />
+              <e p="npc_dota_hero_clinkz.png" t="Include" />
+              <e p="npc_dota_hero_crystal_maiden.png" t="Include" />
+              <e p="npc_dota_hero_dark_seer.png" t="Include" />
+              <e p="npc_dota_hero_dark_willow.png" t="Include" />
+              <e p="npc_dota_hero_dazzle.png" t="Include" />
+              <e p="npc_dota_hero_death_prophet.png" t="Include" />
+              <e p="npc_dota_hero_disruptor.png" t="Include" />
+              <e p="npc_dota_hero_doom_bringer.png" t="Include" />
+              <e p="npc_dota_hero_dragon_knight.png" t="Include" />
+              <e p="npc_dota_hero_drow_ranger.png" t="Include" />
+              <e p="npc_dota_hero_earth_spirit.png" t="Include" />
+              <e p="npc_dota_hero_earthshaker.png" t="Include" />
+              <e p="npc_dota_hero_elder_titan.png" t="Include" />
+              <e p="npc_dota_hero_ember_spirit.png" t="Include" />
+              <e p="npc_dota_hero_enchantress.png" t="Include" />
+              <e p="npc_dota_hero_enigma.png" t="Include" />
+              <e p="npc_dota_hero_faceless_void.png" t="Include" />
+              <e p="npc_dota_hero_furion.png" t="Include" />
+              <e p="npc_dota_hero_grimstroke.png" t="Include" />
+              <e p="npc_dota_hero_gyrocopter.png" t="Include" />
+              <e p="npc_dota_hero_huskar.png" t="Include" />
+              <e p="npc_dota_hero_invoker.png" t="Include" />
+              <e p="npc_dota_hero_jakiro.png" t="Include" />
+              <e p="npc_dota_hero_juggernaut.png" t="Include" />
+              <e p="npc_dota_hero_keeper_of_the_light.png" t="Include" />
+              <e p="npc_dota_hero_kunkka.png" t="Include" />
+              <e p="npc_dota_hero_legion_commander.png" t="Include" />
+              <e p="npc_dota_hero_leshrac.png" t="Include" />
+              <e p="npc_dota_hero_lich.png" t="Include" />
+              <e p="npc_dota_hero_life_stealer.png" t="Include" />
+              <e p="npc_dota_hero_lina.png" t="Include" />
+              <e p="npc_dota_hero_lion.png" t="Include" />
+              <e p="npc_dota_hero_lone_druid.png" t="Include" />
+              <e p="npc_dota_hero_luna.png" t="Include" />
+              <e p="npc_dota_hero_lycan.png" t="Include" />
+              <e p="npc_dota_hero_magnataur.png" t="Include" />
+              <e p="npc_dota_hero_mars.png" t="Include" />
+              <e p="npc_dota_hero_medusa.png" t="Include" />
+              <e p="npc_dota_hero_meepo.png" t="Include" />
+              <e p="npc_dota_hero_mirana.png" t="Include" />
+              <e p="npc_dota_hero_monkey_king.png" t="Include" />
+              <e p="npc_dota_hero_morphling.png" t="Include" />
+              <e p="npc_dota_hero_naga_siren.png" t="Include" />
+              <e p="npc_dota_hero_necrolyte.png" t="Include" />
+              <e p="npc_dota_hero_nevermore.png" t="Include" />
+              <e p="npc_dota_hero_night_stalker.png" t="Include" />
+              <e p="npc_dota_hero_nyx_assassin.png" t="Include" />
+              <e p="npc_dota_hero_obsidian_destroyer.png" t="Include" />
+              <e p="npc_dota_hero_ogre_magi.png" t="Include" />
+              <e p="npc_dota_hero_omniknight.png" t="Include" />
+              <e p="npc_dota_hero_oracle.png" t="Include" />
+              <e p="npc_dota_hero_pangolier.png" t="Include" />
+              <e p="npc_dota_hero_phantom_assassin.png" t="Include" />
+              <e p="npc_dota_hero_phantom_lancer.png" t="Include" />
+              <e p="npc_dota_hero_phoenix.png" t="Include" />
+              <e p="npc_dota_hero_puck.png" t="Include" />
+              <e p="npc_dota_hero_pudge.png" t="Include" />
+              <e p="npc_dota_hero_pugna.png" t="Include" />
+              <e p="npc_dota_hero_queenofpain.png" t="Include" />
+              <e p="npc_dota_hero_rattletrap.png" t="Include" />
+              <e p="npc_dota_hero_razor.png" t="Include" />
+              <e p="npc_dota_hero_riki.png" t="Include" />
+              <e p="npc_dota_hero_rubick.png" t="Include" />
+              <e p="npc_dota_hero_sand_king.png" t="Include" />
+              <e p="npc_dota_hero_shadow_demon.png" t="Include" />
+              <e p="npc_dota_hero_shadow_shaman.png" t="Include" />
+              <e p="npc_dota_hero_shredder.png" t="Include" />
+              <e p="npc_dota_hero_silencer.png" t="Include" />
+              <e p="npc_dota_hero_skeleton_king.png" t="Include" />
+              <e p="npc_dota_hero_skywrath_mage.png" t="Include" />
+              <e p="npc_dota_hero_slardar.png" t="Include" />
+              <e p="npc_dota_hero_slark.png" t="Include" />
+              <e p="npc_dota_hero_sniper.png" t="Include" />
+              <e p="npc_dota_hero_spectre.png" t="Include" />
+              <e p="npc_dota_hero_spirit_breaker.png" t="Include" />
+              <e p="npc_dota_hero_storm_spirit.png" t="Include" />
+              <e p="npc_dota_hero_sven.png" t="Include" />
+              <e p="npc_dota_hero_techies.png" t="Include" />
+              <e p="npc_dota_hero_templar_assassin.png" t="Include" />
+              <e p="npc_dota_hero_terrorblade.png" t="Include" />
+              <e p="npc_dota_hero_tidehunter.png" t="Include" />
+              <e p="npc_dota_hero_tinker.png" t="Include" />
+              <e p="npc_dota_hero_tiny.png" t="Include" />
+              <e p="npc_dota_hero_treant.png" t="Include" />
+              <e p="npc_dota_hero_troll_warlord.png" t="Include" />
+              <e p="npc_dota_hero_tusk.png" t="Include" />
+              <e p="npc_dota_hero_undying.png" t="Include" />
+              <e p="npc_dota_hero_ursa.png" t="Include" />
+              <e p="npc_dota_hero_vengefulspirit.png" t="Include" />
+              <e p="npc_dota_hero_venomancer.png" t="Include" />
+              <e p="npc_dota_hero_viper.png" t="Include" />
+              <e p="npc_dota_hero_visage.png" t="Include" />
+              <e p="npc_dota_hero_warlock.png" t="Include" />
+              <e p="npc_dota_hero_weaver.png" t="Include" />
+              <e p="npc_dota_hero_windrunner.png" t="Include" />
+              <e p="npc_dota_hero_winter_wyvern.png" t="Include" />
+              <e p="npc_dota_hero_wisp.png" t="Include" />
+              <e p="npc_dota_hero_witch_doctor.png" t="Include" />
+              <e p="npc_dota_hero_zuus.png" t="Include" />
+            </e>
+            <e p="Temp" t="Include">
+              <e p="Images" t="Include">
+                <e p="750340704828901050.png" t="Include" />
+                <e p="757096217593461859.png" t="Include" />
+                <e p="763851539924100133.png" t="Include" />
+                <e p="766103125878916434.png" t="Include" />
+                <e p="768351910996164705.png" t="Include" />
+                <e p="770607054012732987.png" t="Include" />
+                <e p="775106514372016095.png" t="Include" />
+                <e p="787492768612781238.png" t="Include" />
+                <e p="789738371890395466.png" t="Include" />
+                <e p="860612763723262511.png" t="Include" />
+                <e p="939457282117079692.png" t="Include" />
+                <e p="975479762873971573.png" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="DotaSentry.sln" t="IncludeFlat" />
+      <e p="DotaSentry.SteamClient" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Business" t="Include">
+          <e p="DataAccess" t="Include">
+            <e p="IMatchesRepository.cs" t="Include" />
+            <e p="JsonClient.cs" t="Include" />
+            <e p="MatchesRepository.cs" t="Include" />
+            <e p="SteamBaseRepository.cs" t="Include" />
+            <e p="SteamFileRepository.cs" t="Include" />
+            <e p="TeamRepository.cs" t="Include" />
+          </e>
+        </e>
+        <e p="DotaSentry.SteamClient.csproj" t="IncludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="GetMatchesHistoryResponse.cs" t="Include" />
+          <e p="GetRealtimeMatchStatsResponse.cs" t="Include" />
+          <e p="GetSteamFileResponse.cs" t="Include" />
+          <e p="GetTeamInfoResponse.cs" t="Include" />
+          <e p="GetTopLiveGamesResponse.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="DotaSentry.SteamClient.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

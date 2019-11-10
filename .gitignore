@@ -12,3 +12,4 @@ DotaSentry/ClientApp/dist
 DotaSentry.Console/bin/
 DotaSentry.Console/obj/
 DotaSentry/wwwroot/StaticFiles/Temp/
+DotaSentry.SteamClient/obj/
