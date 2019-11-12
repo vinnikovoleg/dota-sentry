@@ -4,14 +4,14 @@ export default {
   namespaced: true,
   state: {
     liveMatches: [],
-    liveMatchStats: {}
+    liveMatchStats: null
   },
   mutations: {
     setLiveMatches(state, matches) {
       state.liveMatches = matches;
     },
     setLiveMatchStats(state, liveMatchStats) {
-      state.liveMatchStats[liveMatchStats.match.serverSteamId] = liveMatchStats;
+      state.liveMatchStats = liveMatchStats;
     }
   },
   actions: {

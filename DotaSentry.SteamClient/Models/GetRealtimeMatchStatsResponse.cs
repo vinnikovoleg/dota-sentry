@@ -59,7 +59,7 @@ namespace DotaSentry.SteamClient.Models
     public class RealtimeMatch
     {
         [JsonProperty("server_steam_id")]
-        public double ServerSteamId { get; set; }
+        public long ServerSteamId { get; set; }
 
         [JsonProperty("matchid")]
         public long MatchId { get; set; }
@@ -83,13 +83,13 @@ namespace DotaSentry.SteamClient.Models
         public long GameState { get; set; }
 
         [JsonProperty("picks")]
-        public List<Ban> Picks { get; set; }
+        public List<HeroPick> Picks { get; set; }
 
         [JsonProperty("bans")]
-        public List<Ban> Bans { get; set; }
+        public List<HeroPick> Bans { get; set; }
     }
 
-    public class Ban
+    public class HeroPick
     {
         [JsonProperty("hero")]
         public long Hero { get; set; }
@@ -113,7 +113,7 @@ namespace DotaSentry.SteamClient.Models
         public string TeamTag { get; set; }
 
         [JsonProperty("team_logo")]
-        public double TeamLogo { get; set; }
+        public long TeamLogo { get; set; }
 
         [JsonProperty("score")]
         public long Score { get; set; }

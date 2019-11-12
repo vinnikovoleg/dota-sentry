@@ -12,13 +12,19 @@ namespace DotaSentry.Business.Services
     {
         private readonly IMatchesRepository _matchesRepository;
         private readonly ImageService _imageService;
+        private readonly HeroesService _heroesService;
+        private readonly ItemsService _itemsService;
 
         public LiveMatchesService(
             IMatchesRepository matchesRepository,
-            ImageService imageService)
+            ImageService imageService,
+            HeroesService heroesService, 
+            ItemsService itemsService)
         {
             _matchesRepository = matchesRepository;
             _imageService = imageService;
+            _heroesService = heroesService;
+            _itemsService = itemsService;
         }
 
         public async Task<List<LiveMatchModel>> GetLiveMatchesAsync()
@@ -34,9 +40,31 @@ namespace DotaSentry.Business.Services
             return matchModels;
         }
 
-        public async Task<GetRealtimeMatchStatsResponse> GetRealtimeMatchStatsAsync(ulong serverSteamId)
+        public async Task<LiveMatchStats> GetRealtimeMatchStatsAsync(ulong serverSteamId)
         {
-            return await _matchesRepository.GetRealtimeMatchStatsAsync(serverSteamId);
+            var matchStats = await _matchesRepository.GetRealtimeMatchStatsAsync(serverSteamId);
+            var radiantTeam = await BuildLiveTeamStats(matchStats.Teams[0], matchStats.Match.Picks, matchStats.Match.Bans);
+            var direTeam = await BuildLiveTeamStats(matchStats.Teams[1], matchStats.Match.Picks, matchStats.Match.Bans);
+            
+            return new LiveMatchStats
+            {
+                ServerSteamId = matchStats.Match.ServerSteamId,
+                Radiant = radiantTeam,
+                Dire = direTeam
+            };
+        }
+
+        private async Task<LiveTeamStats> BuildLiveTeamStats(RealtimeTeam team, List<HeroPick> picks, List<HeroPick> bans)
+        {
+            var heroes = await _heroesService.GetHeroesAsync();
+            return new LiveTeamStats
+            {
+                Id = team.TeamId,
+                Name = team.TeamName,
+                Logo = await _imageService.GetSteamImageUrlAsync(team.TeamLogo),
+                Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
+                Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList()
+            };
         }
 
         private async Task<LiveMatchModel> BuildLiveMatchModel(LiveMatch match)

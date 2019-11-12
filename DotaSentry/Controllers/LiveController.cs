@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using DotaSentry.Business.Models;
 using DotaSentry.Business.MongoClient;
 using DotaSentry.Business.Services;
 using DotaSentry.Models;
@@ -20,13 +19,16 @@ namespace DotaSentry.Controllers
     {
         private readonly LiveMatchesService _liveMatchesService;
         private readonly HeroesService _heroesService;
+        private readonly ItemsService _itemsService;
 
         public LiveController(
             LiveMatchesService liveMatchesService,
-            HeroesService heroesService)
+            HeroesService heroesService,
+            ItemsService itemsService)
         {
             _liveMatchesService = liveMatchesService;
             _heroesService = heroesService;
+            _itemsService = itemsService;
         }
 
         [HttpGet]
@@ -37,14 +39,14 @@ namespace DotaSentry.Controllers
 
         [HttpGet]
         [Route("{serverSteamId}")]
-        public async Task<GetRealtimeMatchStatsResponse> GetTestAsync(ulong serverSteamId)
+        public async Task<LiveMatchStats> GetTestAsync(ulong serverSteamId)
         {
             return await _liveMatchesService.GetRealtimeMatchStatsAsync(serverSteamId);
         }
 
         [HttpGet]
         [Route("test")]
-        public async Task<GetRealtimeMatchStatsResponse> GetTestAsync()
+        public async Task<Dictionary<long, ItemModel>> GetTestAsync()
         {
             //return await _teamRepository.GetTeamInfoAsync(7359917);
             //_mongoHeroesRepository.Create(new HeroData
@@ -56,7 +58,8 @@ namespace DotaSentry.Controllers
 
             //var hero = _mongoHeroesRepository.Get(1);
             //var heroes = await _heroesService.GetHeroesAsync(1, 2, 15, 16);
-            return await _liveMatchesService.GetRealtimeMatchStatsAsync(90130323322593281);
+            //return await _liveMatchesService.GetRealtimeMatchStatsAsync(90130323322593281);
+            return await _itemsService.GetItemsAsync();
         }
     }
 }

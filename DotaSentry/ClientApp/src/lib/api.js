@@ -19,7 +19,7 @@ export default {
         return axios.get(`/api/live/${serverSteamId}`, {
             transformResponse: [data  => {
                 var liveMatchStats = jsonBigInt.parse(data);
-                liveMatchStats.match.serverSteamId = liveMatchStats.match.serverSteamId.toString();
+                liveMatchStats.serverSteamId = liveMatchStats.serverSteamId.toString();
                 return liveMatchStats;
             }] 
         })

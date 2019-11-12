@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using DotaSentry.Business.Models;
+using DotaSentry.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
@@ -26,27 +26,21 @@ namespace DotaSentry.Business.Services
             _memoryCache = memoryCache;
         }
 
-        public async Task<List<Hero>> GetHeroesAsync(params long[] ids)
+        public async Task<Dictionary<long, HeroModel>> GetHeroesAsync()
         {
-            var heroes = await GetHeroesAsync();
-            return heroes.FindAll(m => ids.Contains(m.Id));
-        }
-
-        private async Task<List<Hero>> GetHeroesAsync()
-        {
-            async Task<List<Hero>> ReadHeroesAsync()
+            async Task<Dictionary<long, HeroModel>> ReadHeroesAsync()
             {
                 var dataPath = Path.Combine(_environment.WebRootPath, _heroesDataPath);
 
                 if (!File.Exists(dataPath))
                 {
-                    return new List<Hero>();
+                    return new Dictionary<long, HeroModel>();
                 }
 
                 var json = await File.ReadAllTextAsync(dataPath);
                 var heroes = JsonConvert.DeserializeObject<HeroesData>(json);
 
-                return heroes.Heroes;
+                return heroes.Heroes.ToDictionary(h => h.Id, h => h);
             }
 
             const string cacheKey = "heroes_cache";
@@ -60,7 +54,7 @@ namespace DotaSentry.Business.Services
 
         private class HeroesData
         {
-            public List<Hero> Heroes { get; set; }
+            public List<HeroModel> Heroes { get; set; }
         }
     }
 }

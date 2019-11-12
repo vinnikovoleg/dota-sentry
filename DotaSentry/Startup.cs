@@ -36,10 +36,7 @@ namespace DotaSentry
         {
             services.AddControllers();
 
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/dist";
-            });
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
             // Data Access
             services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
@@ -59,6 +56,7 @@ namespace DotaSentry
             services.AddSingleton<IMemoryCache, MemoryCache>();
 
             services.AddScoped<HeroesService>();
+            services.AddScoped<ItemsService>();
             services.AddScoped<ImageService>();
             services.AddScoped<LiveMatchesService>();
 
@@ -79,10 +77,7 @@ namespace DotaSentry
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             app.UseSpa(spa =>
             {

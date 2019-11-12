@@ -7,7 +7,7 @@ import Typography from "@/pages/Typography.vue";
 import Icons from "@/pages/Icons.vue";
 import Maps from "@/pages/Maps.vue";
 import Notifications from "@/pages/Notifications.vue";
-import LiveMatch from "@/pages/LiveMatch.vue";
+import LiveMatch from "@/pages/LiveMatchStats.vue";
 
 const routes = [
   {
@@ -21,7 +21,7 @@ const routes = [
         component: Dashboard
       },
       {
-        path: "/match/:id",
+        path: "/match/:serverSteamId",
         name: "LiveMatch",
         component: LiveMatch
       },

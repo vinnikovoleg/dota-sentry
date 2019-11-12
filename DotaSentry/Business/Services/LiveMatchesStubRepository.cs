@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using DotaSentry.Business.Models;
 using DotaSentry.SteamClient.Business.DataAccess;
 using DotaSentry.SteamClient.Models;
 using Microsoft.AspNetCore.Hosting;
