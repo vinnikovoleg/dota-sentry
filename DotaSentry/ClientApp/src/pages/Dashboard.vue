@@ -8,9 +8,6 @@
       <md-card-content>
         <div v-if="liveMatches != null && liveMatches.length > 0" class="md-layout live-content">
           <div @click="navigate(match.serverSteamId)" class="live-match" v-bind:key="match.matchId" v-for="match in liveMatches">
-            <!-- <router-link :to="{ name: 'LiveMatch', params: { id: '15' }}">
-                                  Go to match
-            </router-link> -->
             <div class="team">
             
                 <picture>
@@ -44,15 +41,12 @@
         </div>
       </md-card-content>
     </md-card>
-    
-
   </div>
 </template>
 
 <script>
 import {
   StatsCard,
-  ChartCard,
   NavTabsCard,
   NavTabsTable,
   OrderedTable
@@ -61,7 +55,7 @@ import {
 import { mapState } from 'vuex';
 
 export default {
-  components: {  },
+  components: { },
   data() {
     return {
       

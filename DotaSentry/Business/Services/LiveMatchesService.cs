@@ -18,7 +18,7 @@ namespace DotaSentry.Business.Services
         public LiveMatchesService(
             IMatchesRepository matchesRepository,
             ImageService imageService,
-            HeroesService heroesService, 
+            HeroesService heroesService,
             ItemsService itemsService)
         {
             _matchesRepository = matchesRepository;
@@ -43,27 +43,50 @@ namespace DotaSentry.Business.Services
         public async Task<LiveMatchStats> GetRealtimeMatchStatsAsync(ulong serverSteamId)
         {
             var matchStats = await _matchesRepository.GetRealtimeMatchStatsAsync(serverSteamId);
-            var radiantTeam = await BuildLiveTeamStats(matchStats.Teams[0], matchStats.Match.Picks, matchStats.Match.Bans);
+            var radiantTeam =
+                await BuildLiveTeamStats(matchStats.Teams[0], matchStats.Match.Picks, matchStats.Match.Bans);
             var direTeam = await BuildLiveTeamStats(matchStats.Teams[1], matchStats.Match.Picks, matchStats.Match.Bans);
-            
+
             return new LiveMatchStats
             {
                 ServerSteamId = matchStats.Match.ServerSteamId,
+                GameTime = TimeSpan.FromSeconds(matchStats.Match.GameTime),
+                GoldGraph = matchStats.GraphData.GraphGold,
                 Radiant = radiantTeam,
                 Dire = direTeam
             };
         }
 
-        private async Task<LiveTeamStats> BuildLiveTeamStats(RealtimeTeam team, List<HeroPick> picks, List<HeroPick> bans)
+        private async Task<LiveTeamStats> BuildLiveTeamStats(RealtimeTeam team, List<HeroPick> picks,
+            List<HeroPick> bans)
         {
             var heroes = await _heroesService.GetHeroesAsync();
+            var items = await _itemsService.GetItemsAsync();
             return new LiveTeamStats
             {
                 Id = team.TeamId,
                 Name = team.TeamName,
                 Logo = await _imageService.GetSteamImageUrlAsync(team.TeamLogo),
                 Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
-                Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList()
+                Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
+                Players = team.Players.Where(p => p.Team == team.TeamNumber)
+                    .Select(p => new PlayerModel
+                    {
+                        Id = p.PlayerId,
+                        AccountId = p.AccountId,
+                        Name = p.Name,
+                        Assists = p.AssistsCount,
+                        Deaths = p.DeathCount,
+                        Kills = p.KillCount,
+                        Denies = p.DeniesCount,
+                        LastHits = p.LastHitsCount,
+                        Gold = p.Gold,
+                        NetWorth = p.NetWorth,
+                        Level = p.Level,
+                        Hero = heroes[p.HeroId],
+                        Items = p.Items.Select(itemId => items[itemId]).ToList()
+                    })
+                    .ToList()
             };
         }
 
@@ -79,14 +102,18 @@ namespace DotaSentry.Business.Services
                     Name = match.TeamNameRadiant,
                     Lead = match.RadiantLead > 0 ? match.RadiantLead : 0,
                     Score = match.RadiantScore,
-                    Logo = match.TeamLogoRadiant.HasValue ? await _imageService.GetSteamImageUrlAsync(match.TeamLogoRadiant.Value) : string.Empty
+                    Logo = match.TeamLogoRadiant.HasValue
+                        ? await _imageService.GetSteamImageUrlAsync(match.TeamLogoRadiant.Value)
+                        : string.Empty
                 },
                 Dire = new TeamModel
                 {
                     Name = match.TeamNameDire,
                     Lead = match.RadiantLead < 0 ? Math.Abs(match.RadiantLead) : 0,
                     Score = match.DireScore,
-                    Logo = match.TeamLogoDire.HasValue ? await _imageService.GetSteamImageUrlAsync(match.TeamLogoDire.Value) : string.Empty
+                    Logo = match.TeamLogoDire.HasValue
+                        ? await _imageService.GetSteamImageUrlAsync(match.TeamLogoDire.Value)
+                        : string.Empty
                 }
             };
         }

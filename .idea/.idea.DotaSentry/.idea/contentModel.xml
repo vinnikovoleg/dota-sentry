@@ -38,9 +38,9 @@
           <e p="node_modules\@vue\component-compiler-utils" t="IncludeRecursive" />
           <e p="node_modules\@vue\eslint-config-prettier" t="IncludeRecursive" />
           <e p="node_modules\address" t="IncludeRecursive" />
+          <e p="node_modules\apexcharts" t="IncludeRecursive" />
           <e p="node_modules\axios" t="IncludeRecursive" />
           <e p="node_modules\chalk" t="IncludeRecursive" />
-          <e p="node_modules\chartist" t="IncludeRecursive" />
           <e p="node_modules\cli-highlight" t="IncludeRecursive" />
           <e p="node_modules\commander" t="IncludeRecursive" />
           <e p="node_modules\dotenv-expand" t="IncludeRecursive" />
@@ -58,6 +58,8 @@
           <e p="node_modules\source-map" t="IncludeRecursive" />
           <e p="node_modules\terser" t="IncludeRecursive" />
           <e p="node_modules\vue" t="IncludeRecursive" />
+          <e p="node_modules\vue-analytics" t="IncludeRecursive" />
+          <e p="node_modules\vue-apexcharts" t="IncludeRecursive" />
           <e p="node_modules\vue-clickaway" t="IncludeRecursive" />
           <e p="node_modules\vue-loader" t="IncludeRecursive" />
           <e p="node_modules\vue-material" t="IncludeRecursive" />
@@ -114,6 +116,7 @@
               </e>
               <e p="scss" t="Include">
                 <e p="app" t="Include">
+                  <e p="live-match-stats.scss" t="Include" />
                   <e p="live-match.scss" t="Include" />
                 </e>
                 <e p="app.scss" t="Include" />
@@ -200,7 +203,7 @@
                 <e p="MobileMenu.vue" t="Include" />
                 <e p="TopNavbar.vue" t="Include" />
               </e>
-              <e p="LiveMatch.vue" t="Include" />
+              <e p="LiveMatchStats.vue" t="Include" />
               <e p="Maps.vue" t="Include" />
               <e p="Notifications.vue" t="Include" />
               <e p="TableList.vue" t="Include" />

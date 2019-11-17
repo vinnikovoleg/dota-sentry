@@ -131,10 +131,10 @@ namespace DotaSentry.SteamClient.Models
     public class RealtimePlayer
     {
         [JsonProperty("accountid")]
-        public long Accountid { get; set; }
+        public long AccountId { get; set; }
 
         [JsonProperty("playerid")]
-        public long Playerid { get; set; }
+        public long PlayerId { get; set; }
 
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -143,7 +143,7 @@ namespace DotaSentry.SteamClient.Models
         public long Team { get; set; }
 
         [JsonProperty("heroid")]
-        public long Heroid { get; set; }
+        public long HeroId { get; set; }
 
         [JsonProperty("level")]
         public long Level { get; set; }
@@ -161,7 +161,7 @@ namespace DotaSentry.SteamClient.Models
         public long DeniesCount { get; set; }
 
         [JsonProperty("lh_count")]
-        public long LhCount { get; set; }
+        public long LastHitsCount { get; set; }
 
         [JsonProperty("gold")]
         public long Gold { get; set; }

@@ -3,6 +3,11 @@ import VueRouter from "vue-router";
 import 'es6-promise/auto';
 import App from "./App";
 
+import VueApexCharts from 'vue-apexcharts'
+Vue.use(VueApexCharts)
+
+Vue.component('apexchart', VueApexCharts)
+
 // router setup
 import routes from "./routes/routes";
 import store from "./store";
@@ -15,8 +20,6 @@ import Notifications from "./components/NotificationPlugin";
 // MaterialDashboard plugin
 import MaterialDashboard from "./material-dashboard";
 
-import Chartist from "chartist";
-
 // configure router
 const router = new VueRouter({
   mode: 'history',
@@ -24,7 +27,6 @@ const router = new VueRouter({
   linkExactActiveClass: "nav-item active"
 });
 
-Vue.prototype.$Chartist = Chartist;
 
 Vue.use(VueRouter);
 Vue.use(MaterialDashboard);
@@ -38,7 +40,5 @@ new Vue({
   render: h => h(App),
   router,
   store,
-  data: {
-    Chartist: Chartist
-  }
+  data: {}
 });
