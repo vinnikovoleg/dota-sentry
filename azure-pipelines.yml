@@ -24,8 +24,10 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '/DotaSentry/DotaSentry/ClientApp'
+    workingDir: '$(Build.SorucesDirectory)/DotaSentry/ClientApp'
     customCommand: 'run build'
+
+
 
 - task: VSBuild@1
   inputs:
