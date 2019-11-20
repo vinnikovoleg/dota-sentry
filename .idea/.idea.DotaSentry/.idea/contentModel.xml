@@ -125,7 +125,6 @@
                   <e p="_alerts.scss" t="Include" />
                   <e p="_buttons.scss" t="Include" />
                   <e p="_cards.scss" t="Include" />
-                  <e p="_chartist.scss" t="Include" />
                   <e p="_checkboxes.scss" t="Include" />
                   <e p="_colors.scss" t="Include" />
                   <e p="_dialogs.scss" t="Include" />
@@ -163,7 +162,6 @@
             </e>
             <e p="components" t="Include">
               <e p="Cards" t="Include">
-                <e p="ChartCard.vue" t="Include" />
                 <e p="NavTabsCard.vue" t="Include" />
                 <e p="StatsCard.vue" t="Include" />
               </e>
@@ -189,6 +187,7 @@
             <e p="globalDirectives.js" t="Include" />
             <e p="lib" t="Include">
               <e p="api.js" t="Include" />
+              <e p="helpers.js" t="Include" />
             </e>
             <e p="main.js" t="Include" />
             <e p="material-dashboard.js" t="Include" />
@@ -560,16 +559,20 @@
               <e p="Images" t="Include">
                 <e p="750340704828901050.png" t="Include" />
                 <e p="757096217593461859.png" t="Include" />
+                <e p="763850051433071365.png" t="Include" />
                 <e p="763851539924100133.png" t="Include" />
                 <e p="766103125878916434.png" t="Include" />
                 <e p="768351910996164705.png" t="Include" />
+                <e p="769475928691792324.png" t="Include" />
                 <e p="770607054012732987.png" t="Include" />
                 <e p="775106514372016095.png" t="Include" />
+                <e p="777359668599802900.png" t="Include" />
                 <e p="787492768612781238.png" t="Include" />
                 <e p="789738371890395466.png" t="Include" />
                 <e p="860612763723262511.png" t="Include" />
                 <e p="939457282117079692.png" t="Include" />
                 <e p="975479762873971573.png" t="Include" />
+                <e p="985630771489365774.png" t="Include" />
               </e>
             </e>
           </e>

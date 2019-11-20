@@ -1,12 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import 'es6-promise/auto';
+import "es6-promise/auto";
 import App from "./App";
 
-import VueApexCharts from 'vue-apexcharts'
-Vue.use(VueApexCharts)
+import VueApexCharts from "vue-apexcharts";
+Vue.use(VueApexCharts);
 
-Vue.component('apexchart', VueApexCharts)
+Vue.component("apexchart", VueApexCharts);
 
 // router setup
 import routes from "./routes/routes";
@@ -22,11 +22,10 @@ import MaterialDashboard from "./material-dashboard";
 
 // configure router
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   routes, // short for routes: routes
   linkExactActiveClass: "nav-item active"
 });
-
 
 Vue.use(VueRouter);
 Vue.use(MaterialDashboard);

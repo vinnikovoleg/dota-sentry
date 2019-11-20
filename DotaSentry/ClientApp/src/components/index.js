@@ -7,10 +7,4 @@ import NavTabsTable from "./Tables/NavTabsTable.vue";
 import OrderedTable from "./Tables/OrderedTable.vue";
 import SimpleTable from "./Tables/SimpleTable.vue";
 
-export {
-  NavTabsCard,
-  StatsCard,
-  NavTabsTable,
-  OrderedTable,
-  SimpleTable
-};
+export { NavTabsCard, StatsCard, NavTabsTable, OrderedTable, SimpleTable };

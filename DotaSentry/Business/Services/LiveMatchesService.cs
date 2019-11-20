@@ -66,6 +66,7 @@ namespace DotaSentry.Business.Services
             {
                 Id = team.TeamId,
                 Name = team.TeamName,
+                Score = team.Score,
                 Logo = await _imageService.GetSteamImageUrlAsync(team.TeamLogo),
                 Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
                 Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),

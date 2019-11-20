@@ -39,7 +39,8 @@ namespace DotaSentry
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
             // Data Access
-            services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
+            //services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
+            services.AddScoped<IMatchesRepository, MatchesRepository>();
             services.AddScoped<TeamRepository>();
             services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();

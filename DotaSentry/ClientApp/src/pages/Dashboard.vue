@@ -6,37 +6,50 @@
       </md-card-header>
 
       <md-card-content>
-        <div v-if="liveMatches != null && liveMatches.length > 0" class="md-layout live-content">
-          <div @click="navigate(match.serverSteamId)" class="live-match" v-bind:key="match.matchId" v-for="match in liveMatches">
+        <div
+          v-if="liveMatches != null && liveMatches.length > 0"
+          class="md-layout live-content"
+        >
+          <div
+            @click="navigate(match.serverSteamId)"
+            class="live-match"
+            v-bind:key="match.matchId"
+            v-for="match in liveMatches"
+          >
             <div class="team">
-            
-                <picture>
-                  <img v-bind:src="match.radiant.logo" />
-                </picture>
-              <h4>{{match.radiant.name}}</h4>
+              <picture>
+                <img v-bind:src="match.radiant.logo" />
+              </picture>
+              <h4>{{ match.radiant.name }}</h4>
             </div>
 
             <div class="score">
-              <h2>{{match.radiant.score}}</h2>
-              <h2>{{match.dire.score}}</h2>
+              <h2>{{ match.radiant.score }}</h2>
+              <h2>{{ match.dire.score }}</h2>
 
-              <div v-bind:class="{'dire-leads': match.dire.lead > 0, 'radiant-leads': match.radiant.lead > 0}"
-                v-if="match.dire.lead > 0 || match.radiant.lead > 0">
+              <div
+                v-bind:class="{
+                  'dire-leads': match.dire.lead > 0,
+                  'radiant-leads': match.radiant.lead > 0
+                }"
+                v-if="match.dire.lead > 0 || match.radiant.lead > 0"
+              >
                 <i class="material-icons md-light">trending_up</i>
                 <h4>
-                  {{ match.dire.lead > 0 ? match.dire.lead : match.radiant.lead }}
+                  {{
+                    match.dire.lead > 0 ? match.dire.lead : match.radiant.lead
+                  }}
                 </h4>
               </div>
-              
             </div>
 
             <div class="team">
-                <picture>
-                    <img v-bind:src="match.dire.logo" />
-                </picture>
-                <h4>{{match.dire.name}}</h4>
+              <picture>
+                <img v-bind:src="match.dire.logo" />
+              </picture>
+              <h4>{{ match.dire.name }}</h4>
             </div>
-            <div class="game-time">{{match.gameTime.totalMinutes}}</div>
+            <div class="game-time">{{ match.gameTime.totalMinutes }}</div>
           </div>
         </div>
       </md-card-content>
@@ -52,26 +65,27 @@ import {
   OrderedTable
 } from "@/components";
 
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
-  components: { },
+  components: {},
   data() {
-    return {
-      
-    };
+    return {};
   },
   async created() {
-    await this.$store.dispatch('matches/getLiveMatches');
+    await this.$store.dispatch("matches/getLiveMatches");
   },
   computed: {
     ...mapState({
-            liveMatches: state => state.matches.liveMatches
-        })
+      liveMatches: state => state.matches.liveMatches
+    })
   },
-  methods:{
+  methods: {
     navigate(serverSteamId) {
-      this.$router.push({ name: 'LiveMatch', params: { serverSteamId: serverSteamId } });
+      this.$router.push({
+        name: "LiveMatch",
+        params: { serverSteamId: serverSteamId }
+      });
     }
   }
 };

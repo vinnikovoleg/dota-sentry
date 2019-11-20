@@ -1,4 +1,4 @@
-import api from '@/lib/api'
+import api from "@/lib/api";
 
 export default {
   namespaced: true,
@@ -16,12 +16,12 @@ export default {
   },
   actions: {
     async getLiveMatches({ commit }) {
-      const response = await api.getLiveMatches()
-      commit('setLiveMatches', response.data)
+      const response = await api.getLiveMatches();
+      commit("setLiveMatches", response.data);
     },
     async getLiveMatchStats({ commit }, { serverSteamId }) {
-      const response = await api.getLiveMatchStats(serverSteamId)
-      commit('setLiveMatchStats', response.data)
+      const response = await api.getLiveMatchStats(serverSteamId);
+      commit("setLiveMatchStats", response.data);
     }
   }
-}
+};
