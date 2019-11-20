@@ -1,0 +1,163 @@
+.live-stats-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-weight: 600;
+}
+
+.live-stats-header .dire {
+    text-align: right;
+}
+
+.live-stats-header .score {
+    text-align: center;
+}
+
+.live-stats {
+    display: grid;
+    grid-template-columns: 220px auto 220px;
+}
+
+.live-stats .hero {
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14);
+    padding: 5px;
+}
+
+.live-stats .graph {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.live-stats .hero .hero-image img {
+    width: 90px;
+    border-radius: 3px;
+}
+
+.live-stats .hero .item img {
+    width: 22px;
+    height: 16px;
+}
+
+.live-stats .items .item {
+    width: 22px;
+    height: 16px;
+}
+
+.live-stats .dire {
+    text-align: right;
+  }
+
+.live-stats li.hero {
+    list-style-type: none;
+}
+
+.live-stats .hero-container {
+    margin-bottom: 7px;
+}
+
+.live-stats .hero {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.live-stats .hero .stats {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    font-size: 14px;
+    font-weight: 500;
+
+}
+
+.live-stats .radiant .hero .stats {
+    margin-left: 10px;
+    grid-column-start: 2;
+}
+
+.live-stats .dire .hero .stats {
+    margin-right: 10px;
+    grid-column-start: 1;
+    text-align: left;
+}
+
+.live-stats .radiant .hero .stats .info {
+    margin-left: 6px;
+}
+
+.live-stats .dire .hero .stats .label {
+    margin-right: 6px;
+}
+
+.live-stats .radiant .hero .hero-image {
+    grid-column-start: 1;
+}
+
+.live-stats .dire .hero .hero-image {
+    grid-column-start: 2;
+}
+
+.live-stats .hero .hero-title {
+    font-weight: bold;
+}
+
+.live-stats .dire .hero .hero-title {
+    grid-column-start: 2;
+}
+
+.live-stats li.item {
+    display: inline;
+    list-style-type: none;
+}
+
+.live-stats .items {
+    display: flex;
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding-bottom: 4px;
+}
+
+.live-stats .hero .level {
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: white;
+    line-height: 22px;
+    text-align: center;
+    background: #66bb6a;
+    font-weight: 400;
+}
+
+.live-stats .radiant .hero .level {
+    margin-left: auto;
+}
+
+.live-stats .networth {
+    display: flex;
+    margin-top: 5px;
+}
+
+.live-stats .networth-bar {
+    background-color: #FFD700;
+    border-radius: 2px;
+    height: 15px;
+    margin-bottom: 8px;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.14);
+}
+
+.live-stats .networth-value {
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.live-stats .radiant .networth-value {
+    margin-left: 5px;
+}
+
+.live-stats .dire .networth-value {
+    margin-right: 5px;
+}
+
+.live-stats .dire .networth {
+    direction: rtl;
+}
+
