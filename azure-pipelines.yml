@@ -24,10 +24,8 @@ steps:
 - task: Npm@1
   inputs:
     command: 'custom'
-    workingDir: '.../DotaSentry/ClientApp'
+    workingDir: '/DotaSentry/ClientApp'
     customCommand: 'run build'
-
-
 
 - task: VSBuild@1
   inputs:
