@@ -23,6 +23,11 @@ steps:
 
 - task: Npm@1
   inputs:
+    command: 'install'
+    workingDir: 'DotaSentry/ClientApp'
+    
+- task: Npm@1
+  inputs:
     command: 'custom'
     workingDir: 'DotaSentry/ClientApp'
     customCommand: 'run build'
