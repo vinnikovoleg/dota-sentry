@@ -39,7 +39,7 @@ namespace DotaSentry.Controllers
 
         [HttpGet]
         [Route("{serverSteamId}")]
-        public async Task<LiveMatchStats> GetTestAsync(ulong serverSteamId)
+        public async Task<LiveMatchStatsModel> GetTestAsync(ulong serverSteamId)
         {
             return await _liveMatchesService.GetRealtimeMatchStatsAsync(serverSteamId);
         }

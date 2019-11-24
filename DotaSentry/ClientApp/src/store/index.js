@@ -16,4 +16,6 @@ const store = new Vuex.Store({
   actions: {}
 });
 
+store.dispatch("matches/getLiveMatches");
+
 export default store;

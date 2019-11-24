@@ -16,6 +16,10 @@
     <None Remove="Business\Builders\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <Content Remove="appsettings.Production.Development.json" />
+    <Compile Remove="new_app\dota-sentry\node_modules\**" />
+    <EmbeddedResource Remove="new_app\dota-sentry\node_modules\**" />
+    <None Remove="new_app\dota-sentry\node_modules\**" />
+    <Content Remove="new_app\dota-sentry\node_modules\**" />
   </ItemGroup>
 
   <Target Name="PublishIncludeSpaDist" AfterTargets="ComputeFilesToPublish">

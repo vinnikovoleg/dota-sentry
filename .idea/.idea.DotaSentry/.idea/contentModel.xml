@@ -34,39 +34,39 @@
           </e>
           <e p="node_modules\@vue\cli-plugin-babel" t="IncludeRecursive" />
           <e p="node_modules\@vue\cli-plugin-eslint" t="IncludeRecursive" />
+          <e p="node_modules\@vue\cli-plugin-router" t="IncludeRecursive" />
+          <e p="node_modules\@vue\cli-plugin-vuex" t="IncludeRecursive" />
           <e p="node_modules\@vue\cli-service" t="IncludeRecursive" />
           <e p="node_modules\@vue\component-compiler-utils" t="IncludeRecursive" />
-          <e p="node_modules\@vue\eslint-config-prettier" t="IncludeRecursive" />
           <e p="node_modules\address" t="IncludeRecursive" />
-          <e p="node_modules\apexcharts" t="IncludeRecursive" />
           <e p="node_modules\axios" t="IncludeRecursive" />
+          <e p="node_modules\babel-eslint" t="IncludeRecursive" />
           <e p="node_modules\chalk" t="IncludeRecursive" />
           <e p="node_modules\cli-highlight" t="IncludeRecursive" />
           <e p="node_modules\commander" t="IncludeRecursive" />
+          <e p="node_modules\core-js" t="IncludeRecursive" />
+          <e p="node_modules\dotenv" t="IncludeRecursive" />
           <e p="node_modules\dotenv-expand" t="IncludeRecursive" />
-          <e p="node_modules\es6-promise" t="IncludeRecursive" />
-          <e p="node_modules\eslint-plugin-prettier" t="IncludeRecursive" />
+          <e p="node_modules\eslint" t="IncludeRecursive" />
           <e p="node_modules\eslint-plugin-vue" t="IncludeRecursive" />
-          <e p="node_modules\google-maps" t="IncludeRecursive" />
           <e p="node_modules\javascript-stringify" t="IncludeRecursive" />
           <e p="node_modules\json-bigint" t="IncludeRecursive" />
-          <e p="node_modules\node-sass" t="IncludeRecursive" />
           <e p="node_modules\portfinder" t="IncludeRecursive" />
           <e p="node_modules\postcss" t="IncludeRecursive" />
           <e p="node_modules\postcss-selector-parser" t="IncludeRecursive" />
+          <e p="node_modules\sass" t="IncludeRecursive" />
           <e p="node_modules\sass-loader" t="IncludeRecursive" />
           <e p="node_modules\source-map" t="IncludeRecursive" />
           <e p="node_modules\terser" t="IncludeRecursive" />
           <e p="node_modules\vue" t="IncludeRecursive" />
-          <e p="node_modules\vue-analytics" t="IncludeRecursive" />
-          <e p="node_modules\vue-apexcharts" t="IncludeRecursive" />
-          <e p="node_modules\vue-clickaway" t="IncludeRecursive" />
+          <e p="node_modules\vue-cli-plugin-vuetify" t="IncludeRecursive" />
           <e p="node_modules\vue-loader" t="IncludeRecursive" />
-          <e p="node_modules\vue-material" t="IncludeRecursive" />
           <e p="node_modules\vue-router" t="IncludeRecursive" />
-          <e p="node_modules\vue-social-sharing" t="IncludeRecursive" />
           <e p="node_modules\vue-template-compiler" t="IncludeRecursive" />
+          <e p="node_modules\vuetify" t="IncludeRecursive" />
+          <e p="node_modules\vuetify-loader" t="IncludeRecursive" />
           <e p="node_modules\vuex" t="IncludeRecursive" />
+          <e p="node_modules\webpack-chain" t="IncludeRecursive" />
           <e p="package.json" t="Include" />
           <e p="postcss.config.js" t="Include" />
           <e p="public" t="Include">
@@ -77,42 +77,9 @@
           <e p="src" t="Include">
             <e p="App.vue" t="Include" />
             <e p="assets" t="Include">
-              <e p="github" t="Include">
-                <e p="angular.png" t="Include" />
-                <e p="chrome.png" t="Include" />
-                <e p="dashboard.png" t="Include" />
-                <e p="edge.png" t="Include" />
-                <e p="firefox.png" t="Include" />
-                <e p="html.png" t="Include" />
-                <e p="maps.png" t="Include" />
-                <e p="notification.png" t="Include" />
-                <e p="opera.png" t="Include" />
-                <e p="opt_md_angular_thumbnail.jpg" t="Include" />
-                <e p="opt_md_thumbnail.jpg" t="Include" />
-                <e p="opt_md_vue_thumbnail.jpg" t="Include" />
-                <e p="opt_mdr_thumbnail.jpg" t="Include" />
-                <e p="product.gif" t="Include" />
-                <e p="react.svg" t="Include" />
-                <e p="safari.png" t="Include" />
-                <e p="tables.png" t="Include" />
-                <e p="user_profile.png" t="Include" />
-                <e p="vuejs.png" t="Include" />
-              </e>
               <e p="img" t="Include">
-                <e p="apple-icon.png" t="Include" />
                 <e p="dota-2-icon-28.jpg" t="Include" />
                 <e p="dota_2_7-0_the_new_journey_sun_wukong_monkey_king.jpg" t="Include" />
-                <e p="faces" t="Include">
-                  <e p="marc.jpg" t="Include" />
-                </e>
-                <e p="favicon.png" t="Include" />
-                <e p="mask.png" t="Include" />
-                <e p="new_logo.png" t="Include" />
-                <e p="sidebar-1.jpg" t="Include" />
-                <e p="sidebar-2.jpg" t="Include" />
-                <e p="sidebar-3.jpg" t="Include" />
-                <e p="sidebar-4.jpg" t="Include" />
-                <e p="tim_80x80.png" t="Include" />
               </e>
               <e p="scss" t="Include">
                 <e p="app" t="Include">
@@ -120,67 +87,6 @@
                   <e p="live-match.scss" t="Include" />
                 </e>
                 <e p="app.scss" t="Include" />
-                <e p="material-dashboard.scss" t="Include" />
-                <e p="md" t="Include">
-                  <e p="_alerts.scss" t="Include" />
-                  <e p="_buttons.scss" t="Include" />
-                  <e p="_cards.scss" t="Include" />
-                  <e p="_checkboxes.scss" t="Include" />
-                  <e p="_colors.scss" t="Include" />
-                  <e p="_dialogs.scss" t="Include" />
-                  <e p="_dropdown.scss" t="Include" />
-                  <e p="_footers.scss" t="Include" />
-                  <e p="_forms.scss" t="Include" />
-                  <e p="_inputs-size.scss" t="Include" />
-                  <e p="_inputs.scss" t="Include" />
-                  <e p="_layout.scss" t="Include" />
-                  <e p="_misc.scss" t="Include" />
-                  <e p="_mixins.scss" t="Include" />
-                  <e p="_navbars.scss" t="Include" />
-                  <e p="_pagination.scss" t="Include" />
-                  <e p="_pills.scss" t="Include" />
-                  <e p="_popups.scss" t="Include" />
-                  <e p="_responsive.scss" t="Include" />
-                  <e p="_ripples.scss" t="Include" />
-                  <e p="_shadows.scss" t="Include" />
-                  <e p="_sidebar-and-main-panel.scss" t="Include" />
-                  <e p="_tables.scss" t="Include" />
-                  <e p="_tabs.scss" t="Include" />
-                  <e p="_togglebutton.scss" t="Include" />
-                  <e p="_typography.scss" t="Include" />
-                  <e p="_variables.scss" t="Include" />
-                  <e p="mixins" t="Include">
-                    <e p="_chartist.scss" t="Include" />
-                    <e p="_transparency.scss" t="Include" />
-                    <e p="_vendor-prefixes.scss" t="Include" />
-                  </e>
-                  <e p="plugins" t="Include">
-                    <e p="_perfect-scrollbar.scss" t="Include" />
-                  </e>
-                </e>
-              </e>
-            </e>
-            <e p="components" t="Include">
-              <e p="Cards" t="Include">
-                <e p="NavTabsCard.vue" t="Include" />
-                <e p="StatsCard.vue" t="Include" />
-              </e>
-              <e p="Dropdown.vue" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="NotificationPlugin" t="Include">
-                <e p="index.js" t="Include" />
-                <e p="Notification.vue" t="Include" />
-                <e p="Notifications.vue" t="Include" />
-              </e>
-              <e p="SidebarPlugin" t="Include">
-                <e p="index.js" t="Include" />
-                <e p="SideBar.vue" t="Include" />
-                <e p="SidebarLink.vue" t="Include" />
-              </e>
-              <e p="Tables" t="Include">
-                <e p="NavTabsTable.vue" t="Include" />
-                <e p="OrderedTable.vue" t="Include" />
-                <e p="SimpleTable.vue" t="Include" />
               </e>
             </e>
             <e p="globalComponents.js" t="Include" />
@@ -190,28 +96,13 @@
               <e p="helpers.js" t="Include" />
             </e>
             <e p="main.js" t="Include" />
-            <e p="material-dashboard.js" t="Include" />
             <e p="pages" t="Include">
               <e p="Dashboard.vue" t="Include" />
-              <e p="Icons.vue" t="Include" />
               <e p="index.js" t="Include" />
               <e p="Layout" t="Include">
-                <e p="Content.vue" t="Include" />
-                <e p="ContentFooter.vue" t="Include" />
                 <e p="DashboardLayout.vue" t="Include" />
-                <e p="MobileMenu.vue" t="Include" />
-                <e p="TopNavbar.vue" t="Include" />
               </e>
               <e p="LiveMatchStats.vue" t="Include" />
-              <e p="Maps.vue" t="Include" />
-              <e p="Notifications.vue" t="Include" />
-              <e p="TableList.vue" t="Include" />
-              <e p="Typography.vue" t="Include" />
-              <e p="UserProfile" t="Include">
-                <e p="EditProfileForm.vue" t="Include" />
-                <e p="UserCard.vue" t="Include" />
-              </e>
-              <e p="UserProfile.vue" t="Include" />
             </e>
             <e p="routes" t="Include">
               <e p="routes.js" t="Include" />
@@ -220,6 +111,7 @@
               <e p="index.js" t="Include" />
               <e p="matches.js" t="Include" />
             </e>
+            <e p="veutify-plugin.js" t="Include" />
           </e>
           <e p="vue.config.js" t="Include" />
           <e p="yarn-error.log" t="Include" />
@@ -233,7 +125,7 @@
           <e p="HeroModel.cs" t="Include" />
           <e p="ItemModel.cs" t="Include" />
           <e p="LiveMatchModel.cs" t="Include" />
-          <e p="LiveMatchStats.cs" t="Include" />
+          <e p="LiveMatchStatsModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -241,6 +133,60 @@
               <e p="DotaSentry.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="old_app" t="Include">
+          <e p=".eslintrc.js" t="Include" />
+          <e p="babel.config.js" t="Include" />
+          <e p="dota-sentry.code-workspace" t="Include" />
+          <e p="package.json" t="Include" />
+          <e p="postcss.config.js" t="Include" />
+          <e p="public" t="Include">
+            <e p="dota-2-icon-28.ico" t="Include" />
+            <e p="index.html" t="Include" />
+          </e>
+          <e p="README.md" t="Include" />
+          <e p="src" t="Include">
+            <e p="App.vue" t="Include" />
+            <e p="assets" t="Include">
+              <e p="img" t="Include">
+                <e p="dota-2-icon-28.jpg" t="Include" />
+                <e p="dota_2_7-0_the_new_journey_sun_wukong_monkey_king.jpg" t="Include" />
+              </e>
+              <e p="scss" t="Include">
+                <e p="app" t="Include">
+                  <e p="live-match-stats.scss" t="Include" />
+                  <e p="live-match.scss" t="Include" />
+                </e>
+                <e p="app.scss" t="Include" />
+              </e>
+            </e>
+            <e p="globalComponents.js" t="Include" />
+            <e p="globalDirectives.js" t="Include" />
+            <e p="lib" t="Include">
+              <e p="api.js" t="Include" />
+              <e p="helpers.js" t="Include" />
+            </e>
+            <e p="main.js" t="Include" />
+            <e p="pages" t="Include">
+              <e p="Dashboard.vue" t="Include" />
+              <e p="index.js" t="Include" />
+              <e p="Layout" t="Include">
+                <e p="DashboardLayout.vue" t="Include" />
+              </e>
+              <e p="LiveMatchStats.vue" t="Include" />
+            </e>
+            <e p="routes" t="Include">
+              <e p="routes.js" t="Include" />
+            </e>
+            <e p="store" t="Include">
+              <e p="index.js" t="Include" />
+              <e p="matches.js" t="Include" />
+            </e>
+            <e p="veutify-plugin.js" t="Include" />
+          </e>
+          <e p="vue.config.js" t="Include" />
+          <e p="yarn-error.log" t="Include" />
+          <e p="yarn.lock" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
@@ -566,14 +512,19 @@
                 <e p="768351910996164705.png" t="Include" />
                 <e p="769475928691792324.png" t="Include" />
                 <e p="770607054012732987.png" t="Include" />
+                <e p="773979233121245751.png" t="Include" />
                 <e p="775106514372016095.png" t="Include" />
                 <e p="777359668599802900.png" t="Include" />
+                <e p="778478584851455386.png" t="Include" />
                 <e p="779613613814928282.png" t="Include" />
+                <e p="781862709881698355.png" t="Include" />
                 <e p="787492768612781238.png" t="Include" />
                 <e p="789738371890395466.png" t="Include" />
+                <e p="797618802515005163.png" t="Include" />
                 <e p="860612763723262511.png" t="Include" />
                 <e p="939457282117079692.png" t="Include" />
                 <e p="943954717963273320.png" t="Include" />
+                <e p="946219835812927529.png" t="Include" />
                 <e p="975479762873971573.png" t="Include" />
                 <e p="985630771489365774.png" t="Include" />
               </e>

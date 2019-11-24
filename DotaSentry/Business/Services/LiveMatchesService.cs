@@ -40,14 +40,14 @@ namespace DotaSentry.Business.Services
             return matchModels;
         }
 
-        public async Task<LiveMatchStats> GetRealtimeMatchStatsAsync(ulong serverSteamId)
+        public async Task<LiveMatchStatsModel> GetRealtimeMatchStatsAsync(ulong serverSteamId)
         {
             var matchStats = await _matchesRepository.GetRealtimeMatchStatsAsync(serverSteamId);
             var radiantTeam =
                 await BuildLiveTeamStats(matchStats.Teams[0], matchStats.Match.Picks, matchStats.Match.Bans);
             var direTeam = await BuildLiveTeamStats(matchStats.Teams[1], matchStats.Match.Picks, matchStats.Match.Bans);
 
-            return new LiveMatchStats
+            return new LiveMatchStatsModel
             {
                 ServerSteamId = matchStats.Match.ServerSteamId,
                 GameTime = TimeSpan.FromSeconds(matchStats.Match.GameTime),
@@ -57,16 +57,17 @@ namespace DotaSentry.Business.Services
             };
         }
 
-        private async Task<LiveTeamStats> BuildLiveTeamStats(RealtimeTeam team, List<HeroPick> picks,
+        private async Task<LiveTeamStatsModel> BuildLiveTeamStats(RealtimeTeam team, List<HeroPick> picks,
             List<HeroPick> bans)
         {
             var heroes = await _heroesService.GetHeroesAsync();
             var items = await _itemsService.GetItemsAsync();
-            return new LiveTeamStats
+            return new LiveTeamStatsModel
             {
                 Id = team.TeamId,
                 Name = team.TeamName,
                 Score = team.Score,
+                NetWorth = team.NetWorth,
                 Logo = await _imageService.GetSteamImageUrlAsync(team.TeamLogo),
                 Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
                 Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
@@ -100,6 +101,7 @@ namespace DotaSentry.Business.Services
                 GameTime = TimeSpan.FromSeconds(match.GameTime),
                 Radiant = new TeamModel
                 {
+                    Id = match.TeamIdRadiant,
                     Name = match.TeamNameRadiant,
                     Lead = match.RadiantLead > 0 ? match.RadiantLead : 0,
                     Score = match.RadiantScore,
@@ -109,6 +111,7 @@ namespace DotaSentry.Business.Services
                 },
                 Dire = new TeamModel
                 {
+                    Id = match.TeamIdDire,
                     Name = match.TeamNameDire,
                     Lead = match.RadiantLead < 0 ? Math.Abs(match.RadiantLead) : 0,
                     Score = match.DireScore,
