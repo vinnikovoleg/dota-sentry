@@ -8,12 +8,12 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'home',
+    name: 'Dashobard',
     component: Dashobard
   },
   {
     path: '/match/:serverSteamId',
-    name: 'home',
+    name: 'LiveMatch',
     component: LiveMatch
   },
   {

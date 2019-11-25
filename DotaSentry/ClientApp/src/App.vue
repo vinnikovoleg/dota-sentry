@@ -5,14 +5,16 @@
       dark
     >
       <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="@/assets/images/dota-2-icon-28.jpg"
-          transition="scale-transition"
-          width="40"
-        />
+        <router-link :to="{ name: 'Dashobard'}">
+          <v-img
+            alt="Dota Sentry"
+            class="shrink mr-2"
+            contain
+            src="@/assets/images/dota-2-icon-28.jpg"
+            transition="scale-transition"
+            width="40"
+          />
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>

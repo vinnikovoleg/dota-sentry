@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <h1>{{liveMatch.radiant.name}}</h1>
   </div>
 </template>
 

@@ -24,9 +24,8 @@
           </e>
         </e>
         <e p="ClientApp" t="Include">
-          <e p=".eslintrc.js" t="Include" />
+          <e p=".gitignore" t="Include" />
           <e p="babel.config.js" t="Include" />
-          <e p="dota-sentry.code-workspace" t="Include" />
           <e p="node_modules\@types" t="IncludeRecursive">
             <e p="events" t="IncludeRecursive" />
             <e p="minimatch" t="IncludeRecursive" />
@@ -68,7 +67,6 @@
           <e p="node_modules\vuex" t="IncludeRecursive" />
           <e p="node_modules\webpack-chain" t="IncludeRecursive" />
           <e p="package.json" t="Include" />
-          <e p="postcss.config.js" t="Include" />
           <e p="public" t="Include">
             <e p="dota-2-icon-28.ico" t="Include" />
             <e p="index.html" t="Include" />
@@ -77,9 +75,8 @@
           <e p="src" t="Include">
             <e p="App.vue" t="Include" />
             <e p="assets" t="Include">
-              <e p="img" t="Include">
+              <e p="Images" t="Include">
                 <e p="dota-2-icon-28.jpg" t="Include" />
-                <e p="dota_2_7-0_the_new_journey_sun_wukong_monkey_king.jpg" t="Include" />
               </e>
               <e p="scss" t="Include">
                 <e p="app" t="Include">
@@ -89,32 +86,29 @@
                 <e p="app.scss" t="Include" />
               </e>
             </e>
-            <e p="globalComponents.js" t="Include" />
-            <e p="globalDirectives.js" t="Include" />
             <e p="lib" t="Include">
               <e p="api.js" t="Include" />
               <e p="helpers.js" t="Include" />
             </e>
             <e p="main.js" t="Include" />
-            <e p="pages" t="Include">
-              <e p="Dashboard.vue" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="Layout" t="Include">
-                <e p="DashboardLayout.vue" t="Include" />
-              </e>
-              <e p="LiveMatchStats.vue" t="Include" />
+            <e p="plugins" t="Include">
+              <e p="vuetify.js" t="Include" />
             </e>
-            <e p="routes" t="Include">
-              <e p="routes.js" t="Include" />
+            <e p="router" t="Include">
+              <e p="index.js" t="Include" />
             </e>
             <e p="store" t="Include">
               <e p="index.js" t="Include" />
               <e p="matches.js" t="Include" />
             </e>
-            <e p="veutify-plugin.js" t="Include" />
+            <e p="views" t="Include">
+              <e p="About.vue" t="Include" />
+              <e p="Dashboard.vue" t="Include" />
+              <e p="dota-sentry.code-workspace" t="Include" />
+              <e p="LiveMatchStats.vue" t="Include" />
+            </e>
           </e>
           <e p="vue.config.js" t="Include" />
-          <e p="yarn-error.log" t="Include" />
           <e p="yarn.lock" t="Include" />
         </e>
         <e p="Controllers" t="Include">
@@ -133,60 +127,6 @@
               <e p="DotaSentry.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
-        </e>
-        <e p="old_app" t="Include">
-          <e p=".eslintrc.js" t="Include" />
-          <e p="babel.config.js" t="Include" />
-          <e p="dota-sentry.code-workspace" t="Include" />
-          <e p="package.json" t="Include" />
-          <e p="postcss.config.js" t="Include" />
-          <e p="public" t="Include">
-            <e p="dota-2-icon-28.ico" t="Include" />
-            <e p="index.html" t="Include" />
-          </e>
-          <e p="README.md" t="Include" />
-          <e p="src" t="Include">
-            <e p="App.vue" t="Include" />
-            <e p="assets" t="Include">
-              <e p="img" t="Include">
-                <e p="dota-2-icon-28.jpg" t="Include" />
-                <e p="dota_2_7-0_the_new_journey_sun_wukong_monkey_king.jpg" t="Include" />
-              </e>
-              <e p="scss" t="Include">
-                <e p="app" t="Include">
-                  <e p="live-match-stats.scss" t="Include" />
-                  <e p="live-match.scss" t="Include" />
-                </e>
-                <e p="app.scss" t="Include" />
-              </e>
-            </e>
-            <e p="globalComponents.js" t="Include" />
-            <e p="globalDirectives.js" t="Include" />
-            <e p="lib" t="Include">
-              <e p="api.js" t="Include" />
-              <e p="helpers.js" t="Include" />
-            </e>
-            <e p="main.js" t="Include" />
-            <e p="pages" t="Include">
-              <e p="Dashboard.vue" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="Layout" t="Include">
-                <e p="DashboardLayout.vue" t="Include" />
-              </e>
-              <e p="LiveMatchStats.vue" t="Include" />
-            </e>
-            <e p="routes" t="Include">
-              <e p="routes.js" t="Include" />
-            </e>
-            <e p="store" t="Include">
-              <e p="index.js" t="Include" />
-              <e p="matches.js" t="Include" />
-            </e>
-            <e p="veutify-plugin.js" t="Include" />
-          </e>
-          <e p="vue.config.js" t="Include" />
-          <e p="yarn-error.log" t="Include" />
-          <e p="yarn.lock" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
