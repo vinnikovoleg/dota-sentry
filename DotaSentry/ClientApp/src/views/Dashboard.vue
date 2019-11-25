@@ -18,11 +18,11 @@
                 <v-row>
                   
                   <v-col cols="4" class="team">
-                    <v-row  justify="center" align="center">
-                        <v-img :src="match.radiant.logo"
-                         aspect-ratio="1"
-                          max-width="100"
-                         />
+                    <v-row justify="center" align="center">
+                          <v-img :src="match.radiant.logo"
+                           :alt="match.radiant.name"
+                           max-width="100" aspect-ratio="1"
+                          />
                     </v-row>
                     <v-row  justify="center" align="center">
                        <span class="subtitle-1">{{ match.radiant.name }}</span>
@@ -51,6 +51,7 @@
                        <v-img :src="match.dire.logo"
                          aspect-ratio="1"
                           max-width="100"
+                          :alt="match.dire.name"
                          />
                     </v-row>
                     <v-row justify="center" align="center">

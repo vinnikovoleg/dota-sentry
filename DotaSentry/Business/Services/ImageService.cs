@@ -13,7 +13,7 @@ namespace DotaSentry.Business.Services
     public class ImageService
     {
         private readonly SteamFileRepository _steamFileRepository;
-        private readonly string _imagesRelativePath = "StaticFiles/Temp/Images";
+        private readonly string _imagesRelativePath = "/StaticFiles/Temp/Images";
         private readonly IWebHostEnvironment _environment;
 
         public ImageService(

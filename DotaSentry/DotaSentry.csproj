@@ -50,6 +50,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\StaticFiles\Images\" />
     <Folder Include="wwwroot\StaticFiles\Data\" />
+    <Folder Include="wwwroot\StaticFiles\Temp\Images" />
   </ItemGroup>
 
 </Project>
