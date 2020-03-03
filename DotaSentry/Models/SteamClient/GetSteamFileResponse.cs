@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using Newtonsoft.Json;
 
-namespace DotaSentry.SteamClient.Models
+namespace DotaSentry.Models.SteamClient
 {
     public class GetSteamFileResponse
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using DotaSentry.SteamClient.Models;
+using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.SteamClient.Business.DataAccess
+namespace DotaSentry.Business.SteamClient.DataAccess
 {
     public interface IMatchesRepository
     {

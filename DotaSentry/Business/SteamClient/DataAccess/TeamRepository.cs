@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DotaSentry.SteamClient.Models;
+using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.SteamClient.Business.DataAccess
+namespace DotaSentry.Business.SteamClient.DataAccess
 {
     public class TeamRepository  : SteamBaseRepository
     {

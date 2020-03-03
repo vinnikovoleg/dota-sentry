@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Models;
-using DotaSentry.SteamClient.Business.DataAccess;
-using DotaSentry.SteamClient.Models;
+using DotaSentry.Models.SteamClient;
+using IMatchesRepository = DotaSentry.Business.SteamClient.DataAccess.IMatchesRepository;
 
 namespace DotaSentry.Business.Services
 {

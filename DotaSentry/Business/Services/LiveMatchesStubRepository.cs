@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using DotaSentry.SteamClient.Business.DataAccess;
-using DotaSentry.SteamClient.Models;
+using DotaSentry.Models.SteamClient;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
+using IMatchesRepository = DotaSentry.Business.SteamClient.DataAccess.IMatchesRepository;
 
 namespace DotaSentry.Business.Services
 {

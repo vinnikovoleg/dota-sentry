@@ -4,9 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using DotaSentry.SteamClient.Business.DataAccess;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using SteamFileRepository = DotaSentry.Business.SteamClient.DataAccess.SteamFileRepository;
 
 namespace DotaSentry.Business.Services
 {

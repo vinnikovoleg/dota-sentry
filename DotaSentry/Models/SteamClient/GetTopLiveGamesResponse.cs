@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace DotaSentry.SteamClient.Models
+namespace DotaSentry.Models.SteamClient
 {
     public class GetTopLiveGamesResponse
     {

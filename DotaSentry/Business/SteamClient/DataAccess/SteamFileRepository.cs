@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using System.Threading.Tasks;
-using DotaSentry.SteamClient.Models;
+using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.SteamClient.Business.DataAccess
+namespace DotaSentry.Business.SteamClient.DataAccess
 {
-    public class SteamFileRepository : SteamBaseRepository
+    public class SteamFileRepository : DotaSentry.Business.SteamClient.DataAccess.SteamBaseRepository
     {
-        public SteamFileRepository(JsonClient jsonClient) : base(jsonClient)
+        public SteamFileRepository(DotaSentry.Business.SteamClient.DataAccess.JsonClient jsonClient) : base(jsonClient)
         {
         }
 

@@ -5,21 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Business.MongoClient;
 using DotaSentry.Business.Services;
-using DotaSentry.SteamClient.Business.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Sentry;
+using IMatchesRepository = DotaSentry.Business.SteamClient.DataAccess.IMatchesRepository;
+using JsonClient = DotaSentry.Business.SteamClient.DataAccess.JsonClient;
+using SteamFileRepository = DotaSentry.Business.SteamClient.DataAccess.SteamFileRepository;
+using TeamRepository = DotaSentry.Business.SteamClient.DataAccess.TeamRepository;
 
 namespace DotaSentry
 {

@@ -4,11 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using DotaSentry.Business.MongoClient;
 using DotaSentry.Business.Services;
 using DotaSentry.Models;
-using DotaSentry.SteamClient.Business.DataAccess;
-using DotaSentry.SteamClient.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotaSentry.Controllers
