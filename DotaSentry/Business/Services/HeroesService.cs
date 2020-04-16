@@ -52,6 +52,15 @@ namespace DotaSentry.Business.Services
 
         }
 
+        public HeroModel GetUnknownHero()
+        {
+            return new HeroModel
+            {
+                Name = "Unknown",
+                LocalizedName = "Unknown"
+            };
+        }
+
         private class HeroesData
         {
             public List<HeroModel> Heroes { get; set; }

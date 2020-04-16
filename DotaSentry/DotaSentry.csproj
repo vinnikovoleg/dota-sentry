@@ -44,10 +44,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotaSentry.SteamClient\DotaSentry.SteamClient.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Business\SteamClient" />
     <Folder Include="wwwroot\StaticFiles\Images\" />
     <Folder Include="wwwroot\StaticFiles\Data\" />

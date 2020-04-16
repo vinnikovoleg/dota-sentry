@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Business.MongoClient;
 using DotaSentry.Business.Services;
+using DotaSentry.Business.SteamClient.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
@@ -36,8 +37,8 @@ namespace DotaSentry
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
             // Data Access
-            services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
-            //services.AddScoped<IMatchesRepository, MatchesRepository>();
+            //services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
+            services.AddScoped<IMatchesRepository, MatchesRepository>();
             services.AddScoped<TeamRepository>();
             services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();

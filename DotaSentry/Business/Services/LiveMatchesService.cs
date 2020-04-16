@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using DotaSentry.Models;
 using DotaSentry.Models.SteamClient;
@@ -62,6 +63,17 @@ namespace DotaSentry.Business.Services
         {
             var heroes = await _heroesService.GetHeroesAsync();
             var items = await _itemsService.GetItemsAsync();
+
+            HeroModel GetHero(long heroId)
+            {
+                return heroes.ContainsKey(heroId) ? heroes[heroId] : _heroesService.GetUnknownHero();
+            }
+
+            ItemModel GetItem(long itemId)
+            {
+                return items.ContainsKey(itemId) ? items[itemId] : new ItemModel {Name = "Unknown"};
+            }
+
             return new LiveTeamStatsModel
             {
                 Id = team.TeamId,
@@ -69,8 +81,8 @@ namespace DotaSentry.Business.Services
                 Score = team.Score,
                 NetWorth = team.NetWorth,
                 Logo = await _imageService.GetSteamImageUrlAsync(team.TeamLogo),
-                Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
-                Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => heroes[b.Hero]).ToList(),
+                Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
+                Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
                 Players = team.Players.Where(p => p.Team == team.TeamNumber)
                     .Select(p => new PlayerModel
                     {
@@ -85,8 +97,8 @@ namespace DotaSentry.Business.Services
                         Gold = p.Gold,
                         NetWorth = p.NetWorth,
                         Level = p.Level,
-                        Hero = heroes[p.HeroId],
-                        Items = p.Items.Select(itemId => items[itemId]).ToList()
+                        Hero = GetHero(p.HeroId),
+                        Items = p.Items.Select(GetItem).ToList()
                     })
                     .ToList()
             };

@@ -91,7 +91,7 @@ namespace DotaSentry.Models.SteamClient
     public class HeroPick
     {
         [JsonProperty("hero")]
-        public long Hero { get; set; }
+        public long HeroId { get; set; }
 
         [JsonProperty("team")]
         public long Team { get; set; }

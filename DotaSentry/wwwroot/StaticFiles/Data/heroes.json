@@ -701,6 +701,18 @@
             "name": "npc_dota_hero_mars",
             "localized_name": "Mars",
             "logo": "/StaticFiles/Images/heroes/npc_dota_hero_mars.png"
+        },
+        {
+            "name": "npc_dota_hero_void_spirit",
+            "id": 126,
+            "localized_name": "Void Spirit",
+            "logo": "/StaticFiles/Images/heroes/npc_dota_hero_void_spirit.png"
+        },
+        {
+            "name": "npc_dota_hero_snapfire",
+            "id": 128,
+            "localized_name": "Snapfire",
+            "logo": "/StaticFiles/Images/heroes/npc_dota_hero_snapfire.png"
         }
     ]
 }
