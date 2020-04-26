@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\oleg.vinnikov\.Rider2019.3\config\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\oleg.vinnikov\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\oleg.vinnikov\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_DotaSentry.-2029300491.00" t="ExcludeRecursive" />
+    <e p="C:\Users\oleg.vinnikov\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\oleg.vinnikov\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_DotaSentry.-2029300491.00" t="ExcludeRecursive" />
+    <e p="C:\Users\oleg.vinnikov\AppData\Roaming\JetBrains\Rider2020.1\scratches" t="IncludeRecursive" />
     <e p="E:\Projects\DotaSentry" t="IncludeFlat">
       <e p="DotaSentry" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
@@ -36,6 +36,7 @@
         <e p="ClientApp" t="Include">
           <e p=".gitignore" t="Include" />
           <e p="babel.config.js" t="Include" />
+          <e p="dota-sentry.code-workspace" t="Include" />
           <e p="node_modules\@types" t="IncludeRecursive">
             <e p="events" t="IncludeRecursive" />
             <e p="minimatch" t="IncludeRecursive" />
@@ -114,7 +115,6 @@
             <e p="views" t="Include">
               <e p="About.vue" t="Include" />
               <e p="Dashboard.vue" t="Include" />
-              <e p="dota-sentry.code-workspace" t="Include" />
               <e p="LiveMatchStats.vue" t="Include" />
             </e>
           </e>
