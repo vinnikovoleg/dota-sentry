@@ -1,0 +1,12 @@
+@import '../responsive';
+
+.dashboard {
+  background: black;
+  @include mq($from: mobile, $until: tablet) {
+    background: red;
+  }
+
+  @include mq($from: tablet, $until: desktop) {
+    background: green;
+  }
+}
