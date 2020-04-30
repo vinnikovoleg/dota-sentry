@@ -66,15 +66,13 @@
           <e p="node_modules\postcss-selector-parser" t="IncludeRecursive" />
           <e p="node_modules\sass" t="IncludeRecursive" />
           <e p="node_modules\sass-loader" t="IncludeRecursive" />
+          <e p="node_modules\sass-mq" t="IncludeRecursive" />
           <e p="node_modules\source-map" t="IncludeRecursive" />
           <e p="node_modules\terser" t="IncludeRecursive" />
           <e p="node_modules\vue" t="IncludeRecursive" />
-          <e p="node_modules\vue-cli-plugin-vuetify" t="IncludeRecursive" />
           <e p="node_modules\vue-loader" t="IncludeRecursive" />
           <e p="node_modules\vue-router" t="IncludeRecursive" />
           <e p="node_modules\vue-template-compiler" t="IncludeRecursive" />
-          <e p="node_modules\vuetify" t="IncludeRecursive" />
-          <e p="node_modules\vuetify-loader" t="IncludeRecursive" />
           <e p="node_modules\vuex" t="IncludeRecursive" />
           <e p="node_modules\webpack-chain" t="IncludeRecursive" />
           <e p="package.json" t="Include" />
@@ -91,10 +89,12 @@
               </e>
               <e p="scss" t="Include">
                 <e p="app" t="Include">
+                  <e p="dashboard.scss" t="Include" />
                   <e p="live-match-stats.scss" t="Include" />
-                  <e p="live-match.scss" t="Include" />
                 </e>
                 <e p="app.scss" t="Include" />
+                <e p="base-mixins.scss" t="Include" />
+                <e p="responsive.scss" t="Include" />
               </e>
             </e>
             <e p="lib" t="Include">

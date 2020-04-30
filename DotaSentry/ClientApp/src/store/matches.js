@@ -24,7 +24,7 @@ export default {
   actions: {
     async getLiveMatches({ commit }) {
       var getLive = async () => {
-        const response = await api.getLiveMatches();
+        const response = await api.live.get();
         commit("setLiveMatches", response.data);
       };
       getLive();
@@ -35,7 +35,7 @@ export default {
       
     },
     async getLiveMatchStats({ commit }, { serverSteamId }) {
-      const response = await api.getLiveMatchStats(serverSteamId);
+      const response = await api.live.getById(serverSteamId);
       commit("setLiveMatchStats", response.data);
     }
   },
