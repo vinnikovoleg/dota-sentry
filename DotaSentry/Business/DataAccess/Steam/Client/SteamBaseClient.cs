@@ -1,16 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace DotaSentry.Business.SteamClient.DataAccess
+namespace DotaSentry.Business.DataAccess.Steam.Client
 {
-    public abstract class SteamBaseRepository
+    public abstract class SteamBaseClient
     {
-        protected readonly DotaSentry.Business.SteamClient.DataAccess.JsonClient JsonClient;
+        protected readonly JsonClient JsonClient;
         private readonly string _host = "https://api.steampowered.com";
         private readonly string _version = "v1";
         private readonly string _apiKey = "0B49CEB49A52EF5593677EAD8F31AFD2";
 
-        protected SteamBaseRepository(DotaSentry.Business.SteamClient.DataAccess.JsonClient jsonClient)
+        protected SteamBaseClient(JsonClient jsonClient)
         {
             JsonClient = jsonClient;
         }

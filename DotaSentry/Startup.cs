@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business.DataAccess;
+using DotaSentry.Business.DataAccess.Steam;
+using DotaSentry.Business.DataAccess.Steam.Client;
 using DotaSentry.Business.MongoClient;
-using DotaSentry.Business.Services;
-using DotaSentry.Business.SteamClient.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
@@ -14,10 +15,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using IMatchesRepository = DotaSentry.Business.SteamClient.DataAccess.IMatchesRepository;
-using JsonClient = DotaSentry.Business.SteamClient.DataAccess.JsonClient;
-using SteamFileRepository = DotaSentry.Business.SteamClient.DataAccess.SteamFileRepository;
-using TeamRepository = DotaSentry.Business.SteamClient.DataAccess.TeamRepository;
 
 namespace DotaSentry
 {
@@ -37,10 +34,11 @@ namespace DotaSentry
             services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/dist"; });
 
             // Data Access
-            services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
-            //services.AddScoped<IMatchesRepository, MatchesRepository>();
-            services.AddScoped<TeamRepository>();
-            services.AddScoped<SteamFileRepository>();
+            //services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
+            services.AddScoped<IMatchRepository, SteamMatchRepository>();
+            services.AddScoped<TeamClient>();
+            services.AddScoped<WebApiClient>();
+            services.AddScoped<SteamFileClient>();
             services.AddScoped<JsonClient>();
             services.AddScoped(provider => new JsonSerializerSettings());
 
@@ -54,10 +52,10 @@ namespace DotaSentry
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
 
-            services.AddScoped<HeroesService>();
-            services.AddScoped<ItemsService>();
-            services.AddScoped<ImageService>();
-            services.AddScoped<LiveMatchesService>();
+            services.AddScoped<HeroesRepository>();
+            services.AddScoped<InventoryItemService>();
+            services.AddScoped<SteamImageRepository>();
+            services.AddScoped<SteamMatchRepository>();
 
             // Builders
         }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace DotaSentry.Business.SteamClient.DataAccess
+namespace DotaSentry.Business.DataAccess
 {
     public class JsonClient
     {

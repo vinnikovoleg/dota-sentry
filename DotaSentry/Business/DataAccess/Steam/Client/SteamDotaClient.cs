@@ -3,11 +3,11 @@ using System.Globalization;
 using System.Threading.Tasks;
 using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.Business.SteamClient.DataAccess
+namespace DotaSentry.Business.DataAccess.Steam.Client
 {
-    public class MatchesRepository : SteamBaseRepository, IMatchesRepository
+    public class SteamDotaClient : SteamBaseClient
     {
-        public MatchesRepository(JsonClient jsonClient) : base(jsonClient)
+        public SteamDotaClient(JsonClient jsonClient) : base(jsonClient)
         {
         }
 
@@ -24,5 +24,11 @@ namespace DotaSentry.Business.SteamClient.DataAccess
             var requestUrl = GetRequestUrl("IDOTA2MatchStats_570", "GetRealtimeStats", parameters);
             return await JsonClient.GetAsync<GetRealtimeMatchStatsResponse>(requestUrl);
         }
+
+        // public async Task<GetLiveLeagueGamesResponse> GetLiveLeagueGamesAsync()
+        // {
+        //     var requestUrl = GetRequestUrl("IDOTA2Match_570", "GetLiveLeagueGames");
+        //     return await JsonClient.GetAsync<GetLiveLeagueGamesResponse>(requestUrl);
+        // }
     }
 }

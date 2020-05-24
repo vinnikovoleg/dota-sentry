@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using DotaSentry.Business.DataAccess.Steam.Client;
 using Microsoft.AspNetCore.Hosting;
-using SteamFileRepository = DotaSentry.Business.SteamClient.DataAccess.SteamFileRepository;
 
-namespace DotaSentry.Business.Services
+namespace DotaSentry.Business.DataAccess.Steam
 {
-    public class ImageService
+    public class SteamImageRepository
     {
-        private readonly SteamFileRepository _steamFileRepository;
-        private readonly string _imagesRelativePath = "/StaticFiles/Temp/Images";
+        private readonly SteamFileClient _steamFileClient;
+        private readonly string _imagesRelativePath = Path.Combine("StaticFiles", "Temp", "Images");
         private readonly IWebHostEnvironment _environment;
 
-        public ImageService(
-            SteamFileRepository steamFileRepository, IWebHostEnvironment environment)
+        public SteamImageRepository(
+            SteamFileClient steamFileClient, IWebHostEnvironment environment)
         {
-            _steamFileRepository = steamFileRepository;
+            _steamFileClient = steamFileClient;
             _environment = environment;
         }
 
@@ -32,7 +29,7 @@ namespace DotaSentry.Business.Services
                 return Path.Combine(_imagesRelativePath, fileName);
             }
 
-            var logoInfo = await _steamFileRepository.GetLogoInfoAsync(imageId);
+            var logoInfo = await _steamFileClient.GetLogoInfoAsync(imageId);
             if (logoInfo?.Data == null)
             {
                 return null;

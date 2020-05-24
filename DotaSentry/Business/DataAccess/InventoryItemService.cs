@@ -8,15 +8,15 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
 
-namespace DotaSentry.Business.Services
+namespace DotaSentry.Business.DataAccess
 {
-    public class ItemsService
+    public class InventoryItemService
     {
         private readonly string _itemsDataPath = "StaticFiles/Data/items.json";
         private readonly IWebHostEnvironment _environment;
         private readonly IMemoryCache _memoryCache;
 
-        public ItemsService(
+        public InventoryItemService(
             IMemoryCache memoryCache,
             IWebHostEnvironment environment)
         {
@@ -24,15 +24,15 @@ namespace DotaSentry.Business.Services
             _environment = environment;
         }
 
-        public async Task<Dictionary<long, ItemModel>> GetItemsAsync()
+        public async Task<Dictionary<long, InventoryItemModel>> GetItemsAsync()
         {
-            async Task<Dictionary<long, ItemModel>> ReadHeroesAsync()
+            async Task<Dictionary<long, InventoryItemModel>> ReadHeroesAsync()
             {
                 var dataPath = Path.Combine(_environment.WebRootPath, _itemsDataPath);
 
                 if (!File.Exists(dataPath))
                 {
-                    return new Dictionary<long, ItemModel>();
+                    return new Dictionary<long, InventoryItemModel>();
                 }
 
                 var json = await File.ReadAllTextAsync(dataPath);
@@ -50,7 +50,7 @@ namespace DotaSentry.Business.Services
 
         private class ItemsData
         {
-            public List<ItemModel> Items { get; set; }
+            public List<InventoryItemModel> Items { get; set; }
         }
     }
 }

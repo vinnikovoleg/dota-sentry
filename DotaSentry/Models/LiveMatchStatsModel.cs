@@ -34,6 +34,6 @@ namespace DotaSentry.Models
         public long Gold { get; set; }
         public long NetWorth { get; set; }
         public long Level { get; set; }
-        public List<ItemModel> Items { get; set; }
+        public List<InventoryItemModel> Items { get; set; }
     }
 }

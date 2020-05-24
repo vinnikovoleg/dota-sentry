@@ -1,36 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using DotaSentry.Business.DataAccess.Steam.Client;
 using DotaSentry.Models;
 using DotaSentry.Models.SteamClient;
-using IMatchesRepository = DotaSentry.Business.SteamClient.DataAccess.IMatchesRepository;
 
-namespace DotaSentry.Business.Services
+namespace DotaSentry.Business.DataAccess.Steam
 {
-    public class LiveMatchesService
+    public class SteamMatchRepository : IMatchRepository
     {
-        private readonly IMatchesRepository _matchesRepository;
-        private readonly ImageService _imageService;
-        private readonly HeroesService _heroesService;
-        private readonly ItemsService _itemsService;
+        private readonly SteamDotaClient _steamDotaClient;
+        private readonly SteamImageRepository _steamImageRepository;
+        private readonly HeroesRepository _heroesRepository;
+        private readonly InventoryItemService _inventoryItemService;
 
-        public LiveMatchesService(
-            IMatchesRepository matchesRepository,
-            ImageService imageService,
-            HeroesService heroesService,
-            ItemsService itemsService)
+        public SteamMatchRepository(
+            SteamDotaClient steamDotaClient,
+            SteamImageRepository steamImageRepository,
+            HeroesRepository heroesRepository,
+            InventoryItemService inventoryItemService)
         {
-            _matchesRepository = matchesRepository;
-            _imageService = imageService;
-            _heroesService = heroesService;
-            _itemsService = itemsService;
+            _steamDotaClient = steamDotaClient;
+            _steamImageRepository = steamImageRepository;
+            _heroesRepository = heroesRepository;
+            _inventoryItemService = inventoryItemService;
         }
 
-        public async Task<List<LiveMatchModel>> GetLiveMatchesAsync()
+        public async Task<List<LiveMatchModel>> GetLiveAsync()
         {
-            var liveMatches = await _matchesRepository.GetTopLiveMatchesAsync();
+            var liveMatches = await _steamDotaClient.GetTopLiveMatchesAsync();
             var matchModels = new List<LiveMatchModel>();
             foreach (var liveMatch in liveMatches.GameList)
             {
@@ -41,9 +40,9 @@ namespace DotaSentry.Business.Services
             return matchModels;
         }
 
-        public async Task<LiveMatchStatsModel> GetRealtimeMatchStatsAsync(ulong serverSteamId)
+        public async Task<LiveMatchStatsModel> GetLiveStatsAsync(ulong serverSteamId)
         {
-            var matchStats = await _matchesRepository.GetRealtimeMatchStatsAsync(serverSteamId);
+            var matchStats = await _steamDotaClient.GetRealtimeMatchStatsAsync(serverSteamId);
             var radiantTeam =
                 await BuildLiveTeamStats(matchStats.Teams[0], matchStats.Match.Picks, matchStats.Match.Bans);
             var direTeam = await BuildLiveTeamStats(matchStats.Teams[1], matchStats.Match.Picks, matchStats.Match.Bans);
@@ -61,17 +60,17 @@ namespace DotaSentry.Business.Services
         private async Task<LiveTeamStatsModel> BuildLiveTeamStats(RealtimeTeam team, List<HeroPick> picks,
             List<HeroPick> bans)
         {
-            var heroes = await _heroesService.GetHeroesAsync();
-            var items = await _itemsService.GetItemsAsync();
+            var heroes = await _heroesRepository.GetHeroesAsync();
+            var items = await _inventoryItemService.GetItemsAsync();
 
             HeroModel GetHero(long heroId)
             {
-                return heroes.ContainsKey(heroId) ? heroes[heroId] : _heroesService.GetUnknownHero();
+                return heroes.ContainsKey(heroId) ? heroes[heroId] : _heroesRepository.GetUnknownHero();
             }
 
-            ItemModel GetItem(long itemId)
+            InventoryItemModel GetItem(long itemId)
             {
-                return items.ContainsKey(itemId) ? items[itemId] : new ItemModel {Name = "Unknown"};
+                return items.ContainsKey(itemId) ? items[itemId] : new InventoryItemModel {Name = "Unknown"};
             }
 
             return new LiveTeamStatsModel
@@ -80,7 +79,7 @@ namespace DotaSentry.Business.Services
                 Name = team.TeamName,
                 Score = team.Score,
                 NetWorth = team.NetWorth,
-                Logo = await _imageService.GetSteamImageUrlAsync(team.TeamLogo),
+                Logo = await _steamImageRepository.GetSteamImageUrlAsync(team.TeamLogo),
                 Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
                 Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
                 Players = team.Players.Where(p => p.Team == team.TeamNumber)
@@ -118,7 +117,7 @@ namespace DotaSentry.Business.Services
                     Lead = match.RadiantLead > 0 ? match.RadiantLead : 0,
                     Score = match.RadiantScore,
                     Logo = match.TeamLogoRadiant.HasValue
-                        ? await _imageService.GetSteamImageUrlAsync(match.TeamLogoRadiant.Value)
+                        ? await _steamImageRepository.GetSteamImageUrlAsync(match.TeamLogoRadiant.Value)
                         : string.Empty
                 },
                 Dire = new TeamModel
@@ -128,7 +127,7 @@ namespace DotaSentry.Business.Services
                     Lead = match.RadiantLead < 0 ? Math.Abs(match.RadiantLead) : 0,
                     Score = match.DireScore,
                     Logo = match.TeamLogoDire.HasValue
-                        ? await _imageService.GetSteamImageUrlAsync(match.TeamLogoDire.Value)
+                        ? await _steamImageRepository.GetSteamImageUrlAsync(match.TeamLogoDire.Value)
                         : string.Empty
                 }
             };

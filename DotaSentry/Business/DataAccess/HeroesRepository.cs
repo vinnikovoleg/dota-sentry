@@ -2,23 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using DotaSentry.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
-namespace DotaSentry.Business.Services
+namespace DotaSentry.Business.DataAccess
 {
-    public class HeroesService
+    public class HeroesRepository
     {
         private readonly string _heroesDataPath = "StaticFiles/Data/heroes.json";
         private readonly IWebHostEnvironment _environment;
         private readonly IMemoryCache _memoryCache;
 
-        public HeroesService(
+        public HeroesRepository(
             IWebHostEnvironment environment,
             IMemoryCache memoryCache)
         {

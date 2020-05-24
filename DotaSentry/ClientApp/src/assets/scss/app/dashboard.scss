@@ -1,7 +1,7 @@
 @import '../responsive';
+@import '../_variables';
 
 .dashboard {
-  background: black;
   @include mq($from: mobile, $until: tablet) {
     background: red;
   }

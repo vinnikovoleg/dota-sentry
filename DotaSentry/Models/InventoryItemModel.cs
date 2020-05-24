@@ -2,7 +2,7 @@
 
 namespace DotaSentry.Models
 {
-    public class ItemModel
+    public class InventoryItemModel
     {
         [JsonProperty("id")] 
         public long Id { get; set; }

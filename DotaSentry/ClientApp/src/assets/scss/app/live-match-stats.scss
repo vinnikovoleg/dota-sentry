@@ -1,0 +1,29 @@
+.live-match {
+  display: flex;
+  flex-wrap: wrap;
+
+  .team {
+    display: flex;
+    flex-wrap: wrap;
+    width:50%;
+    
+    h2 {
+      width: 100%;
+    }
+
+    .bans {
+      width: 100%;
+      display: flex;
+    }
+
+    .picks {
+      width: 100%;
+      display: flex;
+    }
+
+    .players {
+      width: 100%;
+      display: flex;
+    }
+  }
+}

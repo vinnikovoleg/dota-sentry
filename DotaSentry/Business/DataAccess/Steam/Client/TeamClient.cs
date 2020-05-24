@@ -2,11 +2,11 @@
 using System.Threading.Tasks;
 using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.Business.SteamClient.DataAccess
+namespace DotaSentry.Business.DataAccess.Steam.Client
 {
-    public class TeamRepository  : SteamBaseRepository
+    public class TeamClient : SteamBaseClient
     {
-        public TeamRepository(JsonClient jsonClient) : base(jsonClient)
+        public TeamClient(JsonClient jsonClient) : base(jsonClient)
         {
         }
 
@@ -14,8 +14,8 @@ namespace DotaSentry.Business.SteamClient.DataAccess
         {
             var parameters = new Dictionary<string, string>
             {
-                { "teams_requested", "1" },
-                { "start_at_team_id", teamId.ToString() }
+                {"teams_requested", "1"},
+                {"start_at_team_id", teamId.ToString()}
             };
             var requestUrl = GetRequestUrl("IDOTA2Match_570", "GetTeamInfoByTeamID", parameters);
             return await JsonClient.GetAsync<GetTeamInfoResponse>(requestUrl);

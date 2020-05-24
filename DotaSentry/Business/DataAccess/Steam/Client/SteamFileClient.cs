@@ -3,11 +3,11 @@ using System.Globalization;
 using System.Threading.Tasks;
 using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.Business.SteamClient.DataAccess
+namespace DotaSentry.Business.DataAccess.Steam.Client
 {
-    public class SteamFileRepository : DotaSentry.Business.SteamClient.DataAccess.SteamBaseRepository
+    public class SteamFileClient : SteamBaseClient
     {
-        public SteamFileRepository(DotaSentry.Business.SteamClient.DataAccess.JsonClient jsonClient) : base(jsonClient)
+        public SteamFileClient(JsonClient jsonClient) : base(jsonClient)
         {
         }
 
