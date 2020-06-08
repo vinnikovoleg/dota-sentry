@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
+using DotaSentry.Business.DataAccess.Json;
 using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.Business.DataAccess.Steam.Client
+namespace DotaSentry.Business.DataAccess.SteamClient
 {
     public class SteamDotaClient : SteamBaseClient
     {
@@ -11,7 +12,7 @@ namespace DotaSentry.Business.DataAccess.Steam.Client
         {
         }
 
-        public async Task<GetTopLiveGamesResponse> GetTopLiveMatchesAsync(int partnerId = 0)
+        public async Task<GetTopLiveGamesResponse> GetTopLiveMatchesAsync(int partnerId)
         {
             var parameters = new Dictionary<string, string> { { "partner", partnerId.ToString() } };
             var requestUrl = GetRequestUrl("IDOTA2Match_570", "GetTopLiveGame", parameters);

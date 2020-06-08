@@ -1,18 +1,18 @@
 ﻿using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-using DotaSentry.Business.DataAccess.Steam.Client;
+using DotaSentry.Business.DataAccess.SteamClient;
 using Microsoft.AspNetCore.Hosting;
 
-namespace DotaSentry.Business.DataAccess.Steam
+namespace DotaSentry.Business.DataAccess
 {
-    public class SteamImageRepository
+    public class ImageRepository
     {
         private readonly SteamFileClient _steamFileClient;
         private readonly string _imagesRelativePath = Path.Combine("StaticFiles", "Temp", "Images");
         private readonly IWebHostEnvironment _environment;
 
-        public SteamImageRepository(
+        public ImageRepository(
             SteamFileClient steamFileClient, IWebHostEnvironment environment)
         {
             _steamFileClient = steamFileClient;

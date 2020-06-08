@@ -10,13 +10,13 @@ using Newtonsoft.Json;
 
 namespace DotaSentry.Business.DataAccess
 {
-    public class InventoryItemService
+    public class InventoryItemRepository
     {
         private readonly string _itemsDataPath = "StaticFiles/Data/items.json";
         private readonly IWebHostEnvironment _environment;
         private readonly IMemoryCache _memoryCache;
 
-        public InventoryItemService(
+        public InventoryItemRepository(
             IMemoryCache memoryCache,
             IWebHostEnvironment environment)
         {

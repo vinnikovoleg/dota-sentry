@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Threading.Tasks;
+using DotaSentry.Business.DataAccess.Json;
 using DotaSentry.Models.SteamClient;
 
-namespace DotaSentry.Business.DataAccess.Steam.Client
+namespace DotaSentry.Business.DataAccess.SteamClient
 {
     public class SteamFileClient : SteamBaseClient
     {

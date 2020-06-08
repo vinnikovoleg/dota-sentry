@@ -2,11 +2,29 @@
 @import '../_variables';
 
 .dashboard {
+  .matches {
+    display:flex;
+    flex-wrap:wrap;
+    
+    .match {
+      padding:10px;
+      display:flex;
+      flex-wrap:wrap;
+      width:100%;
+      
+      .team {
+        width:50%;
+      }
+    }
+  }
+  
+  
   @include mq($from: mobile, $until: tablet) {
-    background: red;
+  
   }
 
   @include mq($from: tablet, $until: desktop) {
-    background: green;
+    
   }
 }
+

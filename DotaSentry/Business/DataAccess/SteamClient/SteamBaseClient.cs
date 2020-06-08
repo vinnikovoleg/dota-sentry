@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DotaSentry.Business.DataAccess.Json;
 
-namespace DotaSentry.Business.DataAccess.Steam.Client
+namespace DotaSentry.Business.DataAccess.SteamClient
 {
     public abstract class SteamBaseClient
     {

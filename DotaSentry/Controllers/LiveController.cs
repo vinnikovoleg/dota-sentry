@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Business.DataAccess;
-using DotaSentry.Business.DataAccess.Steam;
 using DotaSentry.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,25 +13,25 @@ namespace DotaSentry.Controllers
     [ApiController]
     public class LiveController : ControllerBase
     {
-        private readonly IMatchRepository _steamMatchRepository;
+        private readonly MatchRepository _matchRepository;
 
         public LiveController(
-            SteamMatchRepository steamMatchRepository)
+            MatchRepository matchRepository)
         {
-            _steamMatchRepository = steamMatchRepository;
+            _matchRepository = matchRepository;
         }
 
         [HttpGet]
         public async Task<List<LiveMatchModel>> GetLiveAsync()
         {
-            return await _steamMatchRepository.GetLiveAsync();
+            return await _matchRepository.GetLiveAsync();
         }
 
         [HttpGet]
         [Route("{serverSteamId}")]
         public async Task<LiveMatchStatsModel> GetTestAsync(ulong serverSteamId)
         {
-            return await _steamMatchRepository.GetLiveStatsAsync(serverSteamId);
+            return await _matchRepository.GetLiveStatsAsync(serverSteamId);
         }
     }
 }

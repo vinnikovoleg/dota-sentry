@@ -13,19 +13,20 @@
         <e p="Business" t="Include">
           <e p="DataAccess" t="Include">
             <e p="HeroesRepository.cs" t="Include" />
-            <e p="IMatchRepository.cs" t="Include" />
-            <e p="InventoryItemService.cs" t="Include" />
-            <e p="JsonClient.cs" t="Include" />
-            <e p="Steam" t="Include">
-              <e p="Client" t="Include">
-                <e p="SteamBaseClient.cs" t="Include" />
-                <e p="SteamDotaClient.cs" t="Include" />
-                <e p="SteamFileClient.cs" t="Include" />
-                <e p="TeamClient.cs" t="Include" />
-                <e p="WebApiClient.cs" t="Include" />
-              </e>
-              <e p="SteamImageRepository.cs" t="Include" />
-              <e p="SteamMatchRepository.cs" t="Include" />
+            <e p="ImageRepository.cs" t="Include" />
+            <e p="InventoryItemRepository.cs" t="Include" />
+            <e p="Json" t="Include">
+              <e p="JsonClient.cs" t="Include" />
+            </e>
+            <e p="MatchRepository.cs" t="Include" />
+            <e p="SteamClient" t="Include">
+              <e p="SteamBaseClient.cs" t="Include" />
+              <e p="SteamDotaClient.cs" t="Include" />
+              <e p="SteamFileClient.cs" t="Include" />
+              <e p="TeamClient.cs" t="Include" />
+            </e>
+            <e p="WebApi" t="Include">
+              <e p="WebApiClient.cs" t="Include" />
             </e>
           </e>
           <e p="LocalizableStrings.cs" t="Include" />
@@ -35,6 +36,7 @@
           <e p="Services" t="Include" />
         </e>
         <e p="ClientApp" t="Include">
+          <e p=".eslintrc.js" t="Include" />
           <e p=".gitignore" t="Include" />
           <e p="babel.config.js" t="Include" />
           <e p="dota-sentry.code-workspace" t="Include" />
@@ -49,6 +51,7 @@
           <e p="node_modules\@vue\cli-plugin-vuex" t="IncludeRecursive" />
           <e p="node_modules\@vue\cli-service" t="IncludeRecursive" />
           <e p="node_modules\@vue\component-compiler-utils" t="IncludeRecursive" />
+          <e p="node_modules\@vue\eslint-config-airbnb" t="IncludeRecursive" />
           <e p="node_modules\address" t="IncludeRecursive" />
           <e p="node_modules\axios" t="IncludeRecursive" />
           <e p="node_modules\babel-eslint" t="IncludeRecursive" />
@@ -97,6 +100,9 @@
                 <e p="app.scss" t="Include" />
                 <e p="responsive.scss" t="Include" />
               </e>
+            </e>
+            <e p="components" t="Include">
+              <e p="LiveTeam.vue" t="Include" />
             </e>
             <e p="lib" t="Include">
               <e p="api.js" t="Include" />
@@ -463,10 +469,37 @@
             </e>
             <e p="Temp" t="Include">
               <e p="Images" t="Include">
+                <e p="1000304416026336415.png" t="Include" />
+                <e p="1001431655180728347.png" t="Include" />
+                <e p="1004809286526465415.png" t="Include" />
                 <e p="1005933118558685506.png" t="Include" />
+                <e p="1009310639742423917.png" t="Include" />
+                <e p="1012688131496596029.png" t="Include" />
+                <e p="1012692605253218947.png" t="Include" />
+                <e p="1012693128834961067.png" t="Include" />
+                <e p="1017195498764850367.png" t="Include" />
+                <e p="1018321569178668666.png" t="Include" />
+                <e p="1018322454570182183.png" t="Include" />
+                <e p="1020569182709470973.png" t="Include" />
+                <e p="1021695538452519283.png" t="Include" />
+                <e p="1021697620249691876.png" t="Include" />
+                <e p="1022822776634092251.png" t="Include" />
+                <e p="1022824787268401632.png" t="Include" />
+                <e p="1023951416221993741.png" t="Include" />
+                <e p="1032960627354934716.png" t="Include" />
+                <e p="1036337678130615571.png" t="Include" />
+                <e p="1050975115010512682.png" t="Include" />
+                <e p="255967725890131816.png" t="Include" />
+                <e p="760471717844080961.png" t="Include" />
+                <e p="768365068750604173.png" t="Include" />
                 <e p="775108416642898799.png" t="Include" />
+                <e p="781874134604031526.png" t="Include" />
+                <e p="784115070097030445.png" t="Include" />
                 <e p="788624714192129581.png" t="Include" />
                 <e p="789748832053588401.png" t="Include" />
+                <e p="789755010916561479.png" t="Include" />
+                <e p="927052872967353936.png" t="Include" />
+                <e p="998015670476130089.png" t="Include" />
               </e>
             </e>
           </e>

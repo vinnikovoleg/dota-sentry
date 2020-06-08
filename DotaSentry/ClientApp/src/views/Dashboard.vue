@@ -1,55 +1,59 @@
 <template>
-    <div class="dashboard">
-        <span>Almost before we knew it, we had left the ground.</span>
-        <div v-if="liveMatches != null && liveMatches.length > 0">
-            <div v-bind:key="match.matchId"
-                 v-for="match in liveMatches">
-                <div>
-                    <router-link :to="{ name: 'LiveMatch', params: { serverSteamId: match.serverSteamId }}">
-                        {{match.radiant.name}}
-                    </router-link>
-
-                    {{match.radiant.lead}}
-                    <img :src="match.radiant.logo" width="100" height="100"/>
-
-                </div>
-                <div>
-                    <router-link :to="{ name: 'LiveMatch', params: { serverSteamId: match.serverSteamId }}">
-                        {{match.dire.name}}
-                    </router-link>
-                    {{match.dire.lead}}
-                    <img :src="match.dire.logo" width="100" height="100"/>
-                </div>
-            </div>
-        </div>
+  <div class="dashboard">
+    <div
+      v-if="liveMatches != null && liveMatches.length > 0"
+      class="matches"
+    >
+      <div
+        v-for="match in liveMatches"
+        :key="match.matchId"
+        class="match"
+      >
+        <router-link
+          class="team"
+          :to="{ name: 'LiveMatch', params: { serverSteamId: match.serverSteamId }}"
+        >
+          <LiveTeam :model="match.radiant" />
+        </router-link>
+        <router-link
+          class="team"
+          :to="{ name: 'LiveMatch', params: { serverSteamId: match.serverSteamId }}"
+        >
+          <LiveTeam :model="match.dire" />
+        </router-link>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
 
-    //import store from "@/store/index"; 
-    import {mapState} from "vuex";
+import { mapState } from 'vuex'
+import LiveTeam from '../components/LiveTeam.vue'
 
-    export default {
-        components: {},
-        data() {
-            return {};
-        },
-        created() {
-            this.$store.dispatch('matches/getLiveMatches');
-        },
-        computed: {
-            ...mapState({
-                liveMatches: state => state.matches.liveMatches
-            })
-        },
-        methods: {
-            navigate(serverSteamId) {
-                this.$router.push({
-                    name: "LiveMatch",
-                    params: {serverSteamId: serverSteamId}
-                });
-            }
-        }
-    };
+export default {
+  components: {
+    LiveTeam
+  },
+  data() {
+    return {}
+  },
+  computed: {
+    ...mapState({
+      liveMatches: (state) => state.matches.liveMatches
+    })
+  },
+  created() {
+    this.$store.dispatch('matches/getLiveMatches')
+  },
+
+  methods: {
+    navigate(serverSteamId) {
+      this.$router.push({
+        name: 'LiveMatch',
+        params: { serverSteamId }
+      })
+    }
+  }
+}
 </script>

@@ -4,8 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Business.DataAccess;
-using DotaSentry.Business.DataAccess.Steam;
-using DotaSentry.Business.DataAccess.Steam.Client;
+using DotaSentry.Business.DataAccess.Json;
+using DotaSentry.Business.DataAccess.SteamClient;
 using DotaSentry.Business.MongoClient;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,11 +35,14 @@ namespace DotaSentry
 
             // Data Access
             //services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
-            services.AddScoped<IMatchRepository, SteamMatchRepository>();
-            services.AddScoped<TeamClient>();
-            services.AddScoped<WebApiClient>();
-            services.AddScoped<SteamFileClient>();
             services.AddScoped<JsonClient>();
+            services.AddScoped<TeamClient>();
+            services.AddScoped<SteamFileClient>();
+            services.AddScoped<SteamDotaClient>();
+            services.AddScoped<HeroesRepository>();
+            services.AddScoped<InventoryItemRepository>();
+            services.AddScoped<MatchRepository>();
+            
             services.AddScoped(provider => new JsonSerializerSettings());
 
 
@@ -53,9 +56,9 @@ namespace DotaSentry
             services.AddSingleton<IMemoryCache, MemoryCache>();
 
             services.AddScoped<HeroesRepository>();
-            services.AddScoped<InventoryItemService>();
-            services.AddScoped<SteamImageRepository>();
-            services.AddScoped<SteamMatchRepository>();
+            services.AddScoped<InventoryItemRepository>();
+            services.AddScoped<ImageRepository>();
+            services.AddScoped<MatchRepository>();
 
             // Builders
         }

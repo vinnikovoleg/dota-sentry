@@ -69,6 +69,9 @@ namespace DotaSentry.Models.SteamClient
         [JsonProperty("game_time")]
         public long GameTime { get; set; }
 
+        /// <summary>
+        /// 2 - BO3 ?
+        /// </summary>
         [JsonProperty("game_mode")]
         public long GameMode { get; set; }
 
@@ -78,6 +81,11 @@ namespace DotaSentry.Models.SteamClient
         [JsonProperty("league_node_id")]
         public long LeagueNodeId { get; set; }
 
+        /// <summary>
+        /// TODO: check
+        /// 2 - picks
+        /// 5 - game
+        /// </summary>
         [JsonProperty("game_state")]
         public long GameState { get; set; }
 
