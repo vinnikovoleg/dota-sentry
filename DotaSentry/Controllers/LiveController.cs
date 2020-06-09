@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,14 +23,20 @@ namespace DotaSentry.Controllers
         }
 
         [HttpGet]
-        public async Task<List<LiveMatchModel>> GetLiveAsync()
+        [Route("{partnerId}")]
+        public async Task<ActionResult<List<LiveMatchModel>>> GetLiveAsync(int partnerId = 0)
         {
-            return await _matchRepository.GetLiveAsync();
+            if (0 > partnerId || partnerId > 3)
+            {
+                return BadRequest();
+            }
+
+            return await _matchRepository.GetLiveAsync(partnerId);
         }
 
         [HttpGet]
-        [Route("{serverSteamId}")]
-        public async Task<LiveMatchStatsModel> GetTestAsync(ulong serverSteamId)
+        [Route("/stats/{serverSteamId}")]
+        public async Task<ActionResult<LiveMatchStatsModel>> GetStatsAsync(ulong serverSteamId)
         {
             return await _matchRepository.GetLiveStatsAsync(serverSteamId);
         }

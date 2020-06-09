@@ -1,8 +1,6 @@
 ﻿<template>
   <div class="team">
     <span class="name">{{ model.name }}</span>
-
-    {{ model.lead }}
     <img
       :src="model.logo"
       :alt="model.name"

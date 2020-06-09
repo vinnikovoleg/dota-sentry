@@ -13,7 +13,21 @@
       width:100%;
       
       .team {
-        width:50%;
+        text-decoration: none;
+        width: 35%;
+        display: flex;
+        flex-wrap: wrap;
+        
+        img {
+          padding: 10px;
+          width: 100%;
+        }
+        
+        .name {
+          width: 100%;
+          color: white;
+          text-align: center;
+        }
       }
     }
   }

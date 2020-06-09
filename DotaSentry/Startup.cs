@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business.Builders;
 using DotaSentry.Business.DataAccess;
 using DotaSentry.Business.DataAccess.Json;
 using DotaSentry.Business.DataAccess.SteamClient;
@@ -42,6 +43,14 @@ namespace DotaSentry
             services.AddScoped<HeroesRepository>();
             services.AddScoped<InventoryItemRepository>();
             services.AddScoped<MatchRepository>();
+            services.AddScoped<HeroesRepository>();
+            services.AddScoped<InventoryItemRepository>();
+            services.AddScoped<ImageRepository>();
+            services.AddScoped<MatchRepository>();
+            
+            // Builders
+            services.AddScoped<LiveMatchBuilder>();
+            services.AddScoped<MatchStatsBuilder>();
             
             services.AddScoped(provider => new JsonSerializerSettings());
 
@@ -54,11 +63,7 @@ namespace DotaSentry
 
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
-
-            services.AddScoped<HeroesRepository>();
-            services.AddScoped<InventoryItemRepository>();
-            services.AddScoped<ImageRepository>();
-            services.AddScoped<MatchRepository>();
+            services.AddSingleton<RemoteFileSaver>();
 
             // Builders
         }

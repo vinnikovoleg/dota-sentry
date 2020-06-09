@@ -11,12 +11,16 @@ namespace DotaSentry.Business.DataAccess
         private readonly SteamFileClient _steamFileClient;
         private readonly string _imagesRelativePath = Path.Combine("StaticFiles", "Temp", "Images");
         private readonly IWebHostEnvironment _environment;
+        private readonly RemoteFileSaver _remoteFileSaver;
 
         public ImageRepository(
-            SteamFileClient steamFileClient, IWebHostEnvironment environment)
+            SteamFileClient steamFileClient,
+            IWebHostEnvironment environment,
+            RemoteFileSaver remoteFileSaver)
         {
             _steamFileClient = steamFileClient;
             _environment = environment;
+            _remoteFileSaver = remoteFileSaver;
         }
 
         public async Task<string> GetSteamImageUrlAsync(long imageId)
@@ -40,10 +44,7 @@ namespace DotaSentry.Business.DataAccess
                 Directory.CreateDirectory(imagesPhysicalPath);
             }
 
-            using var http = new HttpClient();
-            using var data = await http.GetAsync(logoInfo.Data.Url);
-            await using var file = File.Create(filePath);
-            await data.Content.CopyToAsync(file);
+            await _remoteFileSaver.SaveAsync(logoInfo.Data.Url.ToString(), filePath);
             return Path.Combine(_imagesRelativePath, fileName);
         }
     }

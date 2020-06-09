@@ -19,11 +19,11 @@ namespace DotaSentry.Business.DataAccess.SteamClient
             return await JsonClient.GetAsync<GetTopLiveGamesResponse>(requestUrl);
         }
 
-        public async Task<GetRealtimeMatchStatsResponse> GetRealtimeMatchStatsAsync(ulong serverSteamId)
+        public async Task<GetMatchStatsResponse> GetRealtimeMatchStatsAsync(ulong serverSteamId)
         {
             var parameters = new Dictionary<string, string> { { "server_steam_id", serverSteamId.ToString(CultureInfo.InvariantCulture) } };
             var requestUrl = GetRequestUrl("IDOTA2MatchStats_570", "GetRealtimeStats", parameters);
-            return await JsonClient.GetAsync<GetRealtimeMatchStatsResponse>(requestUrl);
+            return await JsonClient.GetAsync<GetMatchStatsResponse>(requestUrl);
         }
 
         // public async Task<GetLiveLeagueGamesResponse> GetLiveLeagueGamesAsync()

@@ -1,34 +1,35 @@
-import axios from "axios";
-import jsonBigInt from "json-bigint";
+import axios from 'axios'
+import jsonBigInt from 'json-bigint'
 
 export default {
   live: {
-    baseUrl: `/api/live`,
-    get() {
-      return axios.get(this.baseUrl, {
+    baseUrl: '/api/live',
+    get(partnerId) {
+      return axios.get(`${this.baseUrl}/${partnerId}`, {
         transformResponse: [
-          data => {
-            var matches = jsonBigInt.parse(data);
+          // eslint-disable-next-line consistent-return
+          (data) => {
+            const matches = jsonBigInt.parse(data)
             if (matches.length > 0) {
-              matches.forEach(match => {
-                match.serverSteamId = match.serverSteamId.toString();
-              });
-              return matches;
+              matches.forEach((match) => {
+                match.serverSteamId = match.serverSteamId.toString()
+              })
+              return matches
             }
           }
         ]
-      });
+      })
     },
     getById(serverSteamId) {
-      return axios.get(`${this.baseUrl}/${serverSteamId}`, {
+      return axios.get(`${this.baseUrl}/stats/${serverSteamId}`, {
         transformResponse: [
-          data => {
-            var liveMatchStats = jsonBigInt.parse(data);
-            liveMatchStats.serverSteamId = liveMatchStats.serverSteamId.toString();
-            return liveMatchStats;
+          (data) => {
+            const liveMatchStats = jsonBigInt.parse(data)
+            liveMatchStats.serverSteamId = liveMatchStats.serverSteamId.toString()
+            return liveMatchStats
           }
         ]
-      });
+      })
     }
   }
-};
+}

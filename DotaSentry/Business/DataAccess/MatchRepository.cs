@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business.Builders;
 using DotaSentry.Business.DataAccess.SteamClient;
 using DotaSentry.Models;
 using DotaSentry.Models.SteamClient;
@@ -11,38 +12,30 @@ namespace DotaSentry.Business.DataAccess
     public class MatchRepository
     {
         private readonly SteamDotaClient _steamDotaClient;
-        private readonly ImageRepository _imageRepository;
-        private readonly HeroesRepository _heroesRepository;
-        private readonly InventoryItemRepository _inventoryItemRepository;
+        private readonly LiveMatchBuilder _liveMatchBuilder;
+        private readonly MatchStatsBuilder _matchStatsBuilder;
 
         public MatchRepository(
             SteamDotaClient steamDotaClient,
-            ImageRepository imageRepository,
-            HeroesRepository heroesRepository,
-            InventoryItemRepository inventoryItemRepository)
+            LiveMatchBuilder liveMatchBuilder,
+            MatchStatsBuilder matchStatsBuilder)
         {
             _steamDotaClient = steamDotaClient;
-            _imageRepository = imageRepository;
-            _heroesRepository = heroesRepository;
-            _inventoryItemRepository = inventoryItemRepository;
+            _liveMatchBuilder = liveMatchBuilder;
+            _matchStatsBuilder = matchStatsBuilder;
         }
 
-        public async Task<List<LiveMatchModel>> GetLiveAsync()
+        public async Task<List<LiveMatchModel>> GetLiveAsync(int partnerId = 0)
         {
-            var partnerIds = new[]
-            {
-                0, 1, 2, 3
-            };
-            var requests = partnerIds.Select(partnerId => _steamDotaClient.GetTopLiveMatchesAsync(partnerId)).ToArray();
-            await Task.WhenAll(requests);
-            var liveMatches = requests.SelectMany(request => request.Result.GameList);
+            var response = await _steamDotaClient.GetTopLiveMatchesAsync(partnerId);
+            var liveMatches = response.GameList;
             var matchModels = new List<LiveMatchModel>();
             foreach (var liveMatch in liveMatches.Where(g =>
-                !string.IsNullOrEmpty(g.TeamNameDire)
-                && !string.IsNullOrEmpty(g.TeamNameRadiant))
+                    !string.IsNullOrEmpty(g.TeamNameDire)
+                    && !string.IsNullOrEmpty(g.TeamNameRadiant))
                 .Distinct(new MatchComparer()))
             {
-                var matchModel = await BuildLiveMatchModel(liveMatch);
+                var matchModel = await _liveMatchBuilder.Build(liveMatch);
                 matchModels.Add(matchModel);
             }
 
@@ -52,97 +45,10 @@ namespace DotaSentry.Business.DataAccess
         public async Task<LiveMatchStatsModel> GetLiveStatsAsync(ulong serverSteamId)
         {
             var matchStats = await _steamDotaClient.GetRealtimeMatchStatsAsync(serverSteamId);
-            var radiantTeam =
-                await BuildLiveTeamStats(matchStats.Teams[0], matchStats.Match.Picks, matchStats.Match.Bans);
-            var direTeam = await BuildLiveTeamStats(matchStats.Teams[1], matchStats.Match.Picks, matchStats.Match.Bans);
-
-            return new LiveMatchStatsModel
-            {
-                ServerSteamId = matchStats.Match.ServerSteamId,
-                GameTime = TimeSpan.FromSeconds(matchStats.Match.GameTime),
-                GoldGraph = matchStats.GraphData.GraphGold,
-                Radiant = radiantTeam,
-                Dire = direTeam
-            };
+            return await _matchStatsBuilder.Build(matchStats);
         }
 
-        private async Task<LiveTeamStatsModel> BuildLiveTeamStats(RealtimeTeam team, List<HeroPick> picks,
-            List<HeroPick> bans)
-        {
-            var heroes = await _heroesRepository.GetHeroesAsync();
-            var items = await _inventoryItemRepository.GetItemsAsync();
-
-            HeroModel GetHero(long heroId)
-            {
-                return heroes.ContainsKey(heroId) ? heroes[heroId] : _heroesRepository.GetUnknownHero();
-            }
-
-            InventoryItemModel GetItem(long itemId)
-            {
-                return items.ContainsKey(itemId) ? items[itemId] : new InventoryItemModel {Name = "Unknown"};
-            }
-
-            return new LiveTeamStatsModel
-            {
-                Id = team.TeamId,
-                Name = team.TeamName,
-                Score = team.Score,
-                NetWorth = team.NetWorth,
-                Logo = await _imageRepository.GetSteamImageUrlAsync(team.TeamLogo),
-                Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
-                Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
-                Players = team.Players.Where(p => p.Team == team.TeamNumber)
-                    .Select(p => new PlayerModel
-                    {
-                        Id = p.PlayerId,
-                        AccountId = p.AccountId,
-                        Name = p.Name,
-                        Assists = p.AssistsCount,
-                        Deaths = p.DeathCount,
-                        Kills = p.KillCount,
-                        Denies = p.DeniesCount,
-                        LastHits = p.LastHitsCount,
-                        Gold = p.Gold,
-                        NetWorth = p.NetWorth,
-                        Level = p.Level,
-                        Hero = GetHero(p.HeroId),
-                        Items = p.Items.Select(GetItem).ToList()
-                    })
-                    .ToList()
-            };
-        }
-
-        private async Task<LiveMatchModel> BuildLiveMatchModel(LiveMatch match)
-        {
-            return new LiveMatchModel
-            {
-                MatchId = match.MatchId,
-                ServerSteamId = match.ServerSteamId,
-                GameTime = TimeSpan.FromSeconds(match.GameTime),
-                Radiant = new TeamModel
-                {
-                    Id = match.TeamIdRadiant,
-                    Name = match.TeamNameRadiant,
-                    Lead = match.RadiantLead > 0 ? match.RadiantLead : 0,
-                    Score = match.RadiantScore,
-                    Logo = match.TeamLogoRadiant.HasValue
-                        ? await _imageRepository.GetSteamImageUrlAsync(match.TeamLogoRadiant.Value)
-                        : string.Empty
-                },
-                Dire = new TeamModel
-                {
-                    Id = match.TeamIdDire,
-                    Name = match.TeamNameDire,
-                    Lead = match.RadiantLead < 0 ? Math.Abs(match.RadiantLead) : 0,
-                    Score = match.DireScore,
-                    Logo = match.TeamLogoDire.HasValue
-                        ? await _imageRepository.GetSteamImageUrlAsync(match.TeamLogoDire.Value)
-                        : string.Empty
-                }
-            };
-        }
-        
-        public class MatchComparer: IEqualityComparer<LiveMatch>
+        public class MatchComparer : IEqualityComparer<LiveMatch>
         {
             public bool Equals(LiveMatch x, LiveMatch y)
             {

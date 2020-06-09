@@ -8,12 +8,8 @@
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Compile Remove="Business\Builders\**" />
     <Content Remove="$(SpaRoot)**" />
-    <Content Remove="Business\Builders\**" />
-    <EmbeddedResource Remove="Business\Builders\**" />
     <None Remove="$(SpaRoot)**" />
-    <None Remove="Business\Builders\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <Content Remove="appsettings.Production.Development.json" />
     <Compile Remove="new_app\dota-sentry\node_modules\**" />

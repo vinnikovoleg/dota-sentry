@@ -15,10 +15,10 @@ namespace DotaSentry.Models.SteamClient
         public long Status { get; set; }
 
         [JsonProperty("teams")]
-        public List<Team> Teams { get; set; }
+        public List<TeamInfo> Teams { get; set; }
     }
 
-    public class Team
+    public class TeamInfo
     {
         [JsonProperty("name")]
         public string Name { get; set; }

@@ -4,24 +4,11 @@
       v-if="liveMatches != null && liveMatches.length > 0"
       class="matches"
     >
-      <div
+      <LiveMatch
         v-for="match in liveMatches"
         :key="match.matchId"
-        class="match"
-      >
-        <router-link
-          class="team"
-          :to="{ name: 'LiveMatch', params: { serverSteamId: match.serverSteamId }}"
-        >
-          <LiveTeam :model="match.radiant" />
-        </router-link>
-        <router-link
-          class="team"
-          :to="{ name: 'LiveMatch', params: { serverSteamId: match.serverSteamId }}"
-        >
-          <LiveTeam :model="match.dire" />
-        </router-link>
-      </div>
+        :model="match"
+      />
     </div>
   </div>
 </template>
@@ -29,11 +16,11 @@
 <script>
 
 import { mapState } from 'vuex'
-import LiveTeam from '../components/LiveTeam.vue'
+import LiveMatch from '../components/LiveMatch.vue'
 
 export default {
   components: {
-    LiveTeam
+    LiveMatch
   },
   data() {
     return {}

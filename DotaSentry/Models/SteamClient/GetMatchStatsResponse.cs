@@ -4,13 +4,13 @@ using Newtonsoft.Json;
 
 namespace DotaSentry.Models.SteamClient
 {
-    public class GetRealtimeMatchStatsResponse
+    public class GetMatchStatsResponse
     {
         [JsonProperty("match")]
-        public RealtimeMatch Match { get; set; }
+        public Match Match { get; set; }
 
         [JsonProperty("teams")]
-        public List<RealtimeTeam> Teams { get; set; }
+        public List<Team> Teams { get; set; }
 
         [JsonProperty("buildings")]
         public List<Building> Buildings { get; set; }
@@ -55,7 +55,7 @@ namespace DotaSentry.Models.SteamClient
         public List<long> GraphGold { get; set; }
     }
 
-    public class RealtimeMatch
+    public class Match
     {
         [JsonProperty("server_steam_id")]
         public long ServerSteamId { get; set; }
@@ -105,7 +105,7 @@ namespace DotaSentry.Models.SteamClient
         public long Team { get; set; }
     }
 
-    public class RealtimeTeam
+    public class Team
     {
         [JsonProperty("team_number")]
         public long TeamNumber { get; set; }
