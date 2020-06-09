@@ -1,2 +1,10 @@
-@import "app/live-match";
+@import "app/dashboard";
 @import "app/live-match-stats";
+@import "_variables";
+@import "responsive";
+
+body {
+  font-family: $font-family;
+  background: $primary-color;
+  color: $color;
+}

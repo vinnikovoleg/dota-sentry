@@ -1,19 +1,22 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-import matches from "./matches";
+import matches from './matches'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
 const modules = {
   matches
-};
+}
 
 const store = new Vuex.Store({
   modules,
   state: {},
   mutations: {},
   actions: {}
-});
+})
 
-export default store;
+// store.dispatch("matches/live/get");
+// matches.live.get();
+
+export default store

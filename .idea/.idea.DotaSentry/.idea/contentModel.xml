@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\oleg.vinnikov\.Rider2019.2\config\scratches" t="IncludeRecursive" />
-    <e p="C:\Users\oleg.vinnikov\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\oleg.vinnikov\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_DotaSentry.-2029300491.00" t="ExcludeRecursive" />
+    <e p="C:\Users\oleg.vinnikov\AppData\local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\oleg.vinnikov\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_DotaSentry.-2029300491.00" t="ExcludeRecursive" />
+    <e p="C:\Users\oleg.vinnikov\AppData\Roaming\JetBrains\Rider2020.1\scratches" t="IncludeRecursive" />
     <e p="E:\Projects\DotaSentry" t="IncludeFlat">
       <e p="DotaSentry" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
@@ -11,20 +11,38 @@
         <e p="appsettings.Production.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Business" t="Include">
+          <e p="Builders" t="Include">
+            <e p="LiveMatchBuilder.cs" t="Include" />
+            <e p="MatchStatsBuilder.cs" t="Include" />
+          </e>
+          <e p="DataAccess" t="Include">
+            <e p="HeroesRepository.cs" t="Include" />
+            <e p="ImageRepository.cs" t="Include" />
+            <e p="InventoryItemRepository.cs" t="Include" />
+            <e p="Json" t="Include">
+              <e p="JsonClient.cs" t="Include" />
+            </e>
+            <e p="MatchRepository.cs" t="Include" />
+            <e p="RemoteFileSaver.cs" t="Include" />
+            <e p="SteamClient" t="Include">
+              <e p="SteamBaseClient.cs" t="Include" />
+              <e p="SteamDotaClient.cs" t="Include" />
+              <e p="SteamFileClient.cs" t="Include" />
+              <e p="TeamClient.cs" t="Include" />
+            </e>
+            <e p="WebApi" t="Include">
+              <e p="WebApiClient.cs" t="Include" />
+            </e>
+          </e>
           <e p="LocalizableStrings.cs" t="Include" />
           <e p="MongoClient" t="Include">
             <e p="DotaSentryDatabaseSettings.cs" t="Include" />
           </e>
-          <e p="Services" t="Include">
-            <e p="HeroesService.cs" t="Include" />
-            <e p="ImageService.cs" t="Include" />
-            <e p="ItemsService.cs" t="Include" />
-            <e p="LiveMatchesService.cs" t="Include" />
-            <e p="LiveMatchesStubRepository.cs" t="Include" />
-          </e>
+          <e p="Services" t="Include" />
         </e>
         <e p="ClientApp" t="Include">
           <e p=".eslintrc.js" t="Include" />
+          <e p=".gitignore" t="Include" />
           <e p="babel.config.js" t="Include" />
           <e p="dota-sentry.code-workspace" t="Include" />
           <e p="node_modules\@types" t="IncludeRecursive">
@@ -34,41 +52,39 @@
           </e>
           <e p="node_modules\@vue\cli-plugin-babel" t="IncludeRecursive" />
           <e p="node_modules\@vue\cli-plugin-eslint" t="IncludeRecursive" />
+          <e p="node_modules\@vue\cli-plugin-router" t="IncludeRecursive" />
+          <e p="node_modules\@vue\cli-plugin-vuex" t="IncludeRecursive" />
           <e p="node_modules\@vue\cli-service" t="IncludeRecursive" />
           <e p="node_modules\@vue\component-compiler-utils" t="IncludeRecursive" />
-          <e p="node_modules\@vue\eslint-config-prettier" t="IncludeRecursive" />
+          <e p="node_modules\@vue\eslint-config-airbnb" t="IncludeRecursive" />
           <e p="node_modules\address" t="IncludeRecursive" />
-          <e p="node_modules\apexcharts" t="IncludeRecursive" />
           <e p="node_modules\axios" t="IncludeRecursive" />
+          <e p="node_modules\babel-eslint" t="IncludeRecursive" />
           <e p="node_modules\chalk" t="IncludeRecursive" />
           <e p="node_modules\cli-highlight" t="IncludeRecursive" />
           <e p="node_modules\commander" t="IncludeRecursive" />
+          <e p="node_modules\core-js" t="IncludeRecursive" />
+          <e p="node_modules\dotenv" t="IncludeRecursive" />
           <e p="node_modules\dotenv-expand" t="IncludeRecursive" />
-          <e p="node_modules\es6-promise" t="IncludeRecursive" />
-          <e p="node_modules\eslint-plugin-prettier" t="IncludeRecursive" />
+          <e p="node_modules\eslint" t="IncludeRecursive" />
           <e p="node_modules\eslint-plugin-vue" t="IncludeRecursive" />
-          <e p="node_modules\google-maps" t="IncludeRecursive" />
           <e p="node_modules\javascript-stringify" t="IncludeRecursive" />
           <e p="node_modules\json-bigint" t="IncludeRecursive" />
-          <e p="node_modules\node-sass" t="IncludeRecursive" />
           <e p="node_modules\portfinder" t="IncludeRecursive" />
           <e p="node_modules\postcss" t="IncludeRecursive" />
           <e p="node_modules\postcss-selector-parser" t="IncludeRecursive" />
+          <e p="node_modules\sass" t="IncludeRecursive" />
           <e p="node_modules\sass-loader" t="IncludeRecursive" />
+          <e p="node_modules\sass-mq" t="IncludeRecursive" />
           <e p="node_modules\source-map" t="IncludeRecursive" />
           <e p="node_modules\terser" t="IncludeRecursive" />
           <e p="node_modules\vue" t="IncludeRecursive" />
-          <e p="node_modules\vue-analytics" t="IncludeRecursive" />
-          <e p="node_modules\vue-apexcharts" t="IncludeRecursive" />
-          <e p="node_modules\vue-clickaway" t="IncludeRecursive" />
           <e p="node_modules\vue-loader" t="IncludeRecursive" />
-          <e p="node_modules\vue-material" t="IncludeRecursive" />
           <e p="node_modules\vue-router" t="IncludeRecursive" />
-          <e p="node_modules\vue-social-sharing" t="IncludeRecursive" />
           <e p="node_modules\vue-template-compiler" t="IncludeRecursive" />
           <e p="node_modules\vuex" t="IncludeRecursive" />
+          <e p="node_modules\webpack-chain" t="IncludeRecursive" />
           <e p="package.json" t="Include" />
-          <e p="postcss.config.js" t="Include" />
           <e p="public" t="Include">
             <e p="dota-2-icon-28.ico" t="Include" />
             <e p="index.html" t="Include" />
@@ -77,152 +93,43 @@
           <e p="src" t="Include">
             <e p="App.vue" t="Include" />
             <e p="assets" t="Include">
-              <e p="github" t="Include">
-                <e p="angular.png" t="Include" />
-                <e p="chrome.png" t="Include" />
-                <e p="dashboard.png" t="Include" />
-                <e p="edge.png" t="Include" />
-                <e p="firefox.png" t="Include" />
-                <e p="html.png" t="Include" />
-                <e p="maps.png" t="Include" />
-                <e p="notification.png" t="Include" />
-                <e p="opera.png" t="Include" />
-                <e p="opt_md_angular_thumbnail.jpg" t="Include" />
-                <e p="opt_md_thumbnail.jpg" t="Include" />
-                <e p="opt_md_vue_thumbnail.jpg" t="Include" />
-                <e p="opt_mdr_thumbnail.jpg" t="Include" />
-                <e p="product.gif" t="Include" />
-                <e p="react.svg" t="Include" />
-                <e p="safari.png" t="Include" />
-                <e p="tables.png" t="Include" />
-                <e p="user_profile.png" t="Include" />
-                <e p="vuejs.png" t="Include" />
-              </e>
-              <e p="img" t="Include">
-                <e p="apple-icon.png" t="Include" />
+              <e p="Images" t="Include">
                 <e p="dota-2-icon-28.jpg" t="Include" />
-                <e p="dota_2_7-0_the_new_journey_sun_wukong_monkey_king.jpg" t="Include" />
-                <e p="faces" t="Include">
-                  <e p="marc.jpg" t="Include" />
-                </e>
-                <e p="favicon.png" t="Include" />
-                <e p="mask.png" t="Include" />
-                <e p="new_logo.png" t="Include" />
-                <e p="sidebar-1.jpg" t="Include" />
-                <e p="sidebar-2.jpg" t="Include" />
-                <e p="sidebar-3.jpg" t="Include" />
-                <e p="sidebar-4.jpg" t="Include" />
-                <e p="tim_80x80.png" t="Include" />
               </e>
               <e p="scss" t="Include">
+                <e p="_variables.scss" t="Include" />
                 <e p="app" t="Include">
+                  <e p="dashboard.scss" t="Include" />
                   <e p="live-match-stats.scss" t="Include" />
-                  <e p="live-match.scss" t="Include" />
                 </e>
                 <e p="app.scss" t="Include" />
-                <e p="material-dashboard.scss" t="Include" />
-                <e p="md" t="Include">
-                  <e p="_alerts.scss" t="Include" />
-                  <e p="_buttons.scss" t="Include" />
-                  <e p="_cards.scss" t="Include" />
-                  <e p="_checkboxes.scss" t="Include" />
-                  <e p="_colors.scss" t="Include" />
-                  <e p="_dialogs.scss" t="Include" />
-                  <e p="_dropdown.scss" t="Include" />
-                  <e p="_footers.scss" t="Include" />
-                  <e p="_forms.scss" t="Include" />
-                  <e p="_inputs-size.scss" t="Include" />
-                  <e p="_inputs.scss" t="Include" />
-                  <e p="_layout.scss" t="Include" />
-                  <e p="_misc.scss" t="Include" />
-                  <e p="_mixins.scss" t="Include" />
-                  <e p="_navbars.scss" t="Include" />
-                  <e p="_pagination.scss" t="Include" />
-                  <e p="_pills.scss" t="Include" />
-                  <e p="_popups.scss" t="Include" />
-                  <e p="_responsive.scss" t="Include" />
-                  <e p="_ripples.scss" t="Include" />
-                  <e p="_shadows.scss" t="Include" />
-                  <e p="_sidebar-and-main-panel.scss" t="Include" />
-                  <e p="_tables.scss" t="Include" />
-                  <e p="_tabs.scss" t="Include" />
-                  <e p="_togglebutton.scss" t="Include" />
-                  <e p="_typography.scss" t="Include" />
-                  <e p="_variables.scss" t="Include" />
-                  <e p="mixins" t="Include">
-                    <e p="_chartist.scss" t="Include" />
-                    <e p="_transparency.scss" t="Include" />
-                    <e p="_vendor-prefixes.scss" t="Include" />
-                  </e>
-                  <e p="plugins" t="Include">
-                    <e p="_perfect-scrollbar.scss" t="Include" />
-                  </e>
-                </e>
+                <e p="responsive.scss" t="Include" />
               </e>
             </e>
             <e p="components" t="Include">
-              <e p="Cards" t="Include">
-                <e p="NavTabsCard.vue" t="Include" />
-                <e p="StatsCard.vue" t="Include" />
-              </e>
-              <e p="Dropdown.vue" t="Include" />
-              <e p="index.js" t="Include" />
-              <e p="NotificationPlugin" t="Include">
-                <e p="index.js" t="Include" />
-                <e p="Notification.vue" t="Include" />
-                <e p="Notifications.vue" t="Include" />
-              </e>
-              <e p="SidebarPlugin" t="Include">
-                <e p="index.js" t="Include" />
-                <e p="SideBar.vue" t="Include" />
-                <e p="SidebarLink.vue" t="Include" />
-              </e>
-              <e p="Tables" t="Include">
-                <e p="NavTabsTable.vue" t="Include" />
-                <e p="OrderedTable.vue" t="Include" />
-                <e p="SimpleTable.vue" t="Include" />
-              </e>
+              <e p="LiveMatch.vue" t="Include" />
+              <e p="LiveTeam.vue" t="Include" />
             </e>
-            <e p="globalComponents.js" t="Include" />
-            <e p="globalDirectives.js" t="Include" />
             <e p="lib" t="Include">
               <e p="api.js" t="Include" />
               <e p="helpers.js" t="Include" />
             </e>
             <e p="main.js" t="Include" />
-            <e p="material-dashboard.js" t="Include" />
-            <e p="pages" t="Include">
-              <e p="Dashboard.vue" t="Include" />
-              <e p="Icons.vue" t="Include" />
+            <e p="plugins" t="Include" />
+            <e p="router" t="Include">
               <e p="index.js" t="Include" />
-              <e p="Layout" t="Include">
-                <e p="Content.vue" t="Include" />
-                <e p="ContentFooter.vue" t="Include" />
-                <e p="DashboardLayout.vue" t="Include" />
-                <e p="MobileMenu.vue" t="Include" />
-                <e p="TopNavbar.vue" t="Include" />
-              </e>
-              <e p="LiveMatchStats.vue" t="Include" />
-              <e p="Maps.vue" t="Include" />
-              <e p="Notifications.vue" t="Include" />
-              <e p="TableList.vue" t="Include" />
-              <e p="Typography.vue" t="Include" />
-              <e p="UserProfile" t="Include">
-                <e p="EditProfileForm.vue" t="Include" />
-                <e p="UserCard.vue" t="Include" />
-              </e>
-              <e p="UserProfile.vue" t="Include" />
-            </e>
-            <e p="routes" t="Include">
-              <e p="routes.js" t="Include" />
             </e>
             <e p="store" t="Include">
               <e p="index.js" t="Include" />
               <e p="matches.js" t="Include" />
             </e>
+            <e p="views" t="Include">
+              <e p="About.vue" t="Include" />
+              <e p="Dashboard.vue" t="Include" />
+              <e p="LiveMatchStats.vue" t="Include" />
+            </e>
           </e>
           <e p="vue.config.js" t="Include" />
-          <e p="yarn-error.log" t="Include" />
           <e p="yarn.lock" t="Include" />
         </e>
         <e p="Controllers" t="Include">
@@ -231,13 +138,19 @@
         <e p="DotaSentry.csproj" t="IncludeRecursive" />
         <e p="Models" t="Include">
           <e p="HeroModel.cs" t="Include" />
-          <e p="ItemModel.cs" t="Include" />
+          <e p="InventoryItemModel.cs" t="Include" />
           <e p="LiveMatchModel.cs" t="Include" />
-          <e p="LiveMatchStats.cs" t="Include" />
+          <e p="LiveMatchStatsModel.cs" t="Include" />
+          <e p="SteamClient" t="Include">
+            <e p="GetMatchStatsResponse.cs" t="Include" />
+            <e p="GetSteamFileResponse.cs" t="Include" />
+            <e p="GetTeamInfoResponse.cs" t="Include" />
+            <e p="GetTopLiveGamesResponse.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp3.0" t="Include">
+            <e p="netcoreapp3.1" t="Include">
               <e p="DotaSentry.AssemblyInfo.cs" t="Include" />
             </e>
           </e>
@@ -354,6 +267,7 @@
                 <e p="npc_dota_hero_skywrath_mage.png" t="Include" />
                 <e p="npc_dota_hero_slardar.png" t="Include" />
                 <e p="npc_dota_hero_slark.png" t="Include" />
+                <e p="npc_dota_hero_snapfire.png" t="Include" />
                 <e p="npc_dota_hero_sniper.png" t="Include" />
                 <e p="npc_dota_hero_spectre.png" t="Include" />
                 <e p="npc_dota_hero_spirit_breaker.png" t="Include" />
@@ -374,6 +288,7 @@
                 <e p="npc_dota_hero_venomancer.png" t="Include" />
                 <e p="npc_dota_hero_viper.png" t="Include" />
                 <e p="npc_dota_hero_visage.png" t="Include" />
+                <e p="npc_dota_hero_void_spirit.png" t="Include" />
                 <e p="npc_dota_hero_warlock.png" t="Include" />
                 <e p="npc_dota_hero_weaver.png" t="Include" />
                 <e p="npc_dota_hero_windrunner.png" t="Include" />
@@ -557,59 +472,34 @@
             </e>
             <e p="Temp" t="Include">
               <e p="Images" t="Include">
-                <e p="704020810226934275.png" t="Include" />
-                <e p="750340704828901050.png" t="Include" />
-                <e p="757096217593461859.png" t="Include" />
-                <e p="763850051433071365.png" t="Include" />
-                <e p="763851539924100133.png" t="Include" />
-                <e p="766103125878916434.png" t="Include" />
-                <e p="768351910996164705.png" t="Include" />
-                <e p="769475928691792324.png" t="Include" />
-                <e p="770607054012732987.png" t="Include" />
-                <e p="775106514372016095.png" t="Include" />
-                <e p="777359668599802900.png" t="Include" />
-                <e p="779613613814928282.png" t="Include" />
-                <e p="787492768612781238.png" t="Include" />
-                <e p="789738371890395466.png" t="Include" />
-                <e p="860612763723262511.png" t="Include" />
+                <e p="1008186329324957164.png" t="Include" />
+                <e p="1010402877585693559.png" t="Include" />
+                <e p="1011566519987509348.png" t="Include" />
+                <e p="1022826195191761850.png" t="Include" />
+                <e p="1032960808659147991.png" t="Include" />
+                <e p="1037463529748288192.png" t="Include" />
+                <e p="1043092885845384919.png" t="Include" />
+                <e p="255967725890131816.png" t="Include" />
+                <e p="769491390871956563.png" t="Include" />
+                <e p="772859540122875286.png" t="Include" />
+                <e p="773974984936173817.png" t="Include" />
+                <e p="775111584830415516.png" t="Include" />
+                <e p="777280951081457535.png" t="Include" />
+                <e p="777372824325330501.png" t="Include" />
+                <e p="777373408607013695.png" t="Include" />
+                <e p="777374397311455701.png" t="Include" />
+                <e p="779615732884168609.png" t="Include" />
+                <e p="780750599793212689.png" t="Include" />
+                <e p="788624714192129581.png" t="Include" />
+                <e p="789738584325911150.png" t="Include" />
                 <e p="939457282117079692.png" t="Include" />
-                <e p="943954717963273320.png" t="Include" />
-                <e p="975479762873971573.png" t="Include" />
-                <e p="985630771489365774.png" t="Include" />
+                <e p="942832623358020877.png" t="Include" />
               </e>
             </e>
           </e>
         </e>
       </e>
       <e p="DotaSentry.sln" t="IncludeFlat" />
-      <e p="DotaSentry.SteamClient" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
-        <e p="Business" t="Include">
-          <e p="DataAccess" t="Include">
-            <e p="IMatchesRepository.cs" t="Include" />
-            <e p="JsonClient.cs" t="Include" />
-            <e p="MatchesRepository.cs" t="Include" />
-            <e p="SteamBaseRepository.cs" t="Include" />
-            <e p="SteamFileRepository.cs" t="Include" />
-            <e p="TeamRepository.cs" t="Include" />
-          </e>
-        </e>
-        <e p="DotaSentry.SteamClient.csproj" t="IncludeRecursive" />
-        <e p="Models" t="Include">
-          <e p="GetMatchesHistoryResponse.cs" t="Include" />
-          <e p="GetRealtimeMatchStatsResponse.cs" t="Include" />
-          <e p="GetSteamFileResponse.cs" t="Include" />
-          <e p="GetTeamInfoResponse.cs" t="Include" />
-          <e p="GetTopLiveGamesResponse.cs" t="Include" />
-        </e>
-        <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
-            <e p="netcoreapp3.0" t="Include">
-              <e p="DotaSentry.SteamClient.AssemblyInfo.cs" t="Include" />
-            </e>
-          </e>
-        </e>
-      </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

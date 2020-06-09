@@ -1,0 +1,44 @@
+@import '../responsive';
+@import '../_variables';
+
+.dashboard {
+  .matches {
+    display:flex;
+    flex-wrap:wrap;
+    
+    .match {
+      padding:10px;
+      display:flex;
+      flex-wrap:wrap;
+      width:100%;
+      
+      .team {
+        text-decoration: none;
+        width: 35%;
+        display: flex;
+        flex-wrap: wrap;
+        
+        img {
+          padding: 10px;
+          width: 100%;
+        }
+        
+        .name {
+          width: 100%;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+  }
+  
+  
+  @include mq($from: mobile, $until: tablet) {
+  
+  }
+
+  @include mq($from: tablet, $until: desktop) {
+    
+  }
+}
+

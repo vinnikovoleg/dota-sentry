@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Threading.Tasks;
-using DotaSentry.Business.MongoClient;
-using DotaSentry.Business.Services;
+using DotaSentry.Business.DataAccess;
 using DotaSentry.Models;
-using DotaSentry.SteamClient.Business.DataAccess;
-using DotaSentry.SteamClient.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotaSentry.Controllers
@@ -17,49 +14,31 @@ namespace DotaSentry.Controllers
     [ApiController]
     public class LiveController : ControllerBase
     {
-        private readonly LiveMatchesService _liveMatchesService;
-        private readonly HeroesService _heroesService;
-        private readonly ItemsService _itemsService;
+        private readonly MatchRepository _matchRepository;
 
         public LiveController(
-            LiveMatchesService liveMatchesService,
-            HeroesService heroesService,
-            ItemsService itemsService)
+            MatchRepository matchRepository)
         {
-            _liveMatchesService = liveMatchesService;
-            _heroesService = heroesService;
-            _itemsService = itemsService;
+            _matchRepository = matchRepository;
         }
 
         [HttpGet]
-        public async Task<List<LiveMatchModel>> GetLiveAsync()
+        [Route("{partnerId}")]
+        public async Task<ActionResult<List<LiveMatchModel>>> GetLiveAsync(int partnerId = 0)
         {
-            return await _liveMatchesService.GetLiveMatchesAsync();
+            if (0 > partnerId || partnerId > 3)
+            {
+                return BadRequest();
+            }
+
+            return await _matchRepository.GetLiveAsync(partnerId);
         }
 
         [HttpGet]
-        [Route("{serverSteamId}")]
-        public async Task<LiveMatchStats> GetTestAsync(ulong serverSteamId)
+        [Route("/stats/{serverSteamId}")]
+        public async Task<ActionResult<LiveMatchStatsModel>> GetStatsAsync(ulong serverSteamId)
         {
-            return await _liveMatchesService.GetRealtimeMatchStatsAsync(serverSteamId);
-        }
-
-        [HttpGet]
-        [Route("test")]
-        public async Task<Dictionary<long, ItemModel>> GetTestAsync()
-        {
-            //return await _teamRepository.GetTeamInfoAsync(7359917);
-            //_mongoHeroesRepository.Create(new HeroData
-            //{
-            //    Id = 1,
-            //    Name = "Test",
-            //    LocalizedName = "test 111"
-            //});
-
-            //var hero = _mongoHeroesRepository.Get(1);
-            //var heroes = await _heroesService.GetHeroesAsync(1, 2, 15, 16);
-            //return await _liveMatchesService.GetRealtimeMatchStatsAsync(90130323322593281);
-            return await _itemsService.GetItemsAsync();
+            return await _matchRepository.GetLiveStatsAsync(serverSteamId);
         }
     }
 }

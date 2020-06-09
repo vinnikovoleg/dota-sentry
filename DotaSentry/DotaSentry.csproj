@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <SpaRoot>ClientApp\</SpaRoot>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
-    <Compile Remove="Business\Builders\**" />
     <Content Remove="$(SpaRoot)**" />
-    <Content Remove="Business\Builders\**" />
-    <EmbeddedResource Remove="Business\Builders\**" />
     <None Remove="$(SpaRoot)**" />
-    <None Remove="Business\Builders\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
     <Content Remove="appsettings.Production.Development.json" />
+    <Compile Remove="new_app\dota-sentry\node_modules\**" />
+    <EmbeddedResource Remove="new_app\dota-sentry\node_modules\**" />
+    <None Remove="new_app\dota-sentry\node_modules\**" />
+    <Content Remove="new_app\dota-sentry\node_modules\**" />
   </ItemGroup>
 
   <Target Name="PublishIncludeSpaDist" AfterTargets="ComputeFilesToPublish">
@@ -30,22 +30,21 @@
   </Target>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
-    <PackageReference Include="MongoDB.Driver" Version="2.9.2" />
-    <PackageReference Include="Sentry" Version="2.0.0-beta6" />
-    <PackageReference Include="Sentry.AspNetCore" Version="2.0.0-beta6" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.2" />
+    <PackageReference Include="Sentry" Version="2.1.0" />
+    <PackageReference Include="Sentry.AspNetCore" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DotaSentry.SteamClient\DotaSentry.SteamClient.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <Folder Include="Business\Services" />
+    <Folder Include="ClientApp\src\plugins" />
     <Folder Include="wwwroot\StaticFiles\Images\" />
     <Folder Include="wwwroot\StaticFiles\Data\" />
+    <Folder Include="wwwroot\StaticFiles\Temp\Images" />
   </ItemGroup>
 
 </Project>

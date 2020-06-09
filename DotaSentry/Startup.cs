@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business.Builders;
+using DotaSentry.Business.DataAccess;
+using DotaSentry.Business.DataAccess.Json;
+using DotaSentry.Business.DataAccess.SteamClient;
 using DotaSentry.Business.MongoClient;
-using DotaSentry.Business.Services;
-using DotaSentry.SteamClient.Business.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Sentry;
 
 namespace DotaSentry
 {
@@ -40,10 +36,22 @@ namespace DotaSentry
 
             // Data Access
             //services.AddScoped<IMatchesRepository, LiveMatchesStubRepository>();
-            services.AddScoped<IMatchesRepository, MatchesRepository>();
-            services.AddScoped<TeamRepository>();
-            services.AddScoped<SteamFileRepository>();
             services.AddScoped<JsonClient>();
+            services.AddScoped<TeamClient>();
+            services.AddScoped<SteamFileClient>();
+            services.AddScoped<SteamDotaClient>();
+            services.AddScoped<HeroesRepository>();
+            services.AddScoped<InventoryItemRepository>();
+            services.AddScoped<MatchRepository>();
+            services.AddScoped<HeroesRepository>();
+            services.AddScoped<InventoryItemRepository>();
+            services.AddScoped<ImageRepository>();
+            services.AddScoped<MatchRepository>();
+            
+            // Builders
+            services.AddScoped<LiveMatchBuilder>();
+            services.AddScoped<MatchStatsBuilder>();
+            
             services.AddScoped(provider => new JsonSerializerSettings());
 
 
@@ -55,12 +63,7 @@ namespace DotaSentry
 
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
-
-            services.AddScoped<HeroesService>();
-            services.AddScoped<ItemsService>();
-            services.AddScoped<ImageService>();
-            services.AddScoped<LiveMatchesService>();
-
+            services.AddSingleton<RemoteFileSaver>();
 
             // Builders
         }

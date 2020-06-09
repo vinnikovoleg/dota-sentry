@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotaSentry", "DotaSentry\DotaSentry.csproj", "{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotaSentry.SteamClient", "DotaSentry.SteamClient\DotaSentry.SteamClient.csproj", "{ABBED50E-852C-4A0F-A816-1D9422763E56}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6672641-F9BB-4EA8-AF19-2F4A2FCC27A3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABBED50E-852C-4A0F-A816-1D9422763E56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
