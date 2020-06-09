@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="team">
     <span class="name">{{ model.name }}</span>
     <img

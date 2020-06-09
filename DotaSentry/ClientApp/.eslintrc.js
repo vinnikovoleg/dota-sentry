@@ -1,11 +1,11 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+    node: true
   },
   extends: [
     'plugin:vue/recommended',
-    '@vue/airbnb',
+    '@vue/airbnb'
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -22,6 +22,6 @@ module.exports = {
     'func-names': 'off'
   },
   parserOptions: {
-    parser: 'babel-eslint',
-  },
-};
+    parser: 'babel-eslint'
+  }
+}

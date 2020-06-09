@@ -115,9 +115,7 @@
               <e p="helpers.js" t="Include" />
             </e>
             <e p="main.js" t="Include" />
-            <e p="plugins" t="Include">
-              <e p="vuetify.js" t="Include" />
-            </e>
+            <e p="plugins" t="Include" />
             <e p="router" t="Include">
               <e p="index.js" t="Include" />
             </e>

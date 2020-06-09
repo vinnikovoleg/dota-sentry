@@ -41,6 +41,7 @@
 
   <ItemGroup>
     <Folder Include="Business\Services" />
+    <Folder Include="ClientApp\src\plugins" />
     <Folder Include="wwwroot\StaticFiles\Images\" />
     <Folder Include="wwwroot\StaticFiles\Data\" />
     <Folder Include="wwwroot\StaticFiles\Temp\Images" />
