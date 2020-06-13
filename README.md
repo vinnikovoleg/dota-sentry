@@ -13,5 +13,5 @@ vinnikovoleg@gmail.com / Dino0668901747
 vinnikovoleh@yahoo.com
 
 # Telegram bot
-Auth token: 1125485681:AAGMJpySGlzIgSJIp2xh6_fUdwPj0fD5MMY
+Auth token: 1125485681:AAGMJpySGlzIgSJIp2xh6_fUdwPj0fD5MMY  
 Bot url: t.me/dota_sentry_bot
