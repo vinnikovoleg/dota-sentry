@@ -15,13 +15,14 @@ namespace DotaSentry.Business.Builders
             _imageRepository = imageRepository;
         }
 
-        public async Task<LiveMatchModel> Build(LiveMatch match)
+        public async Task<LiveMatchModel> Build(LiveMatch match, LeagueModel league)
         {
             return new LiveMatchModel
             {
                 MatchId = match.MatchId,
                 ServerSteamId = match.ServerSteamId,
                 GameTime = TimeSpan.FromSeconds(match.GameTime),
+                League = league,
                 Radiant = new TeamModel
                 {
                     Id = match.TeamIdRadiant,

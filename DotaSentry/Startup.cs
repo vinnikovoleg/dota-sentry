@@ -7,6 +7,7 @@ using DotaSentry.Business.Builders;
 using DotaSentry.Business.DataAccess;
 using DotaSentry.Business.DataAccess.Json;
 using DotaSentry.Business.DataAccess.SteamClient;
+using DotaSentry.Business.DataAccess.WebApi;
 using DotaSentry.Business.MongoClient;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,6 +48,8 @@ namespace DotaSentry
             services.AddScoped<InventoryItemRepository>();
             services.AddScoped<ImageRepository>();
             services.AddScoped<MatchRepository>();
+            services.AddScoped<WebApiClient>();
+            services.AddScoped<LeagueRepository>();
             
             // Builders
             services.AddScoped<LiveMatchBuilder>();

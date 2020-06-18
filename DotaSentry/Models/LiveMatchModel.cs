@@ -12,6 +12,7 @@ namespace DotaSentry.Models
         public TimeSpan GameTime { get; set; }
         public TeamModel Radiant { get; set; }
         public TeamModel Dire { get; set; }
+        public LeagueModel League { get; set; }
     }
 
     public class TeamModel 

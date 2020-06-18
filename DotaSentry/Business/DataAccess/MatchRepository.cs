@@ -14,15 +14,18 @@ namespace DotaSentry.Business.DataAccess
         private readonly SteamDotaClient _steamDotaClient;
         private readonly LiveMatchBuilder _liveMatchBuilder;
         private readonly MatchStatsBuilder _matchStatsBuilder;
+        private readonly LeagueRepository _leagueRepository;
 
         public MatchRepository(
             SteamDotaClient steamDotaClient,
             LiveMatchBuilder liveMatchBuilder,
-            MatchStatsBuilder matchStatsBuilder)
+            MatchStatsBuilder matchStatsBuilder,
+            LeagueRepository leagueRepository)
         {
             _steamDotaClient = steamDotaClient;
             _liveMatchBuilder = liveMatchBuilder;
             _matchStatsBuilder = matchStatsBuilder;
+            _leagueRepository = leagueRepository;
         }
 
         public async Task<List<LiveMatchModel>> GetLiveAsync(int partnerId = 0)
@@ -35,7 +38,8 @@ namespace DotaSentry.Business.DataAccess
                     && !string.IsNullOrEmpty(g.TeamNameRadiant))
                 .Distinct(new MatchComparer()))
             {
-                var matchModel = await _liveMatchBuilder.Build(liveMatch);
+                var league = await _leagueRepository.GetAsync(liveMatch.LeagueId);
+                var matchModel = await _liveMatchBuilder.Build(liveMatch, league);
                 matchModels.Add(matchModel);
             }
 

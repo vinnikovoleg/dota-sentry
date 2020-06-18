@@ -16,7 +16,4 @@ const store = new Vuex.Store({
   actions: {}
 })
 
-// store.dispatch("matches/live/get");
-// matches.live.get();
-
 export default store

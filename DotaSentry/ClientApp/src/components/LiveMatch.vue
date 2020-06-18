@@ -6,6 +6,7 @@
     <LiveTeam :model="model.radiant" />
 
     <div class="score-container">
+      <h5>{{ model.league.name }}</h5>
       <div class="score">
         <span>{{ model.radiant.score }}</span>
         <span>{{ model.dire.score }} </span>
