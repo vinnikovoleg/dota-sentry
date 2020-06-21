@@ -23,14 +23,18 @@
               <e p="JsonClient.cs" t="Include" />
             </e>
             <e p="LeagueRepository.cs" t="Include" />
-            <e p="MatchRepository.cs" t="Include" />
+            <e p="LiveMatchRepository.cs" t="Include" />
+            <e p="MatchStatsRepository.cs" t="Include" />
+            <e p="Mongo" t="Include">
+              <e p="DotaSentryDatabaseSettings.cs" t="Include" />
+            </e>
             <e p="RemoteFileSaver.cs" t="Include" />
-            <e p="SteamClient" t="Include">
+            <e p="Steam" t="Include">
               <e p="Models" t="Include">
-                <e p="GetMatchStatsResponse.cs" t="Include" />
-                <e p="GetSteamFileResponse.cs" t="Include" />
-                <e p="GetTeamInfoResponse.cs" t="Include" />
-                <e p="GetTopLiveGamesResponse.cs" t="Include" />
+                <e p="GetFileSteamResponse.cs" t="Include" />
+                <e p="GetMatchStatsSteamResponse.cs" t="Include" />
+                <e p="GetTeamInfoSteamResponse.cs" t="Include" />
+                <e p="GetTopLiveGamesSteamResponse.cs" t="Include" />
               </e>
               <e p="SteamBaseClient.cs" t="Include" />
               <e p="SteamDotaClient.cs" t="Include" />
@@ -46,9 +50,6 @@
             </e>
           </e>
           <e p="LocalizableStrings.cs" t="Include" />
-          <e p="MongoClient" t="Include">
-            <e p="DotaSentryDatabaseSettings.cs" t="Include" />
-          </e>
         </e>
         <e p="ClientApp" t="Include">
           <e p=".eslintrc.js" t="Include" />
@@ -143,15 +144,18 @@
           <e p="yarn.lock" t="Include" />
         </e>
         <e p="Controllers" t="Include">
-          <e p="LiveController.cs" t="Include" />
+          <e p="LiveMatchController.cs" t="Include" />
+          <e p="MatchStatsController.cs" t="Include" />
         </e>
         <e p="DotaSentry.csproj" t="IncludeRecursive" />
         <e p="Models" t="Include">
-          <e p="HeroModel.cs" t="Include" />
-          <e p="InventoryItemModel.cs" t="Include" />
-          <e p="LeagueModel.cs" t="Include" />
-          <e p="LiveMatchModel.cs" t="Include" />
-          <e p="LiveMatchStatsModel.cs" t="Include" />
+          <e p="Hero.cs" t="Include" />
+          <e p="InventoryItem.cs" t="Include" />
+          <e p="League.cs" t="Include" />
+          <e p="LiveMatch.cs" t="Include" />
+          <e p="LiveTeamStats.cs" t="Include" />
+          <e p="MatchStats.cs" t="Include" />
+          <e p="Team.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

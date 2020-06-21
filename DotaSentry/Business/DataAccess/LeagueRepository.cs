@@ -7,6 +7,7 @@ using DotaSentry.Business.DataAccess.WebApi;
 using DotaSentry.Business.DataAccess.WebApi.Models;
 using DotaSentry.Models;
 using Microsoft.Extensions.Caching.Memory;
+using League = DotaSentry.Models.League;
 
 namespace DotaSentry.Business.DataAccess
 {
@@ -23,7 +24,7 @@ namespace DotaSentry.Business.DataAccess
             _memoryCache = memoryCache;
         }
 
-        public async Task<List<LeagueModel>> GetLeaguesAsync()
+        public async Task<List<League>> GetLeaguesAsync()
         {
             const string cacheKey = "laegues_cache";
             return await _memoryCache.GetOrCreateAsync(cacheKey, async entry =>
@@ -35,19 +36,19 @@ namespace DotaSentry.Business.DataAccess
                         .Select(Build)
                         .Where(l => l.StartTimestamp < DateTime.Now && l.EndTimestamp > DateTime.Now)
                         .ToList()
-                    : new List<LeagueModel>();
+                    : new List<League>();
             });
         }
 
-        public async Task<LeagueModel> GetAsync(long id)
+        public async Task<League> GetAsync(long id)
         {
             var leagues = await GetLeaguesAsync();
             return leagues.FirstOrDefault(l => l.Id == id);
         }
 
-        private LeagueModel Build(League league)
+        private League Build(WebApi.Models.League league)
         {
-            return new LeagueModel
+            return new League
             {
                 Id = league.LeagueId,
                 Name = league.Name,

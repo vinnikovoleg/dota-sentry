@@ -2,7 +2,7 @@
 using System.Linq;
 using DotaSentry.Business.DataAccess.Json;
 
-namespace DotaSentry.Business.DataAccess.SteamClient
+namespace DotaSentry.Business.DataAccess.Steam
 {
     public abstract class SteamBaseClient
     {

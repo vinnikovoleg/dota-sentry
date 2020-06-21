@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using DotaSentry.Business.DataAccess.Json;
-using DotaSentry.Models.SteamClient;
+using DotaSentry.Business.DataAccess.Steam.Models;
 
-namespace DotaSentry.Business.DataAccess.SteamClient
+namespace DotaSentry.Business.DataAccess.Steam
 {
     public class SteamDotaClient : SteamBaseClient
     {
@@ -12,18 +12,18 @@ namespace DotaSentry.Business.DataAccess.SteamClient
         {
         }
 
-        public async Task<GetTopLiveGamesResponse> GetTopLiveMatchesAsync(int partnerId)
+        public async Task<GetTopLiveGamesSteamResponse> GetTopLiveMatchesAsync(int partnerId)
         {
             var parameters = new Dictionary<string, string> { { "partner", partnerId.ToString() } };
             var requestUrl = GetRequestUrl("IDOTA2Match_570", "GetTopLiveGame", parameters);
-            return await JsonClient.GetAsync<GetTopLiveGamesResponse>(requestUrl);
+            return await JsonClient.GetAsync<GetTopLiveGamesSteamResponse>(requestUrl);
         }
 
-        public async Task<GetMatchStatsResponse> GetRealtimeMatchStatsAsync(ulong serverSteamId)
+        public async Task<GetMatchStatsSteamResponse> GetRealtimeMatchStatsAsync(ulong serverSteamId)
         {
             var parameters = new Dictionary<string, string> { { "server_steam_id", serverSteamId.ToString(CultureInfo.InvariantCulture) } };
             var requestUrl = GetRequestUrl("IDOTA2MatchStats_570", "GetRealtimeStats", parameters);
-            return await JsonClient.GetAsync<GetMatchStatsResponse>(requestUrl);
+            return await JsonClient.GetAsync<GetMatchStatsSteamResponse>(requestUrl);
         }
 
         // public async Task<GetLiveLeagueGamesResponse> GetLiveLeagueGamesAsync()

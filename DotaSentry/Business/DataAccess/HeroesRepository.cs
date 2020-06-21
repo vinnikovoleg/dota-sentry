@@ -24,15 +24,15 @@ namespace DotaSentry.Business.DataAccess
             _memoryCache = memoryCache;
         }
 
-        public async Task<Dictionary<long, HeroModel>> GetHeroesAsync()
+        public async Task<Dictionary<long, Hero>> GetHeroesAsync()
         {
-            async Task<Dictionary<long, HeroModel>> ReadHeroesAsync()
+            async Task<Dictionary<long, Hero>> ReadHeroesAsync()
             {
                 var dataPath = Path.Combine(_environment.WebRootPath, _heroesDataPath);
 
                 if (!File.Exists(dataPath))
                 {
-                    return new Dictionary<long, HeroModel>();
+                    return new Dictionary<long, Hero>();
                 }
 
                 var json = await File.ReadAllTextAsync(dataPath);
@@ -50,9 +50,9 @@ namespace DotaSentry.Business.DataAccess
 
         }
 
-        public HeroModel GetUnknownHero()
+        public Hero GetUnknownHero()
         {
-            return new HeroModel
+            return new Hero
             {
                 Name = "Unknown",
                 LocalizedName = "Unknown"
@@ -61,7 +61,7 @@ namespace DotaSentry.Business.DataAccess
 
         private class HeroesData
         {
-            public List<HeroModel> Heroes { get; set; }
+            public List<Hero> Heroes { get; set; }
         }
     }
 }

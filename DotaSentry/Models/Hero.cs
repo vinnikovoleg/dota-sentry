@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 namespace DotaSentry.Models
 {
-    public class HeroModel
+    public class Hero
     {
         public long Id { get; set; }
 

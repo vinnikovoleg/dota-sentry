@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace DotaSentry.Models.SteamClient
+namespace DotaSentry.Business.DataAccess.Steam.Models
 {
-    public class GetTopLiveGamesResponse
+    public class GetTopLiveGamesSteamResponse
     {
         [JsonProperty("game_list")]
-        public List<LiveMatch> GameList { get; set; }
+        public List<SteamLiveMatch> GameList { get; set; }
     }
 
-    public class LiveMatch
+    public class SteamLiveMatch
     {
         [JsonProperty("activate_time")]
         public long ActivateTime { get; set; }
@@ -66,7 +66,7 @@ namespace DotaSentry.Models.SteamClient
         public long DireScore { get; set; }
 
         [JsonProperty("players")]
-        public List<Player1> Players { get; set; }
+        public List<SteamPlayer> Players { get; set; }
 
         [JsonProperty("building_state")]
         public long BuildingState { get; set; }
@@ -90,7 +90,7 @@ namespace DotaSentry.Models.SteamClient
         public long? TeamIdDire { get; set; }
     }
 
-    public class Player1
+    public class SteamPlayer
     {
         [JsonProperty("account_id")]
         public long AccountId { get; set; }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Business.DataAccess;
+using DotaSentry.Business.DataAccess.Steam.Models;
 using DotaSentry.Models;
-using DotaSentry.Models.SteamClient;
 
 namespace DotaSentry.Business.Builders
 {
@@ -24,49 +24,49 @@ namespace DotaSentry.Business.Builders
             _inventoryItemRepository = inventoryItemRepository;
         }
 
-        public async Task<LiveMatchStatsModel> Build(GetMatchStatsResponse matchStats)
+        public async Task<MatchStats> Build(GetMatchStatsSteamResponse matchStatsSteam)
         {
             var radiantTeam =
-                await BuildLiveTeamStats(matchStats.Teams[0], matchStats.Match.Picks, matchStats.Match.Bans);
-            var direTeam = await BuildLiveTeamStats(matchStats.Teams[1], matchStats.Match.Picks, matchStats.Match.Bans);
+                await BuildLiveTeamStats(matchStatsSteam.Teams[0], matchStatsSteam.SteamMatch.Picks, matchStatsSteam.SteamMatch.Bans);
+            var direTeam = await BuildLiveTeamStats(matchStatsSteam.Teams[1], matchStatsSteam.SteamMatch.Picks, matchStatsSteam.SteamMatch.Bans);
 
-            return new LiveMatchStatsModel
+            return new MatchStats
             {
-                ServerSteamId = matchStats.Match.ServerSteamId,
-                GameTime = TimeSpan.FromSeconds(matchStats.Match.GameTime),
-                GoldGraph = matchStats.GraphData.GraphGold,
+                ServerSteamId = matchStatsSteam.SteamMatch.ServerSteamId,
+                GameTime = TimeSpan.FromSeconds(matchStatsSteam.SteamMatch.GameTime),
+                GoldGraph = matchStatsSteam.SteamGraphData.GraphGold,
                 Radiant = radiantTeam,
                 Dire = direTeam
             };
         }
         
-        private async Task<LiveTeamStatsModel> BuildLiveTeamStats(Team team, List<HeroPick> picks,
-            List<HeroPick> bans)
+        private async Task<LiveTeamStats> BuildLiveTeamStats(SteamTeam steamTeam, List<SteamHeroPick> picks,
+            List<SteamHeroPick> bans)
         {
             var heroes = await _heroesRepository.GetHeroesAsync();
             var items = await _inventoryItemRepository.GetItemsAsync();
 
-            HeroModel GetHero(long heroId)
+            Hero GetHero(long heroId)
             {
                 return heroes.ContainsKey(heroId) ? heroes[heroId] : _heroesRepository.GetUnknownHero();
             }
 
-            InventoryItemModel GetItem(long itemId)
+            InventoryItem GetItem(long itemId)
             {
-                return items.ContainsKey(itemId) ? items[itemId] : new InventoryItemModel {Name = "Unknown"};
+                return items.ContainsKey(itemId) ? items[itemId] : new InventoryItem {Name = "Unknown"};
             }
 
-            return new LiveTeamStatsModel
+            return new LiveTeamStats
             {
-                Id = team.TeamId,
-                Name = team.TeamName,
-                Score = team.Score,
-                NetWorth = team.NetWorth,
-                Logo = await _imageRepository.GetSteamImageUrlAsync(team.TeamLogo),
-                Bans = bans.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
-                Picks = picks.Where(b => b.Team == team.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
-                Players = team.Players.Where(p => p.Team == team.TeamNumber)
-                    .Select(p => new PlayerModel
+                Id = steamTeam.TeamId,
+                Name = steamTeam.TeamName,
+                Score = steamTeam.Score,
+                NetWorth = steamTeam.NetWorth,
+                Logo = await _imageRepository.GetSteamImageUrlAsync(steamTeam.TeamLogo),
+                Bans = bans.Where(b => b.Team == steamTeam.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
+                Picks = picks.Where(b => b.Team == steamTeam.TeamNumber).Select(b => GetHero(b.HeroId)).ToList(),
+                Players = steamTeam.Players.Where(p => p.Team == steamTeam.TeamNumber)
+                    .Select(p => new Player
                     {
                         Id = p.PlayerId,
                         AccountId = p.AccountId,

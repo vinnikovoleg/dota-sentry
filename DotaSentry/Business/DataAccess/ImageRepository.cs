@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-using DotaSentry.Business.DataAccess.SteamClient;
+using DotaSentry.Business.DataAccess.Steam;
 using Microsoft.AspNetCore.Hosting;
 
 namespace DotaSentry.Business.DataAccess

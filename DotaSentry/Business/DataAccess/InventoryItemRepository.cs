@@ -24,15 +24,15 @@ namespace DotaSentry.Business.DataAccess
             _environment = environment;
         }
 
-        public async Task<Dictionary<long, InventoryItemModel>> GetItemsAsync()
+        public async Task<Dictionary<long, InventoryItem>> GetItemsAsync()
         {
-            async Task<Dictionary<long, InventoryItemModel>> ReadHeroesAsync()
+            async Task<Dictionary<long, InventoryItem>> ReadHeroesAsync()
             {
                 var dataPath = Path.Combine(_environment.WebRootPath, _itemsDataPath);
 
                 if (!File.Exists(dataPath))
                 {
-                    return new Dictionary<long, InventoryItemModel>();
+                    return new Dictionary<long, InventoryItem>();
                 }
 
                 var json = await File.ReadAllTextAsync(dataPath);
@@ -50,7 +50,7 @@ namespace DotaSentry.Business.DataAccess
 
         private class ItemsData
         {
-            public List<InventoryItemModel> Items { get; set; }
+            public List<InventoryItem> Items { get; set; }
         }
     }
 }

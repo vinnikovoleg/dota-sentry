@@ -12,6 +12,10 @@ vinnikovoleg@gmail.com / Dino0668901747
 # Azure Service and Azure DevOps
 vinnikovoleh@yahoo.com
 
+# Mongo
+https://cloud.mongodb.com/  
+vinnikovoleg@gmail.com
+
 # Telegram bot
 Auth token: 1125485681:AAGMJpySGlzIgSJIp2xh6_fUdwPj0fD5MMY  
 Bot url: t.me/dota_sentry_bot

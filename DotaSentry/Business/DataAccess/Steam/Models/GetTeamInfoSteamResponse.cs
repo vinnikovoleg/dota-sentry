@@ -1,24 +1,24 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace DotaSentry.Models.SteamClient
+namespace DotaSentry.Business.DataAccess.Steam.Models
 {
-    public class GetTeamInfoResponse
+    public class GetTeamInfoSteamResponse
     {
         [JsonProperty("result")]
-        public Result3 Result { get; set; }
+        public SteamTeamInfoResult Result { get; set; }
     }
 
-    public class Result3
+    public class SteamTeamInfoResult
     {
         [JsonProperty("status")]
         public long Status { get; set; }
 
         [JsonProperty("teams")]
-        public List<TeamInfo> Teams { get; set; }
+        public List<SteamTeamInfo> Teams { get; set; }
     }
 
-    public class TeamInfo
+    public class SteamTeamInfo
     {
         [JsonProperty("name")]
         public string Name { get; set; }

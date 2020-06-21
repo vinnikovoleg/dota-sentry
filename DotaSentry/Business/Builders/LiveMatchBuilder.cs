@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DotaSentry.Business.DataAccess;
+using DotaSentry.Business.DataAccess.Steam.Models;
 using DotaSentry.Models;
-using DotaSentry.Models.SteamClient;
 
 namespace DotaSentry.Business.Builders
 {
@@ -15,15 +15,15 @@ namespace DotaSentry.Business.Builders
             _imageRepository = imageRepository;
         }
 
-        public async Task<LiveMatchModel> Build(LiveMatch match, LeagueModel league)
+        public async Task<LiveMatch> Build(SteamLiveMatch match, League league)
         {
-            return new LiveMatchModel
+            return new LiveMatch
             {
                 MatchId = match.MatchId,
                 ServerSteamId = match.ServerSteamId,
                 GameTime = TimeSpan.FromSeconds(match.GameTime),
                 League = league,
-                Radiant = new TeamModel
+                Radiant = new Team
                 {
                     Id = match.TeamIdRadiant,
                     Name = match.TeamNameRadiant,
@@ -33,7 +33,7 @@ namespace DotaSentry.Business.Builders
                         ? await _imageRepository.GetSteamImageUrlAsync(match.TeamLogoRadiant.Value)
                         : string.Empty
                 },
-                Dire = new TeamModel
+                Dire = new Team
                 {
                     Id = match.TeamIdDire,
                     Name = match.TeamNameDire,

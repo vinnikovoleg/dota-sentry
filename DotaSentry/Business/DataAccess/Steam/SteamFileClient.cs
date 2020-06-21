@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using DotaSentry.Business.DataAccess.Json;
-using DotaSentry.Models.SteamClient;
+using DotaSentry.Business.DataAccess.Steam.Models;
 
-namespace DotaSentry.Business.DataAccess.SteamClient
+namespace DotaSentry.Business.DataAccess.Steam
 {
     public class SteamFileClient : SteamBaseClient
     {
@@ -12,7 +12,7 @@ namespace DotaSentry.Business.DataAccess.SteamClient
         {
         }
 
-        public async Task<GetSteamFileResponse> GetLogoInfoAsync(long id)
+        public async Task<GetFileSteamResponse> GetLogoInfoAsync(long id)
         {
             var parameters = new Dictionary<string, string>
             {
@@ -20,7 +20,7 @@ namespace DotaSentry.Business.DataAccess.SteamClient
                 { "appid", "570" }
             };
             var requestUrl = GetRequestUrl("ISteamRemoteStorage", "GetUGCFileDetails", parameters);
-            return await JsonClient.GetAsync<GetSteamFileResponse>(requestUrl);
+            return await JsonClient.GetAsync<GetFileSteamResponse>(requestUrl);
         }
     }
 }

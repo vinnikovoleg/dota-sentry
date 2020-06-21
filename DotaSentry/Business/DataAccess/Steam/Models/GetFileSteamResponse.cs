@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace DotaSentry.Models.SteamClient
+namespace DotaSentry.Business.DataAccess.Steam.Models
 {
-    public class GetSteamFileResponse
+    public class GetFileSteamResponse
     {
         [JsonProperty("data")]
         public Data Data { get; set; }

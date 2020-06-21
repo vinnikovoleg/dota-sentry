@@ -2,27 +2,27 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace DotaSentry.Models.SteamClient
+namespace DotaSentry.Business.DataAccess.Steam.Models
 {
-    public class GetMatchStatsResponse
+    public class GetMatchStatsSteamResponse
     {
         [JsonProperty("match")]
-        public Match Match { get; set; }
+        public SteamMatch SteamMatch { get; set; }
 
         [JsonProperty("teams")]
-        public List<Team> Teams { get; set; }
+        public List<SteamTeam> Teams { get; set; }
 
         [JsonProperty("buildings")]
-        public List<Building> Buildings { get; set; }
+        public List<SteamBuilding> Buildings { get; set; }
 
         [JsonProperty("graph_data")]
-        public GraphData GraphData { get; set; }
+        public SteamGraphData SteamGraphData { get; set; }
 
         [JsonProperty("delta_frame")]
         public bool DeltaFrame { get; set; }
     }
 
-    public class Building
+    public class SteamBuilding
     {
         [JsonProperty("team")]
         public long Team { get; set; }
@@ -49,13 +49,13 @@ namespace DotaSentry.Models.SteamClient
         public bool Destroyed { get; set; }
     }
 
-    public class GraphData
+    public class SteamGraphData
     {
         [JsonProperty("graph_gold")]
         public List<long> GraphGold { get; set; }
     }
 
-    public class Match
+    public class SteamMatch
     {
         [JsonProperty("server_steam_id")]
         public long ServerSteamId { get; set; }
@@ -90,13 +90,13 @@ namespace DotaSentry.Models.SteamClient
         public long GameState { get; set; }
 
         [JsonProperty("picks")]
-        public List<HeroPick> Picks { get; set; }
+        public List<SteamHeroPick> Picks { get; set; }
 
         [JsonProperty("bans")]
-        public List<HeroPick> Bans { get; set; }
+        public List<SteamHeroPick> Bans { get; set; }
     }
 
-    public class HeroPick
+    public class SteamHeroPick
     {
         [JsonProperty("hero")]
         public long HeroId { get; set; }
@@ -105,7 +105,7 @@ namespace DotaSentry.Models.SteamClient
         public long Team { get; set; }
     }
 
-    public class Team
+    public class SteamTeam
     {
         [JsonProperty("team_number")]
         public long TeamNumber { get; set; }
@@ -132,10 +132,10 @@ namespace DotaSentry.Models.SteamClient
         public Uri TeamLogoUrl { get; set; }
 
         [JsonProperty("players")]
-        public List<RealtimePlayer> Players { get; set; }
+        public List<SteamRealtimePlayer> Players { get; set; }
     }
 
-    public class RealtimePlayer
+    public class SteamRealtimePlayer
     {
         [JsonProperty("accountid")]
         public long AccountId { get; set; }
