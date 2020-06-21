@@ -49,6 +49,7 @@
               <e p="WebApiClient.cs" t="Include" />
             </e>
           </e>
+          <e p="LiveMatchCacheUpdateTask.cs" t="Include" />
           <e p="LocalizableStrings.cs" t="Include" />
         </e>
         <e p="ClientApp" t="Include">
@@ -155,6 +156,7 @@
           <e p="LiveMatch.cs" t="Include" />
           <e p="LiveTeamStats.cs" t="Include" />
           <e p="MatchStats.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Team.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -481,6 +483,8 @@
             </e>
             <e p="Temp" t="Include">
               <e p="Images" t="Include">
+                <e p="1001432308778267396.png" t="Include" />
+                <e p="1004808250871040535.png" t="Include" />
                 <e p="1004809121655041802.png" t="Include" />
                 <e p="1008186329324957164.png" t="Include" />
                 <e p="1010402877585693559.png" t="Include" />
@@ -495,6 +499,7 @@
                 <e p="1037463529748288192.png" t="Include" />
                 <e p="1043092885845384919.png" t="Include" />
                 <e p="1054352522749972375.png" t="Include" />
+                <e p="1255890201982464620.png" t="Include" />
                 <e p="1259267571735218062.png" t="Include" />
                 <e p="255967725890131816.png" t="Include" />
                 <e p="436112717445383861.png" t="Include" />
@@ -503,6 +508,7 @@
                 <e p="771741074306850950.png" t="Include" />
                 <e p="772859540122875286.png" t="Include" />
                 <e p="773974984936173817.png" t="Include" />
+                <e p="773981410527259604.png" t="Include" />
                 <e p="775111584830415516.png" t="Include" />
                 <e p="777280951081457535.png" t="Include" />
                 <e p="777372824325330501.png" t="Include" />
@@ -510,11 +516,16 @@
                 <e p="777374397311455701.png" t="Include" />
                 <e p="779615732884168609.png" t="Include" />
                 <e p="780750599793212689.png" t="Include" />
+                <e p="781861913825230997.png" t="Include" />
+                <e p="785232140934729052.png" t="Include" />
+                <e p="787497032235952508.png" t="Include" />
                 <e p="788624714192129581.png" t="Include" />
+                <e p="789731261741313566.png" t="Include" />
                 <e p="789738584325911150.png" t="Include" />
                 <e p="795189696154552749.png" t="Include" />
                 <e p="939457282117079692.png" t="Include" />
                 <e p="942832623358020877.png" t="Include" />
+                <e p="950725693398590216.png" t="Include" />
                 <e p="951841177138356583.png" t="Include" />
               </e>
             </e>

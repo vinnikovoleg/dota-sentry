@@ -4,9 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business;
 using DotaSentry.Business.DataAccess;
 using DotaSentry.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace DotaSentry.Controllers
 {
@@ -14,24 +16,21 @@ namespace DotaSentry.Controllers
     [ApiController]
     public class LiveMatchController : ControllerBase
     {
+        // TODO: refactor this, some mess here
         private readonly LiveMatchRepository _liveMatchRepository;
+        private readonly IMemoryCache _memoryCache;
 
         public LiveMatchController(
-            LiveMatchRepository liveMatchRepository)
+            LiveMatchRepository liveMatchRepository, IMemoryCache memoryCache)
         {
             _liveMatchRepository = liveMatchRepository;
+            _memoryCache = memoryCache;
         }
 
         [HttpGet]
-        [Route("{partnerId}")]
-        public async Task<ActionResult<List<LiveMatch>>> GetLiveAsync(int partnerId = 0)
+        public async Task<ActionResult<List<LiveMatch>>> GetLiveAsync()
         {
-            if (0 > partnerId || partnerId > 3)
-            {
-                return BadRequest();
-            }
-
-            return await _liveMatchRepository.GetAsync(partnerId);
+            return _memoryCache.Get<List<LiveMatch>>(LiveMatchCacheUpdateTask.MatchCacheKey);
         }
     }
 }

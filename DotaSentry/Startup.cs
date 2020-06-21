@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DotaSentry.Business;
 using DotaSentry.Business.Builders;
 using DotaSentry.Business.DataAccess;
 using DotaSentry.Business.DataAccess.Json;
@@ -68,11 +69,12 @@ namespace DotaSentry
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
             services.AddSingleton<RemoteFileSaver>();
+            services.AddScoped<LiveMatchCacheUpdateTask>();
 
             // Builders
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, LiveMatchCacheUpdateTask updateTask)
         {
             if (env.IsDevelopment())
             {
@@ -96,6 +98,8 @@ namespace DotaSentry
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:8080");
                 }
             });
+            
+            updateTask.Start();
         }
     }
 }

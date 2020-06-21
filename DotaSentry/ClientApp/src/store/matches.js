@@ -26,7 +26,7 @@ export default {
   actions: {
     async getLiveMatches({ commit }) {
       const getLive = async () => {
-        const response = await api.live.get(1)
+        const response = await api.live.get()
         commit('setLiveMatches', response.data)
       }
       await getLive()

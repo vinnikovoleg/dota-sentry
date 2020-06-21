@@ -14,10 +14,4 @@ namespace DotaSentry.Models
         public DateTime EndTimestamp { get; set; }
         public long Status { get; set; }
     }
-
-    public enum LeagueStatus
-    {
-        InProgress = 3,
-        Completed = 5
-    }
 }
