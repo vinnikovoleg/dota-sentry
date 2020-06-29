@@ -7,13 +7,13 @@ using DotaSentry.Models;
 
 namespace DotaSentry.Business.DataAccess
 {
-    public class LiveMatchRepository
+    public class LiveMatchSteamRepository
     {
         private readonly SteamDotaClient _steamDotaClient;
         private readonly LiveMatchBuilder _liveMatchBuilder;
         private readonly LeagueRepository _leagueRepository;
 
-        public LiveMatchRepository(
+        public LiveMatchSteamRepository(
             SteamDotaClient steamDotaClient,
             LiveMatchBuilder liveMatchBuilder,
             LeagueRepository leagueRepository)

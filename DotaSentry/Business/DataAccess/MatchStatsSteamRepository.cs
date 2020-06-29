@@ -8,12 +8,12 @@ using DotaSentry.Models;
 
 namespace DotaSentry.Business.DataAccess
 {
-    public class MatchStatsRepository
+    public class MatchStatsSteamRepository
     {
         private readonly SteamDotaClient _steamDotaClient;
         private readonly MatchStatsBuilder _matchStatsBuilder;
 
-        public MatchStatsRepository(
+        public MatchStatsSteamRepository(
             SteamDotaClient steamDotaClient,
             MatchStatsBuilder matchStatsBuilder)
         {

@@ -9,7 +9,6 @@ using DotaSentry.Business.DataAccess;
 using DotaSentry.Business.DataAccess.Json;
 using DotaSentry.Business.DataAccess.Mongo;
 using DotaSentry.Business.DataAccess.Steam;
-using DotaSentry.Business.DataAccess.WebApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Caching.Memory;
@@ -44,37 +43,34 @@ namespace DotaSentry
             services.AddScoped<SteamDotaClient>();
             services.AddScoped<HeroesRepository>();
             services.AddScoped<InventoryItemRepository>();
-            services.AddScoped<MatchStatsRepository>();
-            services.AddScoped<LiveMatchRepository>();
+            services.AddScoped<MatchStatsSteamRepository>();
+            services.AddScoped<LiveMatchSteamRepository>();
             services.AddScoped<HeroesRepository>();
             services.AddScoped<InventoryItemRepository>();
             services.AddScoped<ImageRepository>();
-            services.AddScoped<MatchStatsRepository>();
+            services.AddScoped<MatchStatsSteamRepository>();
             services.AddScoped<WebApiClient>();
             services.AddScoped<LeagueRepository>();
+            services.AddScoped<LiveMatchStoreRepository>();
             
             // Builders
             services.AddScoped<LiveMatchBuilder>();
             services.AddScoped<MatchStatsBuilder>();
             
-            services.AddScoped(provider => new JsonSerializerSettings());
-
-
             // configuration
             services.Configure<DotaSentryDatabaseSettings>(
                 Configuration.GetSection(nameof(DotaSentryDatabaseSettings)));
-
             services.AddSingleton(sp => sp.GetRequiredService<IOptions<DotaSentryDatabaseSettings>>().Value);
-
+            services.AddSingleton(provider => new JsonSerializerSettings());
+            
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
             services.AddSingleton<RemoteFileSaver>();
-            services.AddScoped<LiveMatchCacheUpdateTask>();
+            services.AddSingleton<LiveMatchStoreUpdateJob>();
 
-            // Builders
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, LiveMatchCacheUpdateTask updateTask)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, LiveMatchStoreUpdateJob updateJob)
         {
             if (env.IsDevelopment())
             {
@@ -99,7 +95,7 @@ namespace DotaSentry
                 }
             });
             
-            updateTask.Start();
+            updateJob.Start();
         }
     }
 }

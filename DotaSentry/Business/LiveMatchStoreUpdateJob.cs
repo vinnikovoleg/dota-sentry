@@ -6,19 +6,19 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace DotaSentry.Business
 {
-    public class LiveMatchCacheUpdateTask
+    public class LiveMatchStoreUpdateJob
     {
         private readonly Timer _timer = new Timer(5000);
-        private readonly LiveMatchRepository _liveMatchRepository;
+        private readonly LiveMatchSteamRepository _liveMatchSteamRepository;
         private readonly int[] _parentIds = {0, 1, 2, 3};
         private readonly IMemoryCache _memoryCache;
         public const string MatchCacheKey = "LiveMatches";
 
-        public LiveMatchCacheUpdateTask(
-            LiveMatchRepository liveMatchRepository,
+        public LiveMatchStoreUpdateJob(
+            LiveMatchSteamRepository liveMatchSteamRepository,
             IMemoryCache memoryCache)
         {
-            _liveMatchRepository = liveMatchRepository;
+            _liveMatchSteamRepository = liveMatchSteamRepository;
             _memoryCache = memoryCache;
         }
 
@@ -31,7 +31,7 @@ namespace DotaSentry.Business
 
         private void OnTimedEvent(object source, ElapsedEventArgs e)
         {
-            var tasks = _parentIds.Select(parentId => _liveMatchRepository.GetAsync(parentId)).ToList();
+            var tasks = _parentIds.Select(parentId => _liveMatchSteamRepository.GetAsync(parentId)).ToList();
             Task.WhenAll(tasks).GetAwaiter().GetResult();
 
             // simple distinct

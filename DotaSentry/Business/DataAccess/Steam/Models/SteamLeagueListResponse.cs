@@ -1,8 +1,15 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 
-namespace DotaSentry.Business.DataAccess.WebApi.Models
+namespace DotaSentry.Business.DataAccess.Steam.Models
 {
-    public class League
+    public class SteamLeagueListResponse
+    {
+        [JsonProperty("infos")]
+        public List<SteamLeague> Leagues { get; set; }
+    }
+    
+    public class SteamLeague
     {
         [JsonProperty("league_id")]
         public long LeagueId { get; set; }

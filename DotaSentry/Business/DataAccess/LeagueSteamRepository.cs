@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DotaSentry.Business.DataAccess.Json;
-using DotaSentry.Business.DataAccess.WebApi;
-using DotaSentry.Business.DataAccess.WebApi.Models;
+using DotaSentry.Business.DataAccess.Steam;
+using DotaSentry.Business.DataAccess.Steam.Models;
 using DotaSentry.Models;
 using Microsoft.Extensions.Caching.Memory;
 using League = DotaSentry.Models.League;
@@ -46,19 +46,19 @@ namespace DotaSentry.Business.DataAccess
             return leagues.FirstOrDefault(l => l.Id == id);
         }
 
-        private League Build(WebApi.Models.League league)
+        private League Build(SteamLeague steamLeague)
         {
             return new League
             {
-                Id = league.LeagueId,
-                Name = league.Name,
-                Region = league.Region,
-                Status = league.Status,
-                Tier = league.Tier,
-                MostRecentActivity = DateTimeOffset.FromUnixTimeSeconds(league.MostRecentActivity).DateTime,
-                StartTimestamp = DateTimeOffset.FromUnixTimeSeconds(league.StartTimestamp).DateTime,
-                EndTimestamp = DateTimeOffset.FromUnixTimeSeconds(league.EndTimestamp).DateTime,
-                TotalPrizePool = league.TotalPrizePool
+                Id = steamLeague.LeagueId,
+                Name = steamLeague.Name,
+                Region = steamLeague.Region,
+                Status = steamLeague.Status,
+                Tier = steamLeague.Tier,
+                MostRecentActivity = DateTimeOffset.FromUnixTimeSeconds(steamLeague.MostRecentActivity).DateTime,
+                StartTimestamp = DateTimeOffset.FromUnixTimeSeconds(steamLeague.StartTimestamp).DateTime,
+                EndTimestamp = DateTimeOffset.FromUnixTimeSeconds(steamLeague.EndTimestamp).DateTime,
+                TotalPrizePool = steamLeague.TotalPrizePool
             };
         }
     }

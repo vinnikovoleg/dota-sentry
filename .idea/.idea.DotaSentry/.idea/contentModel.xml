@@ -23,8 +23,8 @@
               <e p="JsonClient.cs" t="Include" />
             </e>
             <e p="LeagueRepository.cs" t="Include" />
-            <e p="LiveMatchRepository.cs" t="Include" />
-            <e p="MatchStatsRepository.cs" t="Include" />
+            <e p="LiveMatchSteamRepository.cs" t="Include" />
+            <e p="MatchStatsSteamRepository.cs" t="Include" />
             <e p="Mongo" t="Include">
               <e p="DotaSentryDatabaseSettings.cs" t="Include" />
             </e>
@@ -490,7 +490,9 @@
                 <e p="1010402877585693559.png" t="Include" />
                 <e p="1011566519987509348.png" t="Include" />
                 <e p="1014940317816759398.png" t="Include" />
+                <e p="1017194708027537879.png" t="Include" />
                 <e p="1018322454570182183.png" t="Include" />
+                <e p="1021698695531548287.png" t="Include" />
                 <e p="1022826195191761850.png" t="Include" />
                 <e p="1023949891346003477.png" t="Include" />
                 <e p="1029581453642932676.png" t="Include" />
@@ -501,8 +503,11 @@
                 <e p="1054352522749972375.png" t="Include" />
                 <e p="1255890201982464620.png" t="Include" />
                 <e p="1259267571735218062.png" t="Include" />
+                <e p="1280660724088551722.png" t="Include" />
+                <e p="1295297413939394443.png" t="Include" />
                 <e p="255967725890131816.png" t="Include" />
                 <e p="436112717445383861.png" t="Include" />
+                <e p="543006248885040300.png" t="Include" />
                 <e p="769491390871956563.png" t="Include" />
                 <e p="771721592096213701.png" t="Include" />
                 <e p="771741074306850950.png" t="Include" />

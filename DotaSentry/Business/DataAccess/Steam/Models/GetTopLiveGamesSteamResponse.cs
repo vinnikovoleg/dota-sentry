@@ -8,8 +8,17 @@ namespace DotaSentry.Business.DataAccess.Steam.Models
         [JsonProperty("game_list")]
         public List<SteamLiveMatch> GameList { get; set; }
     }
+    
+    public class SteamPlayer
+    {
+        [JsonProperty("account_id")]
+        public long AccountId { get; set; }
 
-    public class SteamLiveMatch
+        [JsonProperty("hero_id")]
+        public long HeroId { get; set; }
+    }
+    
+     public class SteamLiveMatch
     {
         [JsonProperty("activate_time")]
         public long ActivateTime { get; set; }
@@ -88,14 +97,5 @@ namespace DotaSentry.Business.DataAccess.Steam.Models
 
         [JsonProperty("team_id_dire", NullValueHandling = NullValueHandling.Ignore)]
         public long? TeamIdDire { get; set; }
-    }
-
-    public class SteamPlayer
-    {
-        [JsonProperty("account_id")]
-        public long AccountId { get; set; }
-
-        [JsonProperty("hero_id")]
-        public long HeroId { get; set; }
     }
 }

@@ -9,18 +9,18 @@ namespace DotaSentry.Controllers
     [ApiController]
     public class MatchStatsController: ControllerBase
     {
-        private readonly MatchStatsRepository _matchStatsRepository;
+        private readonly MatchStatsSteamRepository _matchStatsSteamRepository;
 
-        public MatchStatsController(MatchStatsRepository matchStatsRepository)
+        public MatchStatsController(MatchStatsSteamRepository matchStatsSteamRepository)
         {
-            _matchStatsRepository = matchStatsRepository;
+            _matchStatsSteamRepository = matchStatsSteamRepository;
         }
 
         [HttpGet]
         [Route("/stats/{serverSteamId}")]
         public async Task<ActionResult<MatchStats>> GetStatsAsync(ulong serverSteamId)
         {
-            return await _matchStatsRepository.GetAsync(serverSteamId);
+            return await _matchStatsSteamRepository.GetAsync(serverSteamId);
         }
     }
 }
