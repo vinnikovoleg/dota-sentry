@@ -3,7 +3,7 @@ import jsonBigInt from 'json-bigint'
 
 export default {
   live: {
-    baseUrl: '/api/livematch',
+    baseUrl: '/api/livematches',
     get() {
       return axios.get(`${this.baseUrl}/`, {
         transformResponse: [

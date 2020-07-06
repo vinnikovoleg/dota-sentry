@@ -66,7 +66,7 @@ namespace DotaSentry
             // Services              
             services.AddSingleton<IMemoryCache, MemoryCache>();
             services.AddSingleton<RemoteFileSaver>();
-            services.AddSingleton<LiveMatchStoreUpdateJob>();
+            services.AddScoped<LiveMatchStoreUpdateJob>();
 
         }
 

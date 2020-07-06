@@ -17,7 +17,7 @@ namespace DotaSentry.Controllers
         }
 
         [HttpGet]
-        [Route("/stats/{serverSteamId}")]
+        [Route("{serverSteamId}")]
         public async Task<ActionResult<MatchStats>> GetStatsAsync(ulong serverSteamId)
         {
             return await _matchStatsSteamRepository.GetAsync(serverSteamId);

@@ -141,7 +141,7 @@
           <e p="yarn.lock" t="Include" />
         </e>
         <e p="Controllers" t="Include">
-          <e p="LiveMatchController.cs" t="Include" />
+          <e p="LiveMatchesController.cs" t="Include" />
           <e p="MatchStatsController.cs" t="Include" />
         </e>
         <e p="DotaSentry.csproj" t="IncludeRecursive" />
@@ -524,6 +524,7 @@
                 <e p="789731261741313566.png" t="Include" />
                 <e p="789738584325911150.png" t="Include" />
                 <e p="795189696154552749.png" t="Include" />
+                <e p="910168379205005019.png" t="Include" />
                 <e p="939457282117079692.png" t="Include" />
                 <e p="942832623358020877.png" t="Include" />
                 <e p="950725693398590216.png" t="Include" />

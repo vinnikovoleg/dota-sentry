@@ -8,11 +8,11 @@ namespace DotaSentry.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LiveMatchController : ControllerBase
+    public class LiveMatchesController : ControllerBase
     {
         private readonly LiveMatchStoreRepository _liveMatchStoreRepository;
 
-        public LiveMatchController(LiveMatchStoreRepository liveMatchStoreRepository)
+        public LiveMatchesController(LiveMatchStoreRepository liveMatchStoreRepository)
         {
             _liveMatchStoreRepository = liveMatchStoreRepository;
         }

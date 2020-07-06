@@ -34,7 +34,7 @@ namespace DotaSentry.Business.DataAccess
                 return leagueListResponse.Leagues != null
                     ? leagueListResponse.Leagues
                         .Select(Build)
-                        .Where(l => l.StartTimestamp < DateTime.Now && l.EndTimestamp > DateTime.Now)
+                        .Where(l => l.StartTimestamp < DateTime.Now && l.EndTimestamp > DateTime.Now && l.Tier > 1)
                         .ToList()
                     : new List<League>();
             });
